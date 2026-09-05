@@ -1,0 +1,238 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Provides \mathbb and other symbols
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}  % For colored boxes
+\usepackage[table]{xcolor} % For coloring table cells
+\usepackage{array}         % For better table alignment
+\usepackage{mdframed}
+\usepackage{cancel}
+
+% Set the top margin
+\geometry{top=1in} % You can adjust the measurement as needed
+
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{\fill} % Adds vertical space to center the title block vertically
+
+{\Huge Algebra} \\[0.5cm] % Title 2
+{\Huge Home Work 1}\\[1.5cm] % Title 3
+{\Large Student: Mark Roberts}\\[0.5cm] % Student ID
+{\Large \today} % Date, \today adds today's date
+
+\vspace*{\fill}
+\end{titlepage}
+\newpage
+\noindent
+\section*{\textbf{Question 1.1.1}}
+Given that the operations defined are binary we only need to check which ones are associative.\\
+\\
+\textbf{(a)} We define (for $a,b\in \mathbb{Z}$): $a \star b = a-b$.\\
+Now:
+\begin{align*}
+  a \star (b \star c) &= a - (b \star c) \\
+                      &= a - (b - c) \\
+                      &= a - b + c \tag{1.1.1}
+\end{align*}
+And:
+\begin{align*}
+  (a \star b) \star c &= (a - b) \star c \\
+                      &= (a - b ) - c \\
+                      &= a - b - c  \tag{1.1.2}
+\end{align*}
+As (1.1.1) and (1.1.2) are NOT the same we must conclude that $\star$ is NOT an associative operation.\\
+\\
+\textbf{(b)} We define: $a \star b = a + b + ab$.  \\
+Now:
+\begin{align*}
+  a \star (b \star c) &= a + (b \star c) + a.(b \star c) \\
+                      &= a + (b + c + bc) + a.(b + c + bc) \\
+                      &= a + b + c + bc + ab + ac + abc \tag{1.1.3}
+\end{align*}
+And:
+\begin{align*}
+  (a \star b) \star c &= (a + b + ab) \star c \\
+                      &= (a + b + ab) + c + (a + b + ab).c \\
+                      &= a + b + c + ab + ac + bc + abc  \tag{1.1.4}
+\end{align*}
+As (1.1.3) and (1.1.4) ARE the same we must conclude that $\star$ IS an associative operation.\\
+\\
+\textbf{(c)} We define: $a \star b = \frac{a+b}{5}$.\\
+Now:
+\begin{align*}
+  a \star (b \star c) &= a \star \left[\frac{b+c}{5} \right] \\
+                      &= \frac{a+ [\frac{b+c}{5}]}{5} \\
+                      &= \frac{5a + b + c}{25}  \tag{1.1.5}
+\end{align*}
+And:
+\begin{align*}
+  (a \star b) \star c &= \left[\frac{a+b}{5} \right] \star c \\
+                      &= \frac{[\frac{a+b}{5}] + c}{5} \\
+                      &= \frac{a+b+5c}{25}  \tag{1.1.6}
+\end{align*}
+Now it is clear that (1.1.5) and (1.1.6) are NOT equal.  Hence, $\star$ is NOT an associative operation. \\
+\\
+\textbf{(d)} We define: $(a, b) \star (c, d) = (ad + bc, bd)$.  \\
+Now:
+\begin{align*}
+  (a, b) \star ((c,d) \star (e,f)) &= (a, b) \star (cf + de, df) \\
+                      &= (adf + b(cf+de), bdf) \\
+                      &= (adf + bcf + bde, bdf) \tag{1.1.7}
+\end{align*}
+And:
+\begin{align*}
+  ((a,b) \star (c,d)) \star (e,f) &= (ad+bc, bd) \star (e,f) \\
+                      &= ((ad+bc)f + bde, bdf) \\
+                      &= (adf+bcf+bde, bdf)  \tag{1.1.8}
+\end{align*}
+As (1.1.7) and (1.1.8) ARE the same we must conclude that $\star$ IS an associative operation.\\
+\\
+\textbf{(e)} We define: $a \star b = \frac{a}{b}$.  \\
+Now:
+\begin{align*}
+  a \star (b \star c) &= a \star \frac{b}{c} \\
+                      &= \frac{a}{\left(\frac{b}{c} \right)} \\
+                      &= \frac{ac}{b} \tag{1.1.9}
+\end{align*}
+And:
+\begin{align*}
+  (a \star b) \star c &= \frac{a}{b} \star c \\
+                      &= \frac{\left(\frac{a}{b} \right)}{c} \\
+                      &= \frac{a}{bc}  \tag{1.1.10}
+\end{align*}
+As (1.1.9) and (1.1.10) are NOT the same we must conclude that $\star$ is NOT an associative operation.\\
+\newpage
+\section*{\textbf{Question 1.1.2}}
+Using the examples from question (1.1.1) - determine which operations are commutative.\\
+\\
+This is relatively simple as in most cases we can just swap the roles of "a" and "b" and see if the binary operations result differs.  Only in case (d) do we need to do anything else.\\
+\\
+\textbf{(a)} Swapping "a" and "b" DOES makes a difference - hence in this case $\star$ is NOT commutative.\\
+\\
+\textbf{(b)} Swapping "a" and "b" does NOT makes a difference - hence in this case $\star$ IS commutative.\\
+\\
+\textbf{(c)} Swapping "a" and "b" does NOT makes a difference - hence in this case $\star$ IS commutative.\\
+\\
+\textbf{(d)} Swapping the ordered pairs mean we swap: $a \leftrightarrow c$ and $b \leftrightarrow d$.  This will NOT change the result - hence in this case $\star$ IS commutative.\\
+\\
+\textbf{(d)} Swapping "a" and "b" DOES makes a difference - hence in this case $\star$ is NOT commutative.\\
+\newpage
+\section*{\textbf{Question 1.1.5}}
+Objective: To show that for all $n > 1$ that $\mathbb{Z} / n \mathbb{Z}$ is NOT a group under multiplication of residue classes.\\
+\\
+The residue classes of $\mathbb{Z} / n \mathbb{Z}$ for $n > 1$ are: $\bar{0}, \bar{1}, ..., \overline{(n-1)}$.  In all cases if we multiply any residue class by $\bar{0}$ we obtain $\bar{0}$.  This means that we have no inverse element (i.e. inverse residue class) for $\bar{0}$ and hence $\mathbb{Z} / n \mathbb{Z}$ under multiplication is NOT a group. \\
+\newpage
+\section*{\textbf{Question 1.1.6}}
+\textbf{(a)} Let $\bar{\mathbb{Q}}$ be the set in question. Then:
+\begin{itemize}
+    \item \textbf{Identity Element:} $\frac{0}{1} = 0$ is clearly the identity element.  
+    \item \textbf{Inverse Element:} Given $q \ \in \bar{\mathbb{Q}} \implies q= \frac{a}{b}$ (where $b$ is odd) this has inverse $-q = \frac{-a}{b}$ and $-q \ \in \bar{\mathbb{Q}}$.  Every element of $\bar{\mathbb{Q}}$ has an inverse.
+    \item \textbf{Associativity:} We know that addition of rational numbers is associative - so this check passes
+    \item \textbf{Closure:} Let $q_1, q_2 \in \bar{\mathbb{Q}}$.  Where: $q_1=\frac{a}{b}$ and $q_2=\frac{c}{d}$.  Then: \\
+    $$q_1 + q_2 = \frac{a}{b} + \frac{c}{d} = \frac{ad + bc}{bd}$$
+    As the product of two odd numbers is odd the denominator must always be odd.
+\end{itemize}
+Hence $\bar{\mathbb{Q}}$ is a group. \\
+\\
+\textbf{(b)} This is clearly NOT a group.  Consider the element $\frac{1}{2}$.  It I add it to itself we get 1 - which is NOT in this group.  Note: $1=\frac{2}{2}$ - but this element does not match the definition of the group with elements being in "lowest form".\\
+\\
+\textbf{(c)} This is NOT a group - can again take the example in (b).\\
+\\
+\textbf{(d)} This is NOT a group - consider $\frac{-6}{5} + \frac{7}{5} = \frac{1}{5}$ - set NOT closed.\\
+\\
+\textbf{(e)} Any rational number which can be represented with denominators 1 or 2 can be represented by a number of the form: $\frac{a}{2}$ and where $a \in \mathbb{Z}$.  Without going through the usual mechanics it is clear that this set IS a group under addition.\\
+\\
+\textbf{(f)} Any rational number which can be represented with denominators 1, 2 or 3 can be represented by a number of the form: $\frac{a}{6}$ and where $a \in \mathbb{Z}$.  Without going through the usual mechanics it is clear that this set IS a group under addition.
+
+\newpage
+\section*{\textbf{Question 1.1.8}}
+\textbf{(a)}  We can prove that the set $G_n=\{z \in \mathbb{C} \; | \; z^n = 1 \text{ for } n \in \mathbb{Z}^+ \}$ is a group under multiplication by showing it satisfies the following group properties:
+\begin{itemize}
+    \item \textbf{Associativity:} Complex number multiplication is associative - so associativity holds.
+    \item \textbf{Identity:} Here $1 \in G_n \;\; \forall n \in \mathbb{Z}^+$ and this is clearly the identity element of $G_n$.
+    \item \textbf{Inverse:} Let $z \in G_n$.  Then;
+    $$ z^n = 1 \implies z^n z^{-n} = 1 z^{-n} \implies 1 = z^{-n} => (z^{-1})^n = 1 \implies z^{-1} \in G_n$$
+    Thus $z^{-1} \in G_n$ is the corresponding inverse element and it resides in $G_n$.
+    \item \textbf{Closure:} Let $a,b \in G_n$. Then we can use the commutivity of complex number multiplication to obtain:
+    $$(ab)^n = a^n b^n = 1.1 = 1 \implies ab \in G_n$$
+\end{itemize}
+Hence, $G_n$ under multiplication has all the properties needed to be a group.\\
+\\
+\textbf{(b)} Let's find a counter example.  Take $G_4 = \{1, -1, i, -i \}$.  Then $(1+i) \notin G_4$ because:
+$$(1+i)^4 = (2i)^2=-4$$
+which is clearly not in $G_4$.
+
+\newpage
+\section*{\textbf{Question 1.1.11}}
+We want the order for each residue class in: $\mathbb{Z} / 12\mathbb{Z}$ under residue addition.  The order is the smallest +ve integer $n$ such that $n.\hat{r} = \hat{0}$.  We must also remember that: $n.\hat{r} = \hat{r} + \hat{r} + ... + \hat{r}$, where we add $n$ times.\\
+\\
+\begin{align*}
+  1 \times \; \hat{0} &= \hat{0} \implies |\hat{0}| = 1\\
+  12 \times \; \hat{1} &= \hat{0} \implies |\hat{1}| = 12\\
+  6 \times \; \hat{2} &= \hat{0} \implies |\hat{2}| = 6\\
+  4 \times \; \hat{3} &= \hat{0} \implies |\hat{3}| = 4\\
+  3 \times \; \hat{4} &= \hat{0} \implies |\hat{4}| = 3\\
+  12 \times \; \hat{5} &= \hat{0} \implies |\hat{5}| = 12\\
+  2 \times \; \hat{6} &= \hat{0} \implies |\hat{6}| = 2\\
+  12 \times \; \hat{7} &= \hat{0} \implies |\hat{7}| = 12\\
+  3 \times \; \hat{8} &= \hat{0} \implies |\hat{8}| = 3\\
+  4 \times \; \hat{9} &= \hat{0} \implies |\hat{9}| = 4\\
+  6 \times \; \hat{10} &= \hat{0} \implies |\hat{10}| = 6\\
+  12 \times \; \hat{11} &= \hat{0} \implies |\hat{11}| = 12
+\end{align*}
+
+\newpage
+\section*{\textbf{Question 1.1.20}}
+Let $x \in G$ and such that $|x| = n$ - i.e. the order of $x$ is $n \in \mathbb{Z}^+$.  Assuming that this order is a finite +ve integer we must have that:
+$$x^n = 1 \implies x^n \; x^{-n} = 1 x^{-n} = x^{-n} \implies 1 = x^{-n} = (x^{-1})^n$$
+This means that $|x^{-1}| \le |x|$, i.e. $|x^{-1}| \le n$.  But of course I can now reverse this argument and reach the conclusion that: $|x| \le |x^{-1}|$.  These two results mean that the elements $x$ and $x^{-1}$ must have the same finite order.\\
+\\
+Next consider the case where $x$ has "infinite" order.  For contradiction assume that $x^{-1}$ has finite order.  In this case we could use the above argument to show that $x$ must have a lower finite order than $x^{-1}$.  This contradiction shows that $x^{-1}$ must also have "infinite" order.\\
+\\
+These two separate cases demonstrate that both $x$ and $x^{-1}$ must have the same order.
+
+\newpage
+\section*{\textbf{Question 1.1.25}}
+If $G$ is a group and $\forall g \in G; g^2=1$ we must show $G$ is an abelian group.\\
+\\
+From this we see that: $\forall g \in G$:
+\begin{align*}
+    g^2 &= 1 \implies g^{-1}g^2 = g^{-1}1 = g^{-1} \implies (g^{-1}g)g = g^{-1} \implies g = g^{-1}
+\end{align*}
+Now take any two elements: $a,b \in G$.  We see from above that: $a^{-1}=a$ and $b^{-1}=b$.  Also, as $(ab) \in G$ we must also have that: $(ab)^2 = 1$.  Tying all this together we can establish:
+\begin{align*}
+(ab)^2 &= 1 \\
+\implies (ab)(ab)&=1 \\
+\implies a^{-1}(ab)(ab)b^{-1}
+   &=a^{-1}1b^{-1}=a1b = ab\\
+\implies (a^{-1}a)(ba)(bb^{-1})&=ab \\
+\implies 1(ba)1&=ab \\
+\implies ba&=ab. \tag*{\qedsymbol}
+\end{align*}
+
+\newpage
+\section*{\textbf{Question 1.1.31}}
+Let $G$ be a group of finite and even order.  As $G$ is a group we know that every element $g \in G$ has a unique inverse.
+Further, if we assume that $G$ has no element of order 2, then no element - other than 1 - can be its own inverse.\\
+\\
+So let's now pair up all the elements in $G$ with their inverses.  No pair will have 2 entries the same except $(1,1)$.
+Hence, the full list of pairs will consist of $(1,1)$ and (say) q pairs of distinct elements.  Thus, we have accounted for $2q+1$ elements from $G$.  But $|G|$ is even and $2q+1$ is odd!
+So, there must be at least one element $y \in G$ that has no inverse which is different to itself.  We must conclude that this element is its own inverse - i.e. that $y^2 = 1$.  This contradiction shows that our initial assumption that all elements in $G$ don't have order 2 can't be true.
+\qed
+\newpage
+\section*{\textbf{Question 1.2.9}}
+Let G be the set of rigid motions in $\mathbb{R}^3$ of a tetrahedron.  Show that $|G|=12$.\\
+\\
+
+\end{document}

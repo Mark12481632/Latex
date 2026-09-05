@@ -1,0 +1,217 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Provides \mathbb and other symbols
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}  % For colored boxes
+\usepackage[table]{xcolor} % For coloring table cells
+\usepackage{array}         % For better table alignment
+\usepackage{mdframed}
+\usepackage{cancel}
+
+% Set the top margin
+\geometry{top=1in} % You can adjust the measurement as needed
+
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{\fill} % Adds vertical space to center the title block vertically
+
+{\Huge Algebra} \\[0.5cm] % Title 2
+{\Huge Home Work 2}\\[1.5cm] % Title 3
+{\Large Student: Mark Roberts}\\[0.5cm] % Student ID
+{\Large \today} % Date, \today adds today's date
+
+\vspace*{\fill}
+\end{titlepage}
+\newpage
+\noindent
+\section*{\textbf{Question 1.3.1}}
+Let is put the permutations in cycle form:
+\begin{align*}
+  \sigma &= (1 \; 3 \; 5)(2 \; 4) \\
+  \tau &= (1 \; 5)(2 \; 3)
+\end{align*}
+Then:
+\begin{align*}
+  \sigma^2 &= [(1 \; 3 \; 5)(2 \; 4)][(1 \; 3 \; 5)(2 \; 4)] = (1 \; 5 \; 3) \\
+  \\
+  \sigma \tau &= [(1 \; 3 \; 5)(2 \; 4)][(1 \; 5)(2 \; 3)] = (1)(2 \; 5 \; 3 \; 4) = (2 \; 5 \; 3 \; 4) \\
+  \\
+  \tau \sigma &= [(1 \; 5)(2 \; 3)][(1 \; 3 \; 5)(2 \; 4)] = (1 \; 2 \; 4 \; 3) \\
+  \\
+  \tau^2 \sigma &= \sigma = (1 \; 3 \; 5)(2 \; 4) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(Because $\tau^2=1$) }
+\end{align*}
+Any distinct cycles of order 2 when squared become 1.
+\newpage
+\section*{\textbf{Question 1.3.2}}
+Let us first create the two permutations in cycle form:
+\begin{align*}
+  \sigma &= (1 \; 13 \; 5  \; 10)(3 \; 15 \; 8)(4 \; 14 \; 11 \; 7 \; 12 \; 9) \\
+  \tau &= (1 \; 14)(2 \; 9 \; 15 \; 13 \; 4)(3 \; 10)(5 \; 12 \; 7)(8 \; 11)
+\end{align*}
+Then:
+\begin{align*}
+  \sigma^2 &=[(1 \; 13 \; 5  \; 10)(3 \; 15 \; 8)(4 \; 14 \; 11 \; 7 \; 12 \; 9)][(1 \; 13 \; 5  \; 10)(3 \; 15 \; 8)(4 \; 14 \; 11 \; 7 \; 12 \; 9)]\\
+  &= (1 \; 5)(3 \; 8  \; 15)(4 \; 11 \; 12)(7 \; 9 \; 14)(10 \; 13)  \\
+  \\
+  \sigma \tau &= [(1 \; 13 \; 5  \; 10)(3 \; 15 \; 8)(4 \; 14 \; 11 \; 7 \; 12 \; 9)][(1 \; 14)(2 \; 9 \; 15 \; 13 \; 4)(3 \; 10)(5 \; 12 \; 7)(8 \; 11)] \\
+  &= (1 \; 11 \; 3)(2 \; 4)(5 \; 9 \; 8 \; 7 \; 10 \; 15)(13 \; 14) \\
+  \\
+  \tau \sigma &= [(1 \; 14)(2 \; 9 \; 15 \; 13 \; 4)(3 \; 10)(5 \; 12 \; 7)(8 \; 11)][(1 \; 13 \; 5  \; 10)(3 \; 15 \; 8)(4 \; 14 \; 11 \; 7 \; 12 \; 9)] \\
+  \\
+  &=(1 \; 4)(2 \; 9)(3 \; 13 \; 12 \; 15 \; 11 \; 5)(8 \; 10 \; 14) \\
+  \tau^2 \sigma &= [(2 \; 15 \; 4 \; 9 \; 13)(5 \; 7 \; 12)][(1 \; 13 \; 5  \; 10)(3 \; 15 \; 8)(4 \; 14 \; 11 \; 7 \; 12 \; 9)]  \tag{1.3.2.1} \\
+  &= (1 \; 2 \; 15 \; 8 \; 3 \; 4 \; 14 \; 11 \; 12 \; 13 \; 7 \; 5  \; 10)
+\end{align*}
+Where in (1.3.2.1) I have used the fact that distinct cycles of order 2 when squared give 1.  Hence:
+$$\tau^2=[(2 \; 9 \; 15 \; 13 \; 4)(5 \; 12 \; 7)][(2 \; 9 \; 15 \; 13 \; 4)(5 \; 12 \; 7)] = (2 \; 15 \; 4 \; 9 \; 13)(5 \; 7 \; 12)$$
+
+\newpage
+\section*{\textbf{Question 1.6.3}}
+\textbf{(a)} Assume that $\psi: G \to H$ is an isomorphism.\\
+\\
+Let $G$ be an abelian group and $h_1, h_2 \in H$ be any two elements in $H$.  Then, as $\psi$ is a bijection, $\exists g_1, g_2 \in G$ such that: $h_1 = \psi(g_1); \; h_2 = \psi(g_2)$.  Then:
+$$h_1 h_2 = \psi(g_1) \psi(g_2) = \psi(g_1 g_2) = \psi(g_2 g_1) = \psi(g_2) \psi(g_1) = h_2 h_1$$
+Consequently $H$ must also be abelian.  So, when $G \cong H$ we must have that $G$ abelian $\implies$ $H$ abelian.\\
+\\
+\textbf{ASIDE:}\\
+As $\psi$ is an isomorphism (i.e. bijection) we have that $\psi^{-1}: H \to G$ must exist.  We now show that $\psi^{-1}$ must also be an isomorphism.  To do this let $h_1, h_2 \in H$ be any two elements in H.\\
+Then, as before, there $\exists g_1, g_2 \in G$ such that: $h_1 = \psi(g_1); \; h_2 = \psi(g_2)$ OR $\psi^{-1}(h_1)=g_1; \; \psi^{-1}(h_2)=g_2$. Then:
+\begin{align*}
+  \psi(g_1 g_2) &= \psi(g_1) \psi(g_2) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(as $\psi$ is an isomorphism)}\\
+  \implies \psi^{-1}(\psi(g_1 g_2)) &=  \psi^{-1}(\psi(g_1) \psi(g_2))\\
+  \implies g_1 g_2 &= \psi^{-1}(h_1 h_2) \\
+  \implies \psi^{-1}(h_1) \psi^{-1}(h_2) &= \psi^{-1}(h_1 h_2)\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(i.e. $\psi^{-1}$ is also an isomorphism)}
+\end{align*}
+\qed\\
+\\
+If we now assume that $H$ is abelian we can use $\psi^{-1}: H \to G$ - which is also an isomorphism - and the same logic as above to conclude that $G$ must also be abelian.\\
+\\
+\textbf{Conclusion:} $\psi: G \to H$ is an isomorphism $\implies$ ($G$ is abelian $\implies H$ is abelian).\\
+\\
+\\
+\textbf{(b)} In the case where $\psi: G \to H$ is a homomorphism then $H$ will be abelian when $G$ is abelian if the map $\psi$ is \textbf{surjective}.\\
+This is seen from the very first proof that "$G$ abelian implies $H$ abelian".  Here we needed to ensure that any two elements of $H$ had corresponding elements in $G$.
+
+
+\newpage
+\section*{\textbf{Question 1.6.9}}
+Prove that $D_{24}$ and $S_4$ are not isomorphic.\\
+\\
+Both groups have 24 elements - so to prove they are not isomorphic we need to find a structure present in one and not in the other.\\
+\\
+The group $S_4$ has only the following elements that are of order 2:
+$$(1\;2),(1\;3),(1\;4),(2\;3),(2\;4),(3\;4),(1\;2)(3\;4),(1\;3)(2\;4),(1\;4)(2\;3)$$
+of which there are 9.\\
+$D_{24}$ has at least 12 different reflections which are each of order 2.  This difference in structure means that these two groups can't be isomorphic to each other.
+
+\newpage
+\section*{\textbf{Question 2.1.2}}
+\textbf{(a)} The set of 2-cycles in $S_n$ (for $n \ge 3$) is NOT a subgroup of $S_n$.\\
+\\
+Take $(1 \; 2)$ and $(2 \; 3)$ then:
+$$(1 \; 2)(2 \; 3) = (1 \; 2 \; 3)$$
+which is NOT a 2-cycle.  As composition is not stable (i.e. closed) on this subset of $S_n$ (for $n \ge 3$) it can't be a subgroup.\\
+\\
+\textbf{(b)} The set of reflections in $D_{2n}$ (for $n \ge 3$) is NOT a subgroup of $D_{2n}$.\\
+\\
+There are $n$ such reflections.  Each time we perform a reflection the "clockwise" (or "anti-clockwise") ordering of the nodes is reversed.  If we take two \underline{distinct} reflections and compose them we know that what we will obtain no inversion of the node ordering AND we won't have the identity mapping.  No single reflection can do this - hence this set is not stable under composition and so is NOT a subgroup of $D_{2n}$ (for $n \ge 3$).\\
+\\
+\textbf{(c)} Given $n > 1$ and composite.  Given there exists a $g \in G$, where $G$ is a group, and $|g|=n$.  Then the set: $\{x \in G \; | \; |x|=n \} \cup \{ 1 \}$ is NOT a subgroup of $G$. \\
+\\
+Let $x$ be an element of this set.  Then $x^2$, $x^3$, ..., $x^{n-1}$ are also elements of this set if this set is a group.  Now $n=kp$, where $1 < k,p < n$, hence this sequence must also contain $x^k$.  However $|x^k|=p < n$.  This means that this element ($x^k$) is NOT in this set and hence the set is NOT a group - it is not stable (i.e. closed).\\
+\\
+\textbf{(d)} The set of (positive and negative) odd integers in $\mathbb{Z}$ together with 0 is NOT a group.\\
+\\
+The reason that this set is NOT a group is because the sum of any two odde integers is even and hence this set is not stable (i.e. closed) under addition.\\
+\\
+\textbf{(e)} The set of reals whose square is a rational number (under addition) is NOT a group.\\
+\\
+We can show this using a counter example.  Both $\sqrt{2}$ and $\sqrt{3}$ belong to this set.  But $\sqrt{2} + \sqrt{3}$ is NOT in this set since its square is $5 + 2\sqrt{6}$ - which is irrational.  This set is therefore NOT a group as it is not stable (i.e. closed) under addition.
+
+\newpage
+\section*{\textbf{Question 2.1.6}}
+Let $G$ be an abelian group and $K=\{g \in G\;|\; |g| < \infty \}$\\
+\\
+Let us check that it has the properties needed to be a subgroup of $G$:
+\begin{itemize}
+    \item \textbf{Subset:} Clearly: $K \subseteq G$ - i.e. $K$ is a subset of $G$.
+    \item \textbf{Identity:} As $1^1=1 => 1 \in K$ and $K$ is not empty!
+    \item \textbf{Inverse:} If $k \in K => k^n = 1$ for some $n \in \mathbb{N}$.  Then:
+    \begin{align*}
+      k^n = 1 \implies (k^{-n})k^n = k^{-n}1 \implies 1 = k^{-n} = [k^{-1}]^n \tag{2.1.6.1}
+    \end{align*}
+    The RHS of (2.1.6.1) shows that: $(k^{-1})^n = 1$ and hence $k^{-1} \in K$
+    \item \textbf{Closure:} Let $a, b \in K \implies \exists m,n \in \mathbb{N}$ such that: $a^m=1$ and $b^n=1$.  Then:
+    \begin{align*}
+      (ab)^{mn}=a^{mn}b^{mn}=(a^m)^n (b^n)^m=(1)^n(1)^m=1 \tag{2.1.6.2}
+    \end{align*}
+    where, in (2.1.6.2), we used the abelian property to rearrange all the $a$'s and $b$'s to come together.  Hence, $K$ is also closed.
+\end{itemize}
+We have shown that $K$ is a subgroup of $G$.\\
+\\
+Now we consider an example for a non-abelian group $G$, for which $K$ is NOT a subgroup.
+
+\newpage
+\section*{\textbf{Question 2.1.8}}
+Let $H$ and $K$ both be subgroups of $G$.  Assume that $H \cup K \le G$ (i.e. $H \cup K$ is a subgroup of $G$).\\
+\\
+Now take any $a \in H \; \& \; b \in K$, then we must have that: $(a+b) \in H \cup K$, since: $a, b \in H \cup K$ and $H \cup K \le G$.  Consequently:
+\begin{align*}
+  (a + b) \in H \cup K \implies (a+b) \in H \text{ or } (a+b) \in K
+\end{align*}
+Assume that $(a+b) \in H$.  Then we must have that:
+\begin{align*}
+  a \in H &\implies (-a) \in H \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(since H is a subgroup of G)}\\
+  &\implies (a+b) + (-a) \in H \;\;\;\;\;\;\;\;\;\; \text{(as both are elements of H)}\\
+  &\implies b \in H
+\end{align*}
+Since true for any $b \in K$ we must conclude that: $K \subseteq H$.\\
+\\
+This argument is symmetric and if we had assumed that $(a+b) \in K$ we would have been led to: $H \subseteq K$.\\
+\qed
+
+\newpage
+\section*{\textbf{Question 2.3.3}}
+The generators of $Z/48Z$ will be all those elements: $\bar{k}$ such that $(k, \; 48) = 1$.  As $48 = 3.2^4$ we see that the $\bar{k}$ values we want are:\\
+\\
+$$\bar{k}=1, \; 5, \; 7, \; 11, \; 13, \; 17, \; 19, \; 23, \; 25, \; 29, \; 31, \; 35, \; 37, \; 41, \; 43, \; 47$$
+
+\newpage
+\section*{\textbf{Question 2.3.13}}
+In this section we just need to find one property that is NOT shared between the groups to prove that they are not isomorphic. \\
+\\
+\textbf{(a)} The group $\mathbf{Z} \times \mathbf{Z}_2$ has a non-zero element which is its own inverse - i.e. $(0, \; 1)$, since $(0, \; 1) + (0, \; 1) = (0, \; 0)$.  The group $\mathbf{Z}$ has no non-zero element which is its own inverse.\\
+Consequently, these two groups can't be isomorphic: i.e. $\mathbf{Z} \times \mathbf{Z}_2 \ncong \mathbf{Z}$\\
+\\
+\\
+\textbf{(b)} The groups $\mathbf{Q} \times \mathbf{Z}_2$ and $\mathbf{Q}$ are NOT isomorphic.\\
+The proof is exactly the same as was used in part (a) and hence: $\mathbf{Q} \times \mathbf{Z}_2 \ncong \mathbf{Q}$
+
+\newpage
+\section*{\textbf{Question 2.3.14}}
+We are given that: $\sigma = (1 \; 2 \; 3 \; 4 \; 5 \; 6 \; 7 \; 8 \; 9 \; 10 \; 11 \; 12)$ - which is a cycle of length 12.  From this we conclude that: $\sigma^{12} = 1$.\\
+\\
+Hence:
+\begin{align*}
+  \sigma^{13} &= \sigma . \sigma^{12} \;\;\;\;\;\;\;\;\;\;\;= \sigma \;= (1 \; 2 \; 3 \; 4 \; 5 \; 6 \; 7 \; 8 \; 9 \; 10 \; 11 \; 12) \\ 
+  \sigma^{65} &= \sigma^5 . (\sigma^{12})^5 \;\;\;\;\;= \sigma^5 = (1 \; 6 \; 11 \; 4 \; 9 \; 2 \; 7 \; 12 \; 5 \; 10 \; 3 \; 8) \\ 
+  \sigma^{626} &= \sigma^2 . (\sigma^{12})^{52} \;\;\;\;= \sigma^2 = (1 \; 3 \; 5 \; 7 \; 9 \; 11)(2 \; 4 \; 6 \; 8 \; 10 \; 12) \\ 
+  \sigma^{1195} &= \sigma^7 . (\sigma^{12})^{99} \;\;\;\;= \sigma^7 = (1 \; 8 \; 3 \; 10 \; 5 \; 12 \; 7 \; 2 \; 9 \; 4 \; 11 \; 6) \\ 
+  \sigma^{-6} &= \sigma^6 . (\sigma^{12})^{-1} \;\;\;= \sigma^6 = (1 \; 7)(2 \; 8)(3 \; 9)(4 \; 10)(5 \; 11)(6 \; 12) \\ 
+  \sigma^{-81} &= \sigma^3 . (\sigma^{12})^{7} \;\;\;\;\;= \sigma^3 = (1 \; 4 \; 7 \; 10)(2 \; 5 \; 8 \; 11)(3 \; 6 \; 9 \; 12) \\ 
+  \sigma^{-570} &= \sigma^6 . (\sigma^{12})^{-48} \;\;= \sigma^6 = (1 \; 7)(2 \; 8)(3 \; 9)(4 \; 10)(5 \; 11)(6 \; 12) \\ 
+  \sigma^{-1211} &= \sigma . (\sigma^{12})^{-101} \;\;= \sigma \;= (1 \; 2 \; 3 \; 4 \; 5 \; 6 \; 7 \; 8 \; 9 \; 10 \; 11 \; 12) \\ 
+\end{align*}
+
+\end{document}
