@@ -547,8 +547,40 @@ For equality to hold
 
 \newpage
 
-\question{1.8}{Prove Cantor's Intersection Theorem (Theorem 1.44 in the Lecture Notes).}
+\question{1.8}{Prove Cantor's Intersection Theorem (Theorem 1.44 in the Lecture Notes).}\\
+\\
+\textbf{Theorem 1.44 (Cantor's Intersection Theorem).}
+\textit{Let $K\subset\mathbb{C}$ be a compact set, and let
+$\{C_n\}_{n=1}^{\infty}$ be non-empty closed sets with
+$C_n\subset K$ for all $n\in\mathbb{N}$, that are nested such that
+$C_{n+1}\subset C_n$ for all $n\in\mathbb{N}$.
+Then
+\[
+\bigcap_{n=1}^{\infty} C_n \neq \varnothing.
+\]
+}
 
-\answer
+\answer\\
+From the definition of $\{C_n\}$ in the theorem it is clear that
+
+\[
+C_n=\bigcap_{i=1}^{n} C_i \qquad (\neq \emptyset)\qquad \forall n\in\mathbb N
+\]
+As $K$ is compact we know that it is sequentially compact.\\
+\\
+Construct a Sequence $\{z_n\}$ by selecting each $z_n$ from $C_n$ $(n=1,2,\ldots)$.  Then, as $\{z_n\}$ is a sequence in the sequentially compact set $K$:
+
+\[
+\Rightarrow \exists \{z_{n_k}\}\subset\{z_n\} \text{ that converges to } z\in K
+\]
+
+But $\{z_{n_k}\}$ is also a convergent subsequence in each $C_n$ and, as $C_n$ is closed, $z\in C_n$. This is true for every $C_n,\ n\in\mathbb N$. Hence
+
+\[
+z\in\bigcap_{i=1}^{\infty} C_n
+\qquad\Rightarrow\qquad
+\bigcap_{i=1}^{\infty} C_n\neq\emptyset
+\]
+\qed
 
 \end{document}
