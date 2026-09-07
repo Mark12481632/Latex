@@ -443,6 +443,37 @@ the two terms will cause them to cancel:
 =2\left(|z|^2+|w|^2\right)
 \]
 \qed
+\\
+\\
+This formula is nothing more that the parallelogram law.
+\begin{center}
+\includegraphics[width=0.45\textwidth]{Diagrams/CA_HW_1_Q1_6.png}
+\end{center}
+This law states that for a parallelogram (shown above) we have:
+\[
+\begin{aligned}
+2(|OA|^2 + |OB|^2) = |AB|^2 + |OC|^2
+\end{aligned} \tag{1.6A}
+\]
+
+Take $z = OB$ and $iw = OA$ and noting that $|iw|=|w|$.  Then (1.6A) becomes:
+\[
+\begin{aligned}
+2(|z|^2 + |w|^2) = |z+iw|^2 + |z-iw|^2
+\end{aligned}  \tag{1.6B}
+\]
+This is already near the formula we want [i.e. $|z+iw|^2+|w+iz|^2=2\bigl(|z|^2+|w|^2\bigr)$]; we only
+need to show that $|z-iw|=|w+iz|$.  Now:
+\[
+\begin{aligned}
+w+iz &= i(z-iw) \\
+\implies |w+iz| &= |i(z-iw)| \\
+&= |z-iw|
+\end{aligned}
+\]
+
+\qed
+
 \newpage
 
 \question{1.7}{Show that, for all $z,w\in\mathbb{C}$ such that $|z|<1$ and $|w|<1$,
@@ -506,7 +537,7 @@ As $|z|<1$ \& $|w|<1$
 (1-|z|^2)>0.
 \]
 
-And hence equation (***) holds.
+And hence equation (***) holds.  Consequently:
 
 \[
 \Rightarrow
@@ -538,6 +569,8 @@ For equality to hold
 \[
 \Rightarrow |w|=1 \quad \text{or} \quad |z|=1.
 \]
+We need to qualify this last result as we must also have that $1 - \overline{z}w \ne 0$.
+So we must exclude the condition $z=w$.
 
 \newpage
 
