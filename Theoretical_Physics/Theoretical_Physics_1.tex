@@ -1,0 +1,253 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Provides \mathbb and other symbols
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}  % For colored boxes
+\usepackage[table]{xcolor} % For coloring table cells
+\usepackage{array}         % For better table alignment
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage{amsmath,amssymb}
+
+% Set the top margin
+\geometry{top=1in} % You can adjust the measurement as needed
+
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{\fill} % Adds vertical space to center the title block vertically
+
+{\Huge Theoretical Physics for Mathematicians} \\[0.5cm] % Title 2
+{\Huge Home Work 1}\\[1.5cm] % Title 3
+{\Large Student: 26-712-224}\\[0.5cm] % Student ID
+{\Large \today} % Date, \today adds today's date
+
+\vspace*{\fill}
+\end{titlepage}
+\newpage
+\noindent
+
+\noindent
+
+\section*{Newtonian Space-Time and the Galilei Group}
+
+\noindent
+\textbf{Exercise 1} $(\star\ \text{The Galilei group}).$
+For $a \in \mathbb{R}$, $\vec{b},\vec{v} \in \mathbb{R}^3$ and
+$R \in SO(3)$ define the map
+\begin{align*}
+g_{(a,\vec{b},\vec{v},R)}:
+\mathbb{R} \times \mathbb{R}^3
+&\longrightarrow
+\mathbb{R} \times \mathbb{R}^3,
+&
+(t,\vec{x})
+&\longmapsto
+(t+a,R\vec{x}+\vec{v}t+\vec{b}).
+\end{align*}
+
+\begin{enumerate}
+\item[(a)]
+Show that the composition of two such maps is again of this form, and derive the
+composition law
+\begin{align*}
+g_{(a_2,\vec{b}_2,\vec{v}_2,R_2)}
+\circ
+g_{(a_1,\vec{b}_1,\vec{v}_1,R_1)}
+=
+g_{(a_1+a_2,\,
+R_2\vec{b}_1+a_1\vec{v}_2+\vec{b}_2,\,
+R_2\vec{v}_1+\vec{v}_2,\,
+R_2R_1)}.
+\end{align*}
+Deduce that the set $\mathcal{G}$ of all these maps is a group, compute the inverse of
+$g_{(a,\vec{b},\vec{v},R)}$, and determine $\dim \mathcal{G}$.
+
+\item[(b)]
+Let
+\begin{align*}
+N
+=
+\left\{
+g_{(a,\vec{b},0,I)}
+\mid
+a \in \mathbb{R},\ \vec{b} \in \mathbb{R}^3
+\right\}
+\end{align*}
+be the subgroup of space-time translations. Show that $N$ is normal in
+$\mathcal{G}$ and that
+$\mathcal{G}/N \cong SO(3)\ltimes\mathbb{R}^3$.
+Conclude that
+$\mathcal{G}\cong\mathbb{R}^4\rtimes\left(SO(3)\ltimes\mathbb{R}^3\right)$.
+
+\item[(c)]
+Show that the boosts
+\begin{align*}
+B
+=
+\left\{
+g_{(0,0,\vec{v},I)}
+\mid
+\vec{v} \in \mathbb{R}^3
+\right\}
+\end{align*}
+form an abelian subgroup isomorphic to $(\mathbb{R}^3,+)$, but that $B$ is
+\emph{not} normal in $\mathcal{G}$.
+
+\item[(d)]
+Let $\vec{x}:I\to\mathbb{E}^3$ be a trajectory and let
+$\widetilde{\vec{x}}$ be its image under $g_{(a,\vec{b},\vec{v},R)}$.
+Show that
+\begin{align*}
+\ddot{\vec{x}}\equiv 0
+\quad\text{if and only if}\quad
+\ddot{\widetilde{\vec{x}}}\equiv 0.
+\end{align*}
+Hence the notion of an inertial system is well defined on the whole group
+$\mathcal{G}$.
+\end{enumerate}
+
+\newpage
+\noindent
+\noindent\textbf{(a)}\\
+Show that the Galilean transformations are closed under composition.\\
+Take
+Take
+\begin{align*}
+g_{(a_1,\hat{b}_1,\hat{v}_1,R_1)}(t,\bar{x})
+&=
+(t+a_1,R_1\bar{x}+\hat{v}_1t+\hat{b}_1),\\
+g_{(a_2,\hat{b}_2,\hat{v}_2,R_2)}(t,\bar{x})
+&=
+(t+a_2,R_2\bar{x}+\hat{v}_2t+\hat{b}_2).
+\end{align*}
+Then
+\begin{align*}
+g_{(a_2,\hat{b}_2,\hat{v}_2,R_2)}
+\circ
+g_{(a_1,\hat{b}_1,\hat{v}_1,R_1)}(t,\bar{x})
+&=
+g_{(a_2,\hat{b}_2,\hat{v}_2,R_2)}
+(t+a_1,R_1\bar{x}+\hat{v}_1t+\hat{b}_1)\\
+&=
+\left(
+t+a_1+a_2,
+R_2[R_1\bar{x}+\hat{v}_1t+\hat{b}_1]
++\hat{v}_2(t+a_1)+\hat{b}_2
+\right)\\
+&=
+\left(
+t+a_1+a_2,
+(R_2R_1)x
++(R_2\hat{v}_1)t
++R_2\hat{b}_1
++\hat{v}_2t
++\hat{v}_2a_1
++\hat{b}_2
+\right)\\
+&=
+\left(
+t+a_1+a_2,
+(R_2R_1)\bar{x}
++(R_2\hat{v}_1+\hat{v}_2)t
++(R_2\hat{b}_1+\hat{v}_2a_1+\hat{b}_2)
+\right)\\
+&=
+g_{(a_1+a_2,\,
+R_2\hat{b}_1+\hat{v}_2a_1+\hat{b}_2,\,
+R_2\hat{v}_1+\hat{v}_2,\,
+R_2R_1)}.
+\tag{*}
+\end{align*}
+Now $R_1,R_2\in SO(3)\Rightarrow R_2R_1\in SO(3)$.  Also: $R_2\bar{v_1}+bar{v_2}\in\mathbb{R}^{3}$, as are
+$R_2\bar{b_1}+\bar{v_2}a+\bar{b_2} \in\mathbb{R}^{3}$.\\
+Hence $(*)$ is also a Galilean transformation.\\
+\\
+The identity element of this group will leave $(t,\bar{x})$ fixed. Thus:
+\begin{align*}
+g_{(a,\bar{b},\bar{v},R)}(t,\bar{x})
+&=(t+a,R\bar{x}+\bar{v}t+\bar{b})\\
+&=(t,\bar{x}).
+\end{align*}
+It is clear that: $a=0$, $\bar{v}=\bar{0}$, $\bar{b}=\bar{0}$ and $R=I$.\\
+Hence $g_{(0,\bar{0},\bar{0},I)}$ is the identity element for the group $\mathcal{G}$.\\
+\\
+Now lets find the inverse transformation for
+$g_{(a,\bar{b},\bar{v},R)}\in G$.  Such that:
+\begin{align*}
+g_{(c,\bar{d},\bar{u},T)}
+\circ g_{(a,\bar{b},\bar{v},R)}
+&=g_{(0,\bar{0},\bar{0},I)}. \tag{1}\\
+g_{(a,\bar{b},\bar{v},R)}
+\circ g_{(c,\bar{d},\bar{u},T)}
+&=g_{(0,\bar{0},\bar{0},I)}. \tag{2}
+\end{align*}
+From $(*)$ above we know that
+\begin{align*}
+g_{(c,\bar{d},\bar{u},T)}
+\circ g_{(a,\bar{b},\bar{v},R)}
+&=
+g_{(a+c,\,
+T\bar{b}+\bar{u}a+\bar{d},\,
+T\bar{v}+\bar{u},\,
+TR)}\\
+&=
+g_{(0,\bar{0},\bar{0},I)}.
+\end{align*}
+Clearly:
+\begin{align*}
+a+c&=0
+\quad\Rightarrow\quad
+c=-a,\\
+TR&=I
+\quad\Rightarrow\quad
+T=R^{-1}
+\qquad
+(\text{possible as }R\in SO(3)),\\
+T\bar{v}+\bar{u}&=\bar{0}
+\quad\Rightarrow\quad
+\bar{u}=-T\bar{v}=-R^{-1}\bar{v},\\
+T\bar{b}+\bar{u}a+\bar{d}&=\bar{0}
+\quad\Rightarrow\quad
+R^{-1}\bar{b}-(R^{-1}\bar{v})a+\bar{d}=\bar{0}\\
+&\quad\Rightarrow\quad
+\bar{d}=R^{-1}(\bar{v}a-\bar{b}).
+\end{align*}
+The same result applies if we take $(2)$. Hence
+\begin{align*}
+g_{(a,\bar{b},\bar{v},R)}^{-1}
+=
+g_{(-a,\,
+R^{-1}(\bar{v}a-\bar{b}),\,
+-R^{-1}\bar{v},\,
+R^{-1})}.
+\end{align*}
+\\
+The above three properties: closure, inverse and identity show that $\mathcal{G}$, the set of Galilean transformations, is indeed a group.\\
+\\
+\noindent\textbf{(b)}\\
+To demonstrate that: $N=\{g_{(a, \bar{b}, \bar{0}, I)} \; | \; a \in \mathbb{R}, \bar{b} \mathbb{R}^3  \}$ is normal in $\mathcal{G}$ we need to prove that:
+given any $g \in \mathcal{G}$ and $n \in N$, that:
+$$ g \circ n \circ g^{-1} \in N $$
+This is just subscript manipulation as we can use equation (*) repeatedly.  Take $n=g_{(a, \bar{b}, \bar{0}, I)}$ and $g=g_{(a_2, \bar{b_2}, \bar{v_2}, R_2)}$.
+Then:
+\begin{align*}
+  g_{(a_2, \bar{b_2}, \bar{v_2}, R_2)} \circ n \circ g_{(a_2, \bar{b_2}, \bar{v_2}, R_2)}^{-1} &=  g_{(a_2, \bar{b_2}, \bar{v_2}, R_2)} \circ g_{(a, \bar{b}, \bar{0}, I)} \circ g_{(-a_2, R_2^{-1}(\bar{v_2} a_2 - \bar{b_2}), -R_2^{-1}\bar{v_2}, R_2^{-1})} \\
+  &= g_{(a_2 + a, R_2\bar{b} + a \bar{v_2}+ \bar{b_2}, R_2\bar{v} + \bar{v_2}, R_2 I )} \circ g_{(-a_2, R_2^{-1}(\bar{v_2} a_2 - \bar{b_2}), -R_2^{-1}\bar{v_2}, R_2^{-1})} \\
+  &= g_{(a_2 + a, R_2\bar{b} + a \bar{v_2}+ \bar{b_2}, R_2\bar{v} + \bar{v_2}, R_2 )} \circ g_{(-a_2, R_2^{-1}(\bar{v_2} a_2 - \bar{b_2}), -R_2^{-1}\bar{v_2}, R_2^{-1})} \\
+  &= g_{(a,0,z,I)}
+\end{align*}
+
+
+
+\end{document}

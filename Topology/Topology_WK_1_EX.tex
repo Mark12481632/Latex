@@ -1,0 +1,412 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Provides \mathbb and other symbols
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}  % For colored boxes
+\usepackage[table]{xcolor} % For coloring table cells
+\usepackage{array}         % For better table alignment
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage{amsmath,amssymb}
+
+% Set the top margin
+
+\geometry{top=1in} % You can adjust the measurement as needed
+
+
+\begin{document}
+
+\begin{titlepage}
+
+\centering
+
+\vspace*{\fill} % Adds vertical space to center the title block vertically
+
+{\Huge Topology} \\[0.5cm] % Title 2
+
+{\Huge Home Work 1}\\[1.5cm] % Title 3
+
+{\Large Student: 26-712-224}\\[0.5cm] % Student ID
+
+{\Large \today} % Date, \today adds today's date
+
+\vspace*{\fill}
+
+\end{titlepage}
+
+\newpage
+
+\noindent
+
+\section*{Exercise 1 - Attempted}
+
+\noindent
+
+Verify that each of the following functions defines a metric.
+
+\begin{enumerate}[label=\alph*)]
+
+\item Let $X$ be any set and define $d:X\times X\to\mathbb{R}_{\geq 0}$ by
+\begin{align*}
+d(x,y)=
+\begin{cases}
+0, & x=y,\\
+1, & x\neq y.
+\end{cases}
+\end{align*}
+
+\item Let $C([0,1],\mathbb{R})$ be the space of continuous real-valued functions on $[0,1]$. Show that the $L^1$-distance
+\begin{align*}
+d_1(f,g)=\|f-g\|_1=\int_0^1 |f(t)-g(t)|\,dt
+\end{align*}
+defines a metric on $C([0,1],\mathbb{R})$.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+ANSWER:\\
+\\
+For any metric space $(X, d)$ we know that the metric must satisfy the following 3 distance relations:
+\begin{enumerate}
+\item $d(x, y) \ge 0 \;\;\;\;\;\; \forall x, y \in X$ and also: $d(x, y) = 0 \iff x=y$
+\item $d(x, y) = d(y, x) \;\;\;\;\;  \forall x, y \in X$
+\item $d(x, y) \le d(x, y) + d(z, y) \;\;\;\;\;  \forall x, y, z \in X$
+\end{enumerate}
+\textbf{(a)} For the Trivial Metric we must show that each of the above 3 conditions hold.\\
+(i) $d(x,y) \ge 0$ must hold as the only possible values are 0 and 1.\\
+\hspace*{0.5cm}$x=y \iff d(x,y) = 0$ follows directly from the definition.\\
+(ii) If $x=y \implies d(x,y) = d(y,x) = 0$.  If $x \ne y \implies d(x,y) = 1$ and $d(y, x) = 1$.\\
+\hspace*{0.5cm}As these are the only possible case we have that $d(x,y)=d(y,x)$.\\
+(iii) We have two cases to consider:\\
+\hspace*{0.75cm}(A) $d(x,y) = 0 \implies x=y$.  In this case $d(x,z) + d(z, y)$ can't be less then zero.\\
+\hspace*{0.75cm}Hence, inequality (3) must hold true.\\
+\hspace*{0.75cm}(B) $d(x,y)=1 \implies x \ne y$.  In this case $d(x,z) + d(z, y)$ can't be less than 1.\\
+\hspace*{0.75cm}If $x=z$, we can't have $z=y$ since $x \ne y$.  The reverse is also true.  Hence we\\
+\hspace*{0.75cm}must have $d(x,z)+d(z,y) \ge 1$, hence inequality (3) must hold true.\\
+\\
+As all 3 conditions hold $(X,d)$ is a valid metric space.
+
+\newpage
+\noindent
+\textbf{(b)} We again check each of the above conditions (1)-(3) for a metric.\\
+\textbf{(i)}
+\begin{align*}
+\|f-g\|_1 = 0
+&\implies f(x) = g(x) \;\;\;\;\; \forall x \in [0, 1]
+\end{align*}
+$f,g\in C[0,1] \implies (f-g) \in C[0,1]$. Assume $f(\bar{u}) \neq g(\bar{u})$ at some $\bar{u}\in[0,1]$, then $f(x) \ne g(x)$ 
+in some interval $(\bar{u}-\delta,\bar{u}+\delta)$ $(\delta>0)$.
+\\
+Hence:
+\begin{align*}
+|f(x)-g(x)|>0 \quad \text{for } x\in(\bar{u}-\delta,\bar{u}+\delta).
+\end{align*}
+But then
+\begin{align*}
+\|f-g\|_1 = \int_0^1 |f(x)-g(x)|\,dx>0
+\end{align*}
+contradiction.  Hence:
+\begin{align*}
+f(x)=g(x), \qquad \forall x\in[0,1].
+\end{align*}
+\\
+On the other hand, if we now assume that:
+\begin{align*}
+f(u)-g(u)=0, \qquad \forall u\in[0,1],
+\end{align*}
+then
+\begin{align*}
+\int_0^1 |f(u)-g(u)|\,du
+=\int_0^1 0\,du
+=0
+\end{align*}
+and hence
+\begin{align*}
+\|f-g\|_1=0.
+\end{align*}
+\\
+\textbf{(ii)}
+\begin{align*}
+\|f-g\|_1
+&=\int_0^1 |f(u)-g(u)|\,du \\
+&=\int_0^1 |g(u)-f(u)|\,du \\
+&=\|g-f\|_1.
+\end{align*}
+\\
+\textbf{(iii)} For all $u\in[0,1]$ and $h \in C[0,1]$:
+\begin{align*}
+0 \le |f(u)-g(u)|
+\leq |f(u)-h(u)|+|h(u)-g(u)|.
+\end{align*}
+Hence, integrating both sides:
+\begin{align*}
+\int_0^1 |f(u)-g(u)|\,du
+&\leq \int_0^1 |f(u)-h(u)|\,du
++\int_0^1 |h(u)-g(u)|\,du
+\end{align*}
+and therefore
+\begin{align*}
+\|f-g\|_1
+\leq \|f-h\|_1+\|h-g\|_1.
+\end{align*}
+We again see that we have a valid distance function and hence a valid metric space.
+
+\newpage
+
+\section*{Exercise 2 - Not Attempted}
+
+\noindent
+
+Which of the following functions $d:\mathbb{R}^2\times\mathbb{R}^2\to\mathbb{R}_{\geq 0}$ are valid metrics on $\mathbb{R}^2$?
+
+For those that are, what does the unit open ball $B_d(x,1)$ look like?
+
+Let $x=(x_1,x_2)$ and $y=(y_1,y_2)$ be two vectors in $\mathbb{R}^2$.
+
+\begin{enumerate}[label=\roman*)]
+
+\item
+\begin{align*}
+d(x,y)=|x_1-y_1|+|x_2-y_2|.
+\end{align*}
+
+\item
+\begin{align*}
+d(x,y)=\min\left\{|x_1-y_1|,\ |x_2-y_2|\right\}.
+\end{align*}
+
+\item
+\begin{align*}
+d(x,y)=(x_1-y_1)^2+(x_2-y_2)^2.
+\end{align*}
+
+\item $d(x,x)=0$, and if $x\neq y$, then
+
+\begin{align*}
+d(x,y)=\|x\|_2+\|y\|_2.
+\end{align*}
+
+\end{enumerate}
+
+\noindent
+(Recall that on $\mathbb{R}^2$,
+
+\begin{align*}
+\|x\|_2=\sqrt{x_1^2+x_2^2}.
+\end{align*}
+)
+
+\newpage
+
+\section*{Exercise 3 - Attempted}
+\noindent
+Let $(X,d)$ be a metric space. Recall that a set $V$ is closed if and only if its complement,
+\begin{align*}
+V^c=X\setminus V,
+\end{align*}
+is open in $(X,d)$.
+
+\begin{enumerate}[label=\roman*)]
+\item Show that a finite union of closed sets is closed.
+\item Show that an arbitrary intersection of closed sets is closed.
+\item Give an example where a countable union of closed sets is not closed.
+\item Check that closed balls in $(X,d)$ are closed.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+ANSWER:\\
+\textbf{(i)} Let $(V_i)_{i=1}^n$ be a finite collection of closed sets.  Let $U_i = X \setminus V_i$ be the corresponding
+open sets.  We know that the finite intersection of open sets is again open.  I.e.:
+\begin{align*}
+J=\bigcap_{i=1}^n U_i
+\end{align*}
+is open.  But this means that $J^c$ must be closed and hence that:
+\begin{align*}
+J^c &= \left[\bigcap_{i=1}^n U_i\right]^c \\
+&= \bigcup_{i=1}^n U_i^c \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(De Morgan's Law)} \\
+&= \bigcup_{i=1}^n V_i
+\end{align*}
+is closed.\\
+We conclude that the union of a finite number of open sets is again open.\\
+\\
+\textbf{(ii)} Let $(V_i)_{i \in I}$ be an arbitrary collection of closed sets - indexed by $I$.  Again, let $U_i = X \setminus V_i$ be the corresponding
+open sets.  Now we know that any union of open sets is open.  Hence:
+\begin{align*}
+J=\bigcap_{i \in I} U_i
+\end{align*}
+is open.  Consequently, its complement must be closed and hence:
+\begin{align*}
+J^c &= \left[\bigcup_{i \in I} U_i\right]^c \\
+&= \bigcap_{i \in I} U_i^c \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(De Morgan's Law)} \\
+&= \bigcap_{i \in I} V_i
+\end{align*}
+is closed.\\
+So, the final result shows that the intersection of any collection of closed sets is again closed.\\
+\\
+\textbf{(iii)} Consider the collection of open sets $(U_i)_{i \in \mathbb{N}}$, where: $U_n = (2 - \frac{1}{n}, 4 + \frac{1}{n})$.
+The intersection of all such open sets is the closed set $[2, 4]$.\\
+\\
+\textbf{(iv)} To show that $\hat{B}(x, r) := \{y \in X \; | \; d(x, y) \le r \; (r>0) \}$ is closed we just need to demonstrate that its complement is open.
+Define $J=X \setminus \hat{B}(x, r)$ as this complement.  $J$ is open if, given any $z \in J$, we can determine an $\epsilon > 0$ such that 
+$B(z, \epsilon) \subset J$.\\
+\\
+Now, given any $z \in J$, it must must be the case that $d(x, z) = s > r$.  Let $\epsilon = (s-r) > 0$.  Next, take any $p \in B(z,\epsilon)$.
+Then, by triangle inequality:
+\begin{align*}
+d(x,z) &\le d(x, p) + d(p, z) \\
+ &\le d(x, p) + d(z, p) \\
+ \implies d(x,z) - d(p, z) &\le d(x, p) \\
+ \implies s - \epsilon &< d(x, p)  \;\;\;\;\;\;\;\;\; \text{(since $d(p,z) < \epsilon$)} \\
+ \implies s - (s-r) &< d(x, p) \\
+\implies r &< d(x, p) \\
+\implies p &\notin \hat{B}(x, r) \\
+\implies p &\in J 
+\end{align*}
+As this is true $\forall p \in B(z,\epsilon)$ we must conclude that: $B(z,\epsilon) \subset J$, and $J$ is open.\\
+\qed
+
+
+
+\newpage
+
+\section*{Exercise 4 - Attempted}
+
+\noindent
+
+Determine whether the following subsets of $\mathbb{R}^2$ are open or closed.
+
+\begin{enumerate}[label=\roman*)]
+
+\item $D=\{\text{the $x$-axis}\}$.
+
+\item
+\begin{align*}
+J=(0,1)\times\{0\}=\{(x,0):0<x<1\}.
+\end{align*}
+
+\item
+\begin{align*}
+F=\{(x,y):x\text{ and }y\text{ are integers}\}.
+\end{align*}
+
+\item
+\begin{align*}
+G=\left\{(1,0),\left(\frac12,0\right),\left(\frac13,0\right),\ldots,
+\left(\frac1n,0\right),\ldots\right\}.
+\end{align*}
+\item $H=\mathbb{R}^2$.
+\end{enumerate}
+\vspace{1cm}
+\noindent
+ANSWER:\\
+\\
+\textcolor{red}{Here I give a "rough" argument rather than the details - which directly follow from the arguments.}\\
+\\
+\textbf{(i)} \textbf{The set $D$ is closed} because it's complement $D^c = X \setminus D$ consists of the two open
+half planes in $\mathbb{R}^2$: $y > 0$ and $y < 0$ - and the union of two open sets is open hence $D^c = X \setminus D$ is open.
+\textbf{Thus, $D$ must be closed}.\\
+\\
+\textbf{(ii)} \textbf{The set $J$ is neither open nor closed}.  As $J$ is effectively 1-dimensional it is not possible for it to contain any ball 
+in $\mathbb{R}^2$ - as this would be 2-dimensional - so it can't be open.  Also $J^c$ contains the point $(1, 0)$.  There is no open ball at this point that doesn't intersect $J$.
+Hence, $J^c$ can't be open.  So, $J$ can't be closed.\\
+\\
+\textbf{(iii)} \textbf{The set $F$ is closed}.  Consider the compliment set $J = \mathbb{R}^2 \setminus F$ and any $p \in J$.  Then there is a positive minimum distance, $s$, from any $p$ to the points
+in $F$.  Clearly $B(p, s) \subset J$.  Hence $J$ is open and hence $F$ is closed.
+
+\newpage
+\noindent
+\textbf{(iv)} \textbf{The set $G$ is neither open nor closed}.  Again consider $J = \mathbb{R}^2 \setminus G$.  Then it is clear that $0 \in J$, but no open ball centred at $0$ is
+completely contained in $J$ - so $J$ is not open and hence $G$ is not closed.  Clearly there is no open ball about any point of $G$ that is contained in $G$ - so $G$ is also 
+not open. \\
+\\
+\textbf{(v)} \textbf{The set $H$ is open}. Take any point $p \in H$, then $B(p,1) \subset H$ and hence $H$ is open.
+
+\newpage
+
+\section*{Exercise 5 - Attempted}
+
+\begin{enumerate}[label=\roman*)]
+\item Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces, and let $f:X\to Y$. Prove that $f$ is continuous in the topological sense, i.e., the preimage of every open set is 
+open, if and only if it satisfies the classical epsilon-delta definition of continuity:
+
+\begin{align*}
+\forall x\in X\ \forall\varepsilon>0\ \exists\delta>0
+\text{ s.t. }\forall x'\in B_{d_X}(x,\delta),\ 
+d_Y\bigl(f(x),f(x')\bigr)<\varepsilon.
+\end{align*}
+
+\item Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces, and let $f:X\to Y$. Prove that $f$ is continuous if and only if the preimage of every closed set is closed.
+
+\end{enumerate}
+\vspace{1cm}
+\noindent
+ANSWER:\\
+\\
+We are given a function $f: X \to Y$; where $(X, d_X)$ and $(Y, d_Y)$ are both metric spaces.\\
+\\
+\textbf{(i)
+First we assume the $\epsilon - \delta$ definition of continuity - which we proved in class.}\\
+\\
+Let $U \subset Y$ be open in $(Y, d_y)$.  Let $V = f^{-1}(U)$.  If $V = \emptyset$, then this is OK
+as the empty set is open.\\
+\\
+If $V \ne \emptyset$, then $\exists x \in V$ with $f(x) \in U$.  As $U$ is open there exists an $\epsilon > 0$ such that: $B_{d_Y}(f(x), \epsilon) \subset U$.\\
+Using the $\epsilon - \delta$ definition of continuity we can find a $\delta > 0$ such that:\\
+$$f(B_{d_X}(x, \delta)) \subset B_{d_Y}(f(x), \epsilon) \implies B_{d_X}(x, \delta) \subset f^{-1}(U) = V$$
+That is $V$ is open.\\
+\\
+\textbf{Next we assume the "preimage of every open set is open" definition of continuity - which we didn't proved in class.}\\
+\\
+Let $U \subset Y$ be open in Y.  Then $f^{-1}(U) = V \subset X$ is open by assumption.  If $V = \emptyset$ there is nothing to prove.\\
+So, assume that $V \ne \emptyset$.  Then $\exists x \in V \implies f(x) \in U$.  As U is open: $\exists \epsilon > 0$ such that $B_{d_Y}(f(x), \epsilon) \subset U$.\\
+But we also have that $f^{-1}(B_{d_Y}(f(x), \epsilon)) = T \subset V$ and $x \in T$.  $T$ will be open, by assumption, hence $\exists \delta > 0$ such that:
+$B(x, \delta) \subset T \implies f(B(x, \delta)) \subset B_{d_Y}(f(x), \epsilon)$.\\
+This is the "$\epsilon - \delta$" definition of continuity.
+
+\newpage
+\noindent
+\textbf{(ii) We assume the "preimage of every open set is open" definition of continuity}.\\
+\\
+Let $D \subset Y$ be closed.  Then $D^c \subset Y$ is open.  Consequently: $f^{-1}(D^c) \subset X$ is also open by assumption.  Then:
+\begin{align*}
+  f^{-1}(D^c) &= f^{-1}(Y \setminus D) \\
+  &= f^{-1}(Y) \setminus f^{-1}(D) \; \text{(using the identity: $f^{-1}(A \setminus B) = f^{-1}(A) \setminus f^{-1}(B)$)} \\
+  &= X \setminus f^{-1}(D) \tag{5.1}
+\end{align*}
+We know that the set shown in (5.1) is open.  This means that $f^{-1}(D)$ is closed.\\
+That is, the preimage of every closed set is closed".
+
+\newpage
+
+\section*{Exercise 6 - Not Attempted}
+
+\noindent
+
+Which letters and digits are homeomorphic to each other, written as below?
+
+\vspace{0.5cm}
+
+\begin{center}
+A B C D E F G H J K L M N O P Q R
+
+\vspace{0.2cm}
+
+S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent
+
+You don't need to prove your answer rigorously---you don't have the tools for that yet; this exercise is just to build up an intuition for homeomorphism informally!
+
+\end{document}

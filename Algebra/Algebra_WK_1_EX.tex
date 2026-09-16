@@ -226,10 +226,13 @@ Now take any two elements: $a,b \in G$.  We see from above that: $a^{-1}=a$ and 
 Let $G$ be a group of finite and even order.  As $G$ is a group we know that every element $g \in G$ has a unique inverse.
 Further, if we assume that $G$ has no element of order 2, then no element - other than 1 - can be its own inverse.\\
 \\
+We define: $t(G) = \{ g \in G \; | \; g \ne g^{-1} \}$
 So let's now pair up all the elements in $G$ with their inverses.  No pair will have 2 entries the same except $(1,1)$.
 Hence, the full list of pairs will consist of $(1,1)$ and (say) q pairs of distinct elements.  Thus, we have accounted for $2q+1$ elements from $G$.  But $|G|$ is even and $2q+1$ is odd!
 So, there must be at least one element $y \in G$ that has no inverse which is different to itself.  We must conclude that this element is its own inverse - i.e. that $y^2 = 1$.  This contradiction shows that our initial assumption that all elements in $G$ don't have order 2 can't be true.
-\qed
+\qed \\
+\\
+Now consider the set $G - t(G)$, which must consist of those elements whose order is 2
 \newpage
 \section*{\textbf{Question 1.2.9}}
 Let G be the set of rigid motions in $\mathbb{R}^3$ of a tetrahedron.  Show that $|G|=12$.\\

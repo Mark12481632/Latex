@@ -27,8 +27,8 @@
 \centering
 \vspace*{\fill} % Adds vertical space to center the title block vertically
 
-{\Huge Linear Analysis II} \\[0.5cm] % Title 2
-{\Huge Home Work 1}\\[1.5cm] % Title 3
+{\Huge Complex Analysis} \\[0.5cm] % Title 2
+{\Huge Home Work 2}\\[1.5cm] % Title 3
 {\Large Student: Mark Roberts [26-712-224]}\\[0.5cm] % Student ID
 {\Large \today} % Date, \today adds today's date
 
@@ -36,15 +36,215 @@
 \end{titlepage}
 \newpage
 
-\question{A}
+\question{2.1}{Look again at the subsets in Exercise 1.2(a) from Problem Sheet 1. Which of these sets are domains?}
+
+\vspace{1cm}
+
+\textbf{ANSWER:}
 
 \newpage
 
-\question{B}
+\question{2.2}{At which points $z \in \mathbb{C}$ are the following functions
+(a) continuous? (b) complex-differentiable?}
+
+\begin{enumerate}[label=(\roman*)]
+    \item $\displaystyle \frac{1}{z^2+9}$
+
+    \item $\displaystyle z^{10}+4\pi z^3-11$
+
+    \item
+    \[
+    \begin{cases}
+    \displaystyle \frac{z^2-1}{z^3+1}, & z\neq -1,\\[4pt]
+    \frac{-2}{3}, & z=-1
+    \end{cases}
+    \]
+
+    \item $(\operatorname{Re} z)(\operatorname{Im} z)$
+\end{enumerate}
+
+\vspace{1cm}
+
+\textbf{ANSWER:}\\
+(i) Here we have a rational function - which is continuous at all points where the denominator is not zero.\\
+The denominator is zero when: $z^2+9=0$, i.e. where $z = \pm 3i$.  Hence, $\frac{1}{z^2 + 9}$ is continuous 
+at all points of $z \in \mathbb{C} \backslash \{-3i, 3i \}$.\\
+\\
+Being a rational function it is also differentiable for $z \in \mathbb{C} \backslash \{-3i, 3i \}$.\\
+\\
+\\
+(ii) Here we have a standard polynomial function and hence this function is both continuous and differentiable 
+for all $z \in \mathbb{C}$.\\
+\\
+\\
+(iii)
+
 
 \newpage
 
-\question{C}
+\question{2.3}{
+\begin{enumerate}[label=(\alph*)]
+    \item Show that the function
+    \[
+    z \mapsto |z|^2
+    \]
+    is complex-differentiable only at the point $z=0$.
 
+    \item Let $U \subset \mathbb{C}$ be an open set. Suppose that
+    $f:U\to\mathbb{C}$ is complex-differentiable at some point
+    $z\in U$. Must $f$ be holomorphic at $z$?
+
+    \item At which points $z\in\mathbb{C}$ are the following functions
+    (a) complex-differentiable, (b) holomorphic?
+    
+    \begin{enumerate}[label=(\roman*)]
+        \item $|z|$
+        \item $z|z|$
+    \end{enumerate}
+\end{enumerate}
+}
+
+\vspace{1cm}
+
+\textbf{ANSWER:} \\
+(a)
+
+\newpage
+
+\question{2.4}{
+Let $f:\mathbb{C}\to\mathbb{C}$ be the function
+\[
+f(z)=z^3.
+\]
+
+Show that there is no point $w$ on the line segment connecting $1$ and $i$, i.e.
+\[
+w\in\{ti+(1-t)1\mid t\in\mathbb{R},\ 0\leq t\leq 1\},
+\]
+such that
+\[
+\frac{f(i)-f(1)}{i-1}=f'(w).
+\]
+}
+
+\vspace{1cm}
+
+\textbf{ANSWER:} \\
+Taking $f(z) = z^3$ we determine:
+\begin{align*}
+\frac{f(i)-f(1)}{i-1} &= \frac{-i-1}{i-1} \\
+ &= \frac{1+i}{1-i} \\
+ &= \frac{1+i}{1-i} \frac{1+i}{1+i} \\
+ &= i \tag{2.4.1}
+\end{align*}
+
+Now, as $f'(z) = 3z^2$, we need to find a $w \in \{(1-t) + ti \; | \; 0 \le t \le 1 \}$ such that:
+\begin{align*}
+\frac{f(i)-f(1)}{i-1} &= 3w^2 \tag{2.4.2}
+\end{align*}
+Using (2.4.1) and (2.4.2) and that they must be equal, we obtain:
+\begin{align*}
+3w^2 = i \implies 3[(1-t) + ti]^2 = i
+\end{align*}
+
+\begin{align*}
+\Rightarrow
+3[(1-t)+ti]^2&=i
+\end{align*}
+
+\begin{align*}
+\Rightarrow
+3\{(1-t)^2+2t(t-1)i-t^2\}&=i
+\end{align*}
+
+\begin{align*}
+\Rightarrow
+(1-2t+t^2)+2t(t-1)i-t^2&=i.
+\end{align*}
+
+\begin{align*}
+\Rightarrow
+(1-2t)+2t(t-1)i&=i.
+\end{align*}
+
+real:
+
+\begin{align*}
+(1-2t)&=1
+\Rightarrow
+t=0.
+\end{align*}
+
+IM:
+
+\begin{align*}
+2t(t-1)&=1
+\qquad
+\text{no }t\in[0,1]\text{ solves.}
+\end{align*}
+
+\begin{align*}
+\therefore\ \text{no }w\in\{(1-t)+ti\mid 0\leq t\leq1\}\text{ solves}
+\end{align*}
+
+
+\newpage
+
+\question{2.5}{
+Let $\Omega$ be a domain, and suppose that $z \in \Omega$. Show that
+\[
+\Omega \setminus \{z\}
+\]
+is a domain.
+
+Now suppose that $r>0$ is such that
+\[
+D_r(z)\subseteq \Omega.
+\]
+
+Need
+\[
+\Omega \setminus D_r(z)
+\]
+be a domain?
+}
+
+\vspace{1cm}
+
+\textbf{ANSWER:}
+
+\newpage
+
+\question{2.6}{
+Given $c \in \mathbb{C}$, let the sequence $z_n(c)$ be defined iteratively in the following way:
+\[
+z_0(c)=0,
+\qquad
+z_n(c)=z_{n-1}(c)^2+c
+\quad \text{for } n\geq 1.
+\]
+
+The \textit{Mandelbrot set} $M$ is the set of $c\in\mathbb{C}$ such that $|c|\leq 2$ and $|z_n(c)|$ does not tend to infinity as $n\to\infty$.
+
+\begin{enumerate}[label=(\roman*)]
+    \item Suppose that there exists $k\in\mathbb{N}$ such that
+    \[
+    |z_k(c)|>2.
+    \]
+    Show that $c\notin M$.
+
+    \item Let $U_k$ denote the set
+    \[
+    U_k:=\{c\in\mathbb{C}\mid |z_k(c)|>2\}.
+    \]
+    Show that $U_k$ is open.
+
+    \item Deduce that $M$ is a closed subset of $\mathbb{C}$.
+\end{enumerate}
+}
+
+\vspace{1cm}
+
+\textbf{ANSWER:}
 
 \end{document}
