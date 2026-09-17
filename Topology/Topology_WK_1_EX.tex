@@ -241,7 +241,7 @@ We conclude that the union of a finite number of open sets is again open.\\
 \textbf{(ii)} Let $(V_i)_{i \in I}$ be an arbitrary collection of closed sets - indexed by $I$.  Again, let $U_i = X \setminus V_i$ be the corresponding
 open sets.  Now we know that any union of open sets is open.  Hence:
 \begin{align*}
-J=\bigcap_{i \in I} U_i
+J=\bigcup_{i \in I} U_i
 \end{align*}
 is open.  Consequently, its complement must be closed and hence:
 \begin{align*}
@@ -260,13 +260,13 @@ Define $J=X \setminus \hat{B}(x, r)$ as this complement.  $J$ is open if, given 
 $B(z, \epsilon) \subset J$.\\
 \\
 Now, given any $z \in J$, it must must be the case that $d(x, z) = s > r$.  Let $\epsilon = (s-r) > 0$.  Next, take any $p \in B(z,\epsilon)$.
-Then, by triangle inequality:
+Then, by the triangle inequality:
 \begin{align*}
 d(x,z) &\le d(x, p) + d(p, z) \\
  &\le d(x, p) + d(z, p) \\
- \implies d(x,z) - d(p, z) &\le d(x, p) \\
- \implies s - \epsilon &< d(x, p)  \;\;\;\;\;\;\;\;\; \text{(since $d(p,z) < \epsilon$)} \\
- \implies s - (s-r) &< d(x, p) \\
+ &< d(x, p) + \epsilon \;\;\;\;\;\;\;\;\; \text{(since $d(p,z) < \epsilon$)} \\
+ \implies d(x,z) - \epsilon &< d(x, p) \\
+ \implies s - (s-r) &< d(x, p) \;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(As $\epsilon=s-r$)}\\
 \implies r &< d(x, p) \\
 \implies p &\notin \hat{B}(x, r) \\
 \implies p &\in J 
@@ -359,17 +359,17 @@ First we assume the $\epsilon - \delta$ definition of continuity - which we prov
 Let $U \subset Y$ be open in $(Y, d_y)$.  Let $V = f^{-1}(U)$.  If $V = \emptyset$, then this is OK
 as the empty set is open.\\
 \\
-If $V \ne \emptyset$, then $\exists x \in V$ with $f(x) \in U$.  As $U$ is open there exists an $\epsilon > 0$ such that: $B_{d_Y}(f(x), \epsilon) \subset U$.\\
+If $V \ne \emptyset$, take any $x \in V$ with $f(x) \in U$.  As $U$ is open there exists an $\epsilon > 0$ such that: $B_{d_Y}(f(x), \epsilon) \subset U$.\\
 Using the $\epsilon - \delta$ definition of continuity we can find a $\delta > 0$ such that:\\
 $$f(B_{d_X}(x, \delta)) \subset B_{d_Y}(f(x), \epsilon) \implies B_{d_X}(x, \delta) \subset f^{-1}(U) = V$$
 That is $V$ is open.\\
 \\
 \textbf{Next we assume the "preimage of every open set is open" definition of continuity - which we didn't proved in class.}\\
 \\
-Let $U \subset Y$ be open in Y.  Then $f^{-1}(U) = V \subset X$ is open by assumption.  If $V = \emptyset$ there is nothing to prove.\\
-So, assume that $V \ne \emptyset$.  Then $\exists x \in V \implies f(x) \in U$.  As U is open: $\exists \epsilon > 0$ such that $B_{d_Y}(f(x), \epsilon) \subset U$.\\
-But we also have that $f^{-1}(B_{d_Y}(f(x), \epsilon)) = T \subset V$ and $x \in T$.  $T$ will be open, by assumption, hence $\exists \delta > 0$ such that:
-$B(x, \delta) \subset T \implies f(B(x, \delta)) \subset B_{d_Y}(f(x), \epsilon)$.\\
+Let $U \subset Y$ be open in Y.  Then $f^{-1}(U) = V \subset X$ is open by assumption.  If $V = \emptyset$ there is nothing to prove (as empty set is open).\\
+So, assume that $V \ne \emptyset$.  Take amy $x \in V \implies f(x) \in U$.  As U is open: $\exists \epsilon > 0$ such that $B_{d_Y}(f(x), \epsilon) \subset U$.\\
+But we also have that $f^{-1}(B_{d_Y}(f(x), \epsilon)) = T \subset V$, where $x \in T$ and $T$ will be open, by assumption.  Hence $\exists \delta > 0$ such that:
+$B(x, \delta) \subset T$. Then $f(B(x, \delta)) \subset f(T) \subset B_{d_Y}(f(x), \epsilon)$.\\
 This is the "$\epsilon - \delta$" definition of continuity.
 
 \newpage
@@ -383,7 +383,8 @@ Let $D \subset Y$ be closed.  Then $D^c \subset Y$ is open.  Consequently: $f^{-
   &= X \setminus f^{-1}(D) \tag{5.1}
 \end{align*}
 We know that the set shown in (5.1) is open.  This means that $f^{-1}(D)$ is closed.\\
-That is, the preimage of every closed set is closed".
+That is, the preimage of every closed set is closed".\\
+\qed
 
 \newpage
 
