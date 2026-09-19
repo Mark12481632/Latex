@@ -119,9 +119,9 @@ $\mathcal{G}$.
 
 \newpage
 \noindent
-\noindent\textbf{(a)}\\
-Show that the Galilean transformations are closed under composition.\\
-Take
+ANSWER:\\
+\\
+\noindent\textbf{(a)} To show that the Galilean transformations are closed under composition.\\
 Take
 \begin{align*}
 g_{(a_1,\hat{b}_1,\hat{v}_1,R_1)}(t,\bar{x})
@@ -169,8 +169,7 @@ R_2\hat{v}_1+\hat{v}_2,\,
 R_2R_1)}.
 \tag{*}
 \end{align*}
-Now $R_1,R_2\in SO(3)\Rightarrow R_2R_1\in SO(3)$.  Also: $R_2\bar{v_1}+bar{v_2}\in\mathbb{R}^{3}$, as are
-$R_2\bar{b_1}+\bar{v_2}a+\bar{b_2} \in\mathbb{R}^{3}$.\\
+Now $R_1,R_2\in SO(3)\Rightarrow R_2R_1\in SO(3)$.  Also: $R_2\bar{v_1}+\bar{v_2}\in\mathbb{R}^{3}$, $R_2\bar{b_1}+\bar{v_2}a+\bar{b_2} \in\mathbb{R}^{3}$.\\
 Hence $(*)$ is also a Galilean transformation.\\
 \\
 The identity element of this group will leave $(t,\bar{x})$ fixed. Thus:
@@ -232,22 +231,418 @@ R^{-1}(\bar{v}a-\bar{b}),\,
 -R^{-1}\bar{v},\,
 R^{-1})}.
 \end{align*}
-\\
 The above three properties: closure, inverse and identity show that $\mathcal{G}$, the set of Galilean transformations, is indeed a group.\\
+The total number of dimensions for $\mathcal{G}$ is 10 = 1 (time) + 3 (position) + 3 (volocity) + 3 (rotation matrix).\\
 \\
 \noindent\textbf{(b)}\\
+I didn't know what a "semidirect product" was - I understand it as follows:\\
+\begin{tcolorbox}[colframe=red,coltext=red]
+A \textbf{semidirect product} is a group $G$ built from subgroups $N$ and $H$ such that
+\begin{align*}
+N \trianglelefteq G,\qquad N\cap H=\{e\},\qquad G=NH.
+\end{align*}
+Unlike a direct product, $N$ and $H$ need not commute. One subgroup acts on the other by conjugation.
+\end{tcolorbox}
+\noindent
 To demonstrate that: $N=\{g_{(a, \bar{b}, \bar{0}, I)} \; | \; a \in \mathbb{R}, \bar{b} \mathbb{R}^3  \}$ is normal in $\mathcal{G}$ we need to prove that:
 given any $g \in \mathcal{G}$ and $n \in N$, that:
 $$ g \circ n \circ g^{-1} \in N $$
-This is just subscript manipulation as we can use equation (*) repeatedly.  Take $n=g_{(a, \bar{b}, \bar{0}, I)}$ and $g=g_{(a_2, \bar{b_2}, \bar{v_2}, R_2)}$.
+This is just subscript manipulation using equation (*) repeatedly.  Take $n=g_{(a, \bar{b}, \bar{0}, I)}$ and $g=g_{(a_2, \bar{b_2}, \bar{v_2}, R_2)}$.
 Then:
 \begin{align*}
   g_{(a_2, \bar{b_2}, \bar{v_2}, R_2)} \circ n \circ g_{(a_2, \bar{b_2}, \bar{v_2}, R_2)}^{-1} &=  g_{(a_2, \bar{b_2}, \bar{v_2}, R_2)} \circ g_{(a, \bar{b}, \bar{0}, I)} \circ g_{(-a_2, R_2^{-1}(\bar{v_2} a_2 - \bar{b_2}), -R_2^{-1}\bar{v_2}, R_2^{-1})} \\
-  &= g_{(a_2 + a, R_2\bar{b} + a \bar{v_2}+ \bar{b_2}, R_2\bar{v} + \bar{v_2}, R_2 I )} \circ g_{(-a_2, R_2^{-1}(\bar{v_2} a_2 - \bar{b_2}), -R_2^{-1}\bar{v_2}, R_2^{-1})} \\
-  &= g_{(a_2 + a, R_2\bar{b} + a \bar{v_2}+ \bar{b_2}, R_2\bar{v} + \bar{v_2}, R_2 )} \circ g_{(-a_2, R_2^{-1}(\bar{v_2} a_2 - \bar{b_2}), -R_2^{-1}\bar{v_2}, R_2^{-1})} \\
-  &= g_{(a,0,z,I)}
+  &= g_{(a_2 + a, R_2\bar{b} + a \bar{v_2}+ \bar{b_2}, \bar{v_2}, R_2 I )} \circ g_{(-a_2, R_2^{-1}(\bar{v_2} a_2 - \bar{b_2}), -R_2^{-1}\bar{v_2}, R_2^{-1})} \\
+  &= g_{(a_2 + a, R_2\bar{b} + a \bar{v_2}+ \bar{b_2}, \bar{v_2}, R_2 )} \circ g_{(-a_2, R_2^{-1}(\bar{v_2} a_2 - \bar{b_2}), -R_2^{-1}\bar{v_2}, R_2^{-1})} \\
+  &= g_{(a,R_2\bar{b} + \bar{v_2} a,\bar{0},I)}
+\end{align*}
+Which is again an element of $N$.  Hence $N$ is a normal subgroup of $\mathcal{G}$.\\
+\\
+Clearly $N$ has dimension 4 (1-time and 3-position vector) - which leaves 10-4=6 dimensions to be accounted for in $\mathcal{G}/N$.  
+The remaining 6 dimensions are accounted for by the velocity and the rotations - which are independent, so:  $SO(3) \ltimes \mathbb{R}^3$
+and hence: $\mathcal{G}/N \cong SO(3) \ltimes \mathbb{R}^3$.  It would be a simple procedure to show that there is an isomorphism between
+$\kappa : (\mathcal{G}/N, SO(3) \ltimes \mathbb{R}^3) \to \mathcal{G}$.\\
+\\
+\textbf{(c)}\\
+We will show that $B = \{g_{(0, \bar{0}, \bar{v}, I)} \; | \; \bar{v} \in  \mathbb{R}^3\}$ is an abelian group.\\
+This is simply demonstrated as follows (and using (*)):
+\begin{align*}
+  g_{(0, \bar{0}, \bar{v_1}, I)} \circ g_{(0, \bar{0}, \bar{v_2}, I)} &= g_{(0, \bar{0}, \bar{v_2}, I)} \circ g_{(0, \bar{0}, \bar{v_1}, I)}\tag{**} \\
+  &= g_{(0, \bar{0}, \bar{v_1} + \bar{v_2}, I)} \in B 
+\end{align*}
+This shows that composition is both commutative and closed on the set $B$.  The inverse of $g_{(0, \bar{0}, \bar{v}, I)}$ is obviously: $g_{(0, \bar{0}, -\bar{v}, I)}$.
+Hence $B$ is an abelian group.\\
+\\
+We can clearly define an isomorphism between $(\mathbb{R}^3, +)$ and $(B, \circ)$ - which is just a mapping between velocities and boosts as follows:
+\begin{align*}
+  \phi : \mathbb{R}^3 \to B \text{  where:  } \phi(\bar{v}) = g_{(0, \bar{0}, \bar{v}, I)}
+\end{align*}
+From which:
+\begin{align*}
+  \phi(v_1 + v_2) =  g_{(0, \bar{0}, \bar{v_1} + \bar{v_2}, I)} = g_{(0, \bar{0}, \bar{v_1}, I)} \circ g_{(0, \bar{0}, \bar{v_2}, I)} = \phi(v_1) \circ \phi(v_2)
+\end{align*}
+\\
+Lastly, we must show that $B \not\trianglelefteq \mathcal{G}$. \\
+We will proceed as we did in (b).  Take any $g=g_{(a, \bar{b}, \bar{u},R)} \in \mathcal{G}$ and $b=g_{(0, \bar{0}, \bar{v}, I)} \in B$; then:
+\begin{align*}
+   g \circ b \circ g^{-1} &= g_{(a, \bar{b}, \bar{u},R)} \circ g_{(0, \bar{0}, \bar{v}, I)} \circ g_{(-a, R^{-1}(\bar{u}a) - \bar{b}, -R^{-1}\bar{u},R^{-1})} \\
+   &= g_{(a, \bar{b}, R\bar{v} + \bar{u},R)} \circ g_{(-a, R^{-1}(\bar{u}a) - \bar{b}, -R^{-1}\bar{u},R^{-1})} \\
+   &= g_{(0, -a R \bar{v}, R\bar{v},I)} \notin B
+\end{align*}
+So, $B$ is NOT a normal subgroup of $\mathcal{G}$. \\
+\\
+\textbf{(d)}\\
+For the given transformation we have:
+\begin{align*}
+t' &= t+a \tag{3}\\
+\vec{x}' &= R\vec{x}+\vec{v}t+\vec{b} \tag{4}
+\end{align*}
+$(3)\Rightarrow \Delta t=\Delta t'$ as time difference between any two events in the two different frames.
+Hence:
+\begin{align*}
+\frac{d}{dt'}=\frac{d}{dt}.
+\end{align*}
+If we then differentiate (4) w.r.t time we get:
+\begin{align*}
+\dot{\vec{x}}'=\dot{R}\vec{x}+R\dot{\vec{x}}+\vec{v}
+\end{align*}
+Again:
+\begin{align*}
+\ddot{\vec{x}}'=\ddot{R}\vec{x}+\dot{R}\dot{\vec{x}}+\dot{R}\dot{\vec{x}}+R\ddot{\vec{x}}
+\end{align*}
+For a Galilean transformation $\dot{R}=0$, otherwise
+we are not transforming between inertial frames. \\
+Hence:
+\begin{align*}
+\ddot{\vec{x}}'=R\ddot{\vec{x}} \tag{5}
+\end{align*}
+If $\ddot{\vec{x}}'=\vec{0}\Rightarrow\ddot{\vec{x}}=\vec{0}$, since $R$ is not singular.
+Also $\ddot{\vec{x}}=\vec{0}\Rightarrow\ddot{\vec{x}}'=0$ follows directly from (5).  This means that 
+Galilean transformations are valid transformations between inertial reference frames.
+\newpage
+\noindent
+\textbf{Exercise 4} ($\star$ Conservation laws for systems of point masses). Consider $N$ point masses
+$m_j$ with trajectories $\vec{x}_j(t)\in\mathbb{E}^3$ obeying
+\begin{align*}
+m_j\ddot{\vec{x}}_j=\vec{k}_j=\sum_{i\neq j}\vec{k}_{ij}+\vec{K}_j,
+\qquad j=1,\ldots,N,
+\end{align*}
+where $\vec{k}_{ij}$ is the internal force exerted on $j$ by $i$ and $\vec{K}_j$ is external.\\
+Assume Newton's
+third law $\vec{k}_{ij}=-\vec{k}_{ji}$. Write $\vec{p}_j=m_j\dot{\vec{x}}_j$, $\vec{P}=\sum_j\vec{p}_j$,
+$M=\sum_jm_j$, $\vec{X}=M^{-1}\sum_jm_j\vec{x}_j$ and
+\begin{align*}
+\vec{J}=\sum_j\vec{x}_j\wedge\vec{p}_j.
 \end{align*}
 
+\textbf{(a)} Show that $\dot{\vec{P}}=\sum_j\vec{K}_j$, and deduce that $\vec{P}$ is conserved for a closed system.
 
+\textbf{(b)} Deduce the centre-of-mass theorem: for a closed system
+\begin{align*}
+\vec{X}(t)=\vec{X}_0+\vec{V}t.
+\end{align*}
+
+\textbf{(c)} Show that
+\begin{align*}
+\dot{\vec{J}}=\sum_j\vec{x}_j\wedge\vec{K}_j
+\end{align*}
+\hspace*{1cm}provided the internal forces are central, i.e.
+\begin{align*}
+\vec{k}_{ji}
+=
+\frac{\vec{x}_j-\vec{x}_i}{|\vec{x}_j-\vec{x}_i|}
+f_{ji}(|\vec{x}_j-\vec{x}_i|).
+\end{align*}
+\hspace*{1cm}Where exactly does centrality enter? Give an example of forces obeying \\
+\hspace*{2cm}$\vec{k}_{ji}=-\vec{k}_{ij}$ for which $\vec{J}$ is not conserved.\\
+
+\textbf{(d)} (Two-body reduction.) Let $N=2$ with central internal forces and no external\\
+\hspace*{1cm}force.
+Set $\vec{r}=\vec{x}_1-\vec{x}_2$ and $\mu=\frac{m_1m_2}{M}$. Show that
+
+\begin{align*}
+\mu\ddot{\vec{r}}
+=
+\frac{\vec{r}}{|\vec{r}|}f_{12}(|\vec{r}|),
+\end{align*}
+
+\hspace*{1cm}and prove K\"onig's decompositions
+
+\begin{align*}
+T
+&=
+\frac{1}{2}M|\dot{\vec{X}}|^2
++
+\frac{1}{2}\mu|\dot{\vec{r}}|^2,
+\\
+\vec{J}
+&=
+M\vec{X}\wedge\dot{\vec{X}}
++
+\mu\vec{r}\wedge\dot{\vec{r}}.
+\end{align*}
+
+\newpage
+\noindent
+ANSWER:\\
+\\
+\textbf{(a)}
+\begin{align*}
+\vec{P} &= \sum_j \vec{p}_j \\
+\Rightarrow \dot{\vec{P}}
+&= \sum_j \dot{\vec{p}}_j \\
+&= \sum_j m_j \ddot{\vec{x}}_j
+\qquad \qquad \text{(as $m_j$ is constants)} \\
+&= \sum_j \left\{
+\left[\sum_{i\neq j}\vec{k}_{ji}\right]+\vec{K}_j
+\right\}. \tag{4.1}
+\end{align*}
+
+Now if we take $\vec{k}_{ii}=0\;(\forall i)$ then (4.1) becomes,
+\begin{align*}
+\dot{\vec{P}}
+=
+\sum_j\left\{
+\sum_i \vec{k}_{ji}+\vec{K}_j
+\right\}.
+\end{align*}
+\hspace*{1cm}Since: $\vec{k}_{ij}=-\vec{k}_{ji} \Rightarrow \sum_j\sum_i\vec{k}_{ij}=\vec{0}$.
+\begin{align*}
+\therefore\quad \dot{\vec{P}}=\sum_j\vec{K}_j.
+\end{align*}
+\hspace*{1cm}For a closed system each $\vec{K}_j=\vec{0}$
+\begin{align*}
+&\Rightarrow\dot{\vec{P}}=\vec{0} \\
+&\Rightarrow\vec{P}\text{ is constant}.
+\end{align*}
+\vspace{1cm}
+\noindent
+\textbf{(b)}
+\begin{align*}
+M\vec{X}
+&= M\left\{\frac{1}{M}\sum_j m_j\vec{x}_j\right\} \\
+&= \sum_j m_j\vec{x}_j
+\end{align*}
+Differentiating w.r.t. time:
+\begin{align*}
+M\dot{\vec{X}}
+&= \sum_j m_j\dot{\vec{x}}_j \\
+&= \vec{P} \qquad\qquad (\text{a constant}). \\
+&= M\vec{V} \qquad \;\;\;\; (\text{where }\vec{V}\text{ is a constant}).
+\end{align*}
+\begin{align*}
+\Rightarrow\quad \dot{\vec{X}} &= \vec{V} \\
+\Rightarrow\quad \vec{X} &= \vec{V}t+\vec{X}_0
+\qquad (X_0=\text{const. of integration}).
+\end{align*}
+\noindent
+\textbf{(c)}
+\begin{align*}
+\vec{J} &= \sum_j \vec{x}_j \wedge \vec{p}_j \\
+\Rightarrow \dot{\vec{J}} &= \sum_j \dot{\vec{x}}_j \wedge \vec{p}_j + \sum_j \vec{x}_j \wedge \dot{\vec{p}}_j \tag{4.2}
+\end{align*}
+Now $\vec{p}_j=m_j\dot{\vec{x}}_j \Rightarrow \dot{\vec{x}}_j\wedge\vec{p}_j=0\quad\forall j$. Hence $(4.2)$ becomes:
+\begin{align*}
+\dot{\vec{J}}
+&= \sum_j \vec{x}_j \wedge \dot{\vec{p}}_j \\
+&= \sum_j \vec{x}_j \wedge \vec{k}_j \\
+&= \sum_j \vec{x}_j \wedge
+\left\{
+\sum_{i\neq j}\vec{k}_{ji}+\vec{K}_j \tag{4.3}
+\right\}.
+\end{align*}
+Now
+\begin{align*}
+\sum_j \vec{x}_j \wedge \sum_{i\neq j}\vec{k}_{ji}=0
+\end{align*}
+since, for any $i\neq j$ (using centrality here), force is along line joining the bodies:
+\begin{align*}
+\vec{x}_j\wedge\vec{k}_{ji}
+&=
+\vec{x}_j\wedge
+\frac{\vec{x}_j-\vec{x}_i}{|\vec{x}_j-\vec{x}_i|}
+f_{ji}(|\vec{x}_j-\vec{x}_i|), \\
+\vec{x}_i\wedge\vec{k}_{ij}
+&=
+\vec{x}_i\wedge
+\frac{\vec{x}_i-\vec{x}_j}{|\vec{x}_i-\vec{x}_j|}
+f_{ij}(|\vec{x}_i-\vec{x}_j|).
+\end{align*}
+Their sum is
+\begin{align*}
+(\vec{x}_j\wedge\vec{k}_{ji})+(\vec{x}_i\wedge\vec{k}_{ij})
+&=
+(\vec{x}_j-\vec{x}_i)\wedge
+\frac{\vec{x}_j-\vec{x}_i}{|\vec{x}_j-\vec{x}_i|}
+f_{ij}(|\vec{x}_j-\vec{x}_i|) \\
+&=0
+\qquad \text{as } f_{ij}=f_{ji}\quad(\text{Newton's 3rd}).
+\end{align*}
+Thus $(4.3)$ becomes:
+\begin{align*}
+\dot{\vec{J}}=\sum_j \vec{x}_j\wedge\vec{K}_j.
+\end{align*}
+
+\newpage
+\noindent
+\textbf{(d)}\\
+(i)
+\begin{align*}
+\bar{k}_1 &= m_1\ddot{\bar{x}}_1
+= \frac{\bar{x}_1-\bar{x}_2}{|\bar{x}_1-\bar{x}_2|}
+f_{12}(|\bar{x}_1-\bar{x}_2|) \\
+\bar{k}_2 &= m_2\ddot{\bar{x}}_2
+= \frac{\bar{x}_2-\bar{x}_1}{|\bar{x}_1-\bar{x}_2|}
+f_{21}(|\bar{x}_2-\bar{x}_1|).
+\end{align*}
+\begin{align*}
+\Rightarrow\quad
+\ddot{\bar{x}}_1
+&= \frac{1}{m_1}
+\frac{\bar{x}_1-\bar{x}_2}{|\bar{x}_1-\bar{x}_2|}
+f_{12}(|\bar{x}_1-\bar{x}_2|) \\
+\ddot{\bar{x}}_2
+&= \frac{1}{m_2}
+\frac{\bar{x}_2-\bar{x}_1}{|\bar{x}_2-\bar{x}_1|}
+f_{21}(|\bar{x}_2-\bar{x}_1|).
+\end{align*}
+\begin{align*}
+\Rightarrow\quad
+\ddot{\bar{x}}_2-\ddot{\bar{x}}_1
+&=
+\frac{1}{m_2}
+\frac{\bar{x}_2-\bar{x}_1}{|\bar{x}_2-\bar{x}_1|}
+f_{21}(|\bar{x}_2-\bar{x}_1|)
++
+\frac{1}{m_1}
+\frac{\bar{x}_2-\bar{x}_1}{|\bar{x}_2-\bar{x}_1|}
+f_{12}(|\bar{x}_2-\bar{x}_1|) \\
+&=
+\frac{m_1+m_2}{m_1m_2}
+\frac{\bar{x}_2-\bar{x}_1}{|\bar{x}_2-\bar{x}_1|}
+f_{12}(|\bar{x}_2-\bar{x}_1|).
+\end{align*}
+\begin{align*}
+\Rightarrow\quad
+\frac{m_1m_2}{m_1+m_2}
+(\ddot{\bar{x}}_2-\ddot{\bar{x}}_1)
+=
+\frac{\bar{x}_2-\bar{x}_1}{|\bar{x}_2-\bar{x}_1|}
+f_{12}(|\bar{x}_2-\bar{x}_1|)
+\end{align*}
+i.e.
+\begin{align*}
+\mu\ddot{\bar{r}}
+=
+\frac{\bar{r}}{|\bar{r}|}f_{12}(|\bar{r}|).
+\end{align*}
+It should be noted that $f_{12}(|r|) = f_{21}(|r|)$ must be the case for Newton's 3rd law to hold.\\
+\\
+\textbf{(ii)}
+\begin{align*}
+T &= \frac{1}{2}m_1\dot{\bar{x}}_1^2 + \frac{1}{2}m_2\dot{\bar{x}}_2^2
+\end{align*}
+Now
+\begin{align*}
+\bar{X}
+&=\frac{1}{m_1+m_2}\left[m_1\bar{x}_1+m_2\bar{x}_2\right] \\
+\Rightarrow\quad
+\dot{\bar{X}}
+&=\frac{1}{m_1+m_2}\left[m_1\dot{\bar{x}}_1+m_2\dot{\bar{x}}_2\right] \\
+\Rightarrow\quad
+|\dot{\bar{X}}|^2
+&=\dot{\bar{X}}^2
+=\frac{1}{(m_1+m_2)^2}
+\left[m_1^2\dot{\bar{x}}_1^2
++2m_1m_2\dot{\bar{x}}_1\cdot\dot{\bar{x}}_2
++m_2^2\dot{\bar{x}}_2^2\right] \\
+\Rightarrow\quad
+\frac{1}{2}(m_1+m_2)\dot{\bar{X}}^2
+&=\frac{1}{2(m_1+m_2)}
+\left[m_1^2\dot{\bar{x}}_1^2
++2m_1m_2\dot{\bar{x}}_1\cdot\dot{\bar{x}}_2
++m_2^2\dot{\bar{x}}_2^2\right]
+\end{align*}
+Hence, using $M=(m_1+m_2)$, we obtain:
+\begin{align*}
+T-\frac{1}{2}M\dot{\bar{X}}^2
+&=
+\left[
+\frac{1}{2}m_1\dot{\bar{x}}_1^2
++\frac{1}{2}m_2\dot{\bar{x}}_2^2
+\right]
+-\frac{m_1^2}{2(m_1+m_2)}\dot{\bar{x}}_1^2
+-\frac{m_1m_2}{m_1+m_2}\dot{\bar{x}}_1\cdot\dot{\bar{x}}_2 -\frac{m_2^2}{2(m_1+m_2)}\dot{\bar{x}}_2^2 \\
+&=
+\frac{1}{2}\dot{\bar{x}}_1^2
+\left[m_1-\frac{m_1^2}{m_1+m_2}\right]
++\frac{1}{2}\dot{\bar{x}}_2^2
+\left[m_2-\frac{m_2^2}{m_1+m_2}\right] -\frac{m_1m_2}{m_1+m_2}
+\dot{\bar{x}}_1\cdot\dot{\bar{x}}_2 \\
+&=
+\frac{1}{2}\frac{m_1m_2}{m_1+m_2}
+\left[
+\dot{\bar{x}}_1^2
+-2\dot{\bar{x}}_1\cdot\dot{\bar{x}}_2
++\dot{\bar{x}}_2^2
+\right] \\
+&=
+\frac{1}{2}\frac{m_1m_2}{m_1+m_2}
+\left(\dot{\bar{x}}_2-\dot{\bar{x}}_1\right)^2 \\
+&=
+\frac{1}{2}\mu\dot{\bar{r}}^2
+\end{align*}
+i.e
+\begin{align*}
+T=\frac{1}{2}M\dot{\bar{X}}^2+\frac{1}{2}\mu\dot{\bar{r}}^2
+\end{align*}
+\\
+(iii) \begin{align*}
+\bar{J} &= \bar{x}_1 \wedge m_1\dot{\bar{x}}_1 + \bar{x}_2 \wedge m_2\dot{\bar{x}}_2
+\end{align*}
+Now
+\begin{align*}
+M\bar{X}\wedge\dot{\bar{X}}
+&= (m_1+m_2)\frac{1}{m_1+m_2}(m_1\bar{x}_1+m_2\bar{x}_2)
+\wedge\frac{1}{m_1+m_2}(m_1\dot{\bar{x}}_1+m_2\dot{\bar{x}}_2) \\
+&= \frac{1}{m_1+m_2}(m_1\bar{x}_1+m_2\bar{x}_2)
+\wedge(m_1\dot{\bar{x}}_1+m_2\dot{\bar{x}}_2) \\
+&= \frac{1}{m_1+m_2}\left[
+m_1^2\bar{x}_1\wedge\dot{\bar{x}}_1
++m_2^2\bar{x}_2\wedge\dot{\bar{x}}_2
++m_1m_2\bar{x}_1\wedge\dot{\bar{x}}_2
++m_1m_2\bar{x}_2\wedge\dot{\bar{x}}_1
+\right]
+\end{align*}
+Hence:
+\begin{align*}
+\bar{J}-M\bar{X}\wedge\dot{\bar{X}}
+&=
+\left[
+m_1\bar{x}_1\wedge\dot{\bar{x}}_1
++m_2\bar{x}_2\wedge\dot{\bar{x}}_2
+\right] \\
+&\quad-\frac{1}{m_1+m_2}\left[
+m_1^2\bar{x}_1\wedge\dot{\bar{x}}_1
++m_2^2\bar{x}_2\wedge\dot{\bar{x}}_2
++m_1m_2\bar{x}_1\wedge\dot{\bar{x}}_2
++m_1m_2\bar{x}_2\wedge\dot{\bar{x}}_1
+\right] \\
+&=
+\frac{m_1m_2}{m_1+m_2}\left[
+\bar{x}_1\wedge\dot{\bar{x}}_1
++\bar{x}_2\wedge\dot{\bar{x}}_2
+-\bar{x}_1\wedge\dot{\bar{x}}_2
+-\bar{x}_2\wedge\dot{\bar{x}}_1
+\right] \\
+&=
+\frac{m_1m_2}{m_1+m_2}
+(\bar{x}_2-\bar{x}_1)\wedge
+(\dot{\bar{x}}_2-\dot{\bar{x}}_1) \\
+&= \mu\bar{r}\wedge\dot{\bar{r}}
+\end{align*}
+Hence:
+\begin{align*}
+\bar{J}=M\bar{X}\wedge\dot{\bar{X}}+\mu\bar{r}\wedge\dot{\bar{r}}
+\end{align*}
 
 \end{document}
