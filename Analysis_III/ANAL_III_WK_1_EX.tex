@@ -1,0 +1,159 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Provides \mathbb and other symbols
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}  % For colored boxes
+\usepackage[table]{xcolor} % For coloring table cells
+\usepackage{array}         % For better table alignment
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage[margin=2.5cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{\fill}
+{\Huge Analysis III} \\[0.5cm]
+{\Huge Home Work 1}\\[1.5cm]
+{\Large Student: 26-712-224}\\[0.5cm]
+{\Large \today}
+\vspace*{\fill}
+\end{titlepage}
+
+\newpage
+\section*{Exercise 1 (Analysis II Recap, 1+1+1 P.)}
+Let $I=[a;b]$ be a compact interval in $\mathbb{R}$.
+\begin{enumerate}[label=(\alph*)]
+\item Explain the following statement: ``The inclusion
+\begin{align*}
+T(I,\mathbb{R}) \subseteq S(I,\mathbb{R})
+\end{align*}
+is dense with respect to the supremum-norm.'' In particular, define the spaces $T(I,\mathbb{R})$ and $S(I,\mathbb{R})$ and the supremum-norm. (See Chapters 6 and 7 in the script.)
+\item Explain briefly how the above can be used to define the (Riemann) integral
+\begin{align*}
+\int_a^b f(x)dx
+\end{align*}
+for any $f\in S(I,\mathbb{R})$.
+\item Construct a sequence of functions in $T(I,\mathbb{R})$ converging uniformly to $f(x)=x$ on $I=[0;1]$. (You do not have to prove the uniform convergence.)
+\end{enumerate}
+
+\newpage
+\section*{Exercise 2 (Null sets, 3+4 P.)}
+In this exercise we show that two sets are Lebesgue null.
+\begin{enumerate}[label=(\alph*)]
+\item Let $N=\mathbb{R}^{n-1}\times\{0\}\subset\mathbb{R}^n$. Using a similar strategy as in Example 11.1.4 (3) in the script, show that $N$ is a set of measure zero.
+\item Denote by
+\begin{align*}
+S^1=\{x\in\mathbb{R}^2:|x|=1\}
+\end{align*}
+the unit circle in $\mathbb{R}^2$. For $m\in\mathbb{N}$, take $x_1,\ldots,x_m$ to be $m$ equidistantly placed points on $S^1$. Using squares of equal sizes centered at these points and eventually sending $m\to+\infty$, show that $S^1$ is a set of measure zero.
+
+\textit{Hint:} How large must these squares be so that they cover the circle? You may use without proof that the distance between two points on $S^1$ is at most as large as the angle between them.
+\end{enumerate}
+ANSWER:\\
+(a) $N=R^{(n-1)} \times \{0\}$ and now wish to show that this set in $R^n$ has measure zero.\\
+\\
+Given $\epsilon > 0$ consider the sequence of \textbf{open} and \textbf{bounded} intervals:
+$$U_m := (-m, m) \times (-m, m) \times ... \times (-m, m) \times (-\frac{\epsilon}{2^m(2m)^{(n-1)}}, \frac{\epsilon}{2^ms(2m)^{(n-1)}}) $$
+where there are $(n-1)$ terms of the form $(-m, m)$.  Then it is clear that we have an open cover for $N$:
+\begin{align*}
+N \subset \bigcup_{m=1}^{\infty} U_m \tag{2.1}
+\end{align*}
+We can easily compute the Lebesgue measure for each $U_m$ as:
+\begin{align*}
+\lambda_n (U_m) = (2m)^{(n-1)} \frac{\epsilon}{2^m(2m)^{(n-1)}} = \frac{\epsilon}{2^m} \tag{2.1}
+\end{align*}
+From which we conclude that:
+\begin{align*}
+\lambda_n (N) &\le \sum_{m=1}^{\infty} \lambda_n(U_m) \\
+  &\le \sum_{m=1}^{\infty} \frac{\epsilon}{2^m} \\
+  &\le \epsilon
+\end{align*}
+As $\epsilon$ is arbitatrary we can conclude that $N$ is a set of measure zero (in $\mathbb{R}^n$).
+
+\newpage
+\noindent
+(b) We will denote the set of points that comprise the boundary of the unit circle $S^1$ by $\partial S$.\\
+\\
+Consider the diagram below showing the $m$ points $p_1, p_2,..., p_m$ that are equally spaced on the circumference of the circle.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{Diagrams/ANAL_III_WK_1_Q2.png}
+\caption{Circle construction}
+\end{figure}
+The angle, extended from the centre of the circle, to each consecutive point on the circumference is $\theta = \frac{2 \pi}{m}$.  Now, for $m>4$ we have that $h > x$ and also that $h < \frac{2 \pi}{m}$ - which is the arc-length between 
+any two neighbouring points on the circle's circumference.\\
+Consequently, the point $p_i$ can be contained in an \textbf{open} square of side length $2h =  \frac{4 \pi}{m}$, and we can refer to this open square as $S_i$.\\
+It should be clear that the Lebesgue measure of each such set is: $\lambda_2(S_i) = (2h)^2 = \frac{16 \pi^2}{m^2}$.\\
+\\
+The $m$ squares $(S_i)_{i=1}^m$ - which are \textbf{open} and \textbf{bounded} - overlap and completely cover the boundary, $\partial S$.  Hence:
+\begin{align*}
+\partial S \subset \bigcup_{i=1}^{\infty} S_i \tag{2.3}
+\end{align*}
+Hence, we can obtain an upper measure for the set $\partial S$ from:
+\begin{align*}
+\lambda_2 (\partial S) &\le \sum_{i=1}^{m} \lambda_2(S_i) \\
+  &\le \sum_{m=1}^{\infty} \frac{16 \pi^2}{m^2} \\
+  &\le \frac{16 \pi^2}{m} \tag{2.4}
+\end{align*}
+Given any $\epsilon > 0$ we can find an integer $M \in \mathbb{N}$ such that $M > \frac{16 \pi^2}{\epsilon}$ for which (2.4) is smaller then $\epsilon$
+and we can conclude that, in $\mathbb{R}^2$, the set $\partial S$ has measure zero.
+\newpage
+\section*{Exercise 3 (Cantor set)}
+Recall the definition of the Cantor set $C=\bigcap_{n\in\mathbb{N}}C_n$ from Example 11.1.7 in the script: We define $C_0=[0;1]$ and proceed iteratively defining $C_{n+1}$ from $C_n$ by removing the middle third from every interval. Prove that
+\begin{align*}
+C=\left\{\sum_{n=1}^{+\infty}a_n3^{-n}:a_n\in\{0,2\}\text{ for every }n\right\}.
+\end{align*}
+\textit{Hint:} You may use without proof that
+\begin{align*}
+[0;1]=\left\{\sum_{n=1}^{+\infty}a_n3^{-n}:a_n\in\{0,1,2\}\text{ for every }n\right\}.
+\end{align*}
+
+\newpage
+\section*{Exercise 4 (Equivalent definition of null sets)}
+Let $A\subset\mathbb{R}^n$. Show that $A$ is a Lebesgue null set if and only if there exists a sequence of $(n$-dimensional) open intervals $(I_k)_{k\in\mathbb{N}}$ (in the sense of Definition 11.1.1) so that
+\begin{align*}
+\sum_{k\in\mathbb{N}}\lambda_n(I_k)<+\infty
+\end{align*}
+and with the property that every $x\in A$ is contained in infinitely many $I_k$'s.
+
+\newpage
+\section*{Exercise 5 (Jordan null sets)}
+Let $A\subset\mathbb{R}^n$. We say that $A$ is a \textit{Jordan null set} if for any $\varepsilon>0$ there exist finitely many $(n$-dimensional) open intervals $I_1,\ldots,I_m$ with the property
+\begin{align*}
+\sum_{k=1}^{m}\lambda_n(I_k)<\varepsilon
+\qquad\text{and}\qquad
+A\subset\bigcup_{k=1}^{m}I_k.
+\end{align*}
+Observe that by definition every Jordan null set is also Lebesgue null.
+\begin{enumerate}[label=(\alph*)]
+\item Show that any Jordan null set is necessarily bounded.
+\item Give an example of an uncountable Jordan null set in $\mathbb{R}^2$.
+\item Give an example of a Lebesgue null set in $\mathbb{R}$ that is \textit{not} a Jordan null set.
+\end{enumerate}
+
+\newpage
+\section*{Exercise 6 (Dini's Theorem)}
+Let $M=[a;b]$ be a compact interval (or, more generally a compact set). Given is a sequence of continuous functions
+\begin{align*}
+f_n:M\to\mathbb{R}
+\end{align*}
+that is decreasing, i.e. for every $n\in\mathbb{N}$ and $x\in M$ we have $f_n(x)\geq f_{n+1}(x)$. Assume moreover that there is another continuous function $f:M\to\mathbb{R}$ so that $f_n\to f$ pointwise.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $f_n\to f$ uniformly. In order to do this, consider the sets
+\begin{align*}
+E_n=\{x\in M:f_n(x)-f(x)<\varepsilon\},\qquad n\in\mathbb{N}
+\end{align*}
+and use compactness.
+\item Show that the continuity of $f$ is necessary.
+\end{enumerate}
+\end{document}
