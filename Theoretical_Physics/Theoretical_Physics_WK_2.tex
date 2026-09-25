@@ -1,0 +1,191 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Provides \mathbb and other symbols
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}  % For colored boxes
+\usepackage[table]{xcolor} % For coloring table cells
+\usepackage{array}         % For better table alignment
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage{amsmath,amssymb}
+
+% Set the top margin
+\geometry{top=1in} % You can adjust the measurement as needed
+
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{\fill} % Adds vertical space to center the title block vertically
+
+{\Huge Theoretical Physics for Mathematicians} \\[0.5cm] % Title 2
+{\Huge Home Work 2}\\[1.5cm] % Title 3
+{\Large Student: 26-712-224}\\[0.5cm] % Student ID
+{\Large \today} % Date, \today adds today's date
+
+\vspace*{\fill}
+\end{titlepage}
+\newpage
+\noindent
+
+\section*{Question 1 - \(\star\) Hamilton's Principle: The Euler--Lagrange equations and their invariances}
+Let \(L=L(q,\dot q;t)\) be smooth and let
+\begin{align*}
+S[q]=\int_{t_0}^{t_1}L(q(t),\dot q(t);t)\,dt.
+\end{align*}
+
+\begin{enumerate}
+\item[(a)] \textbf{(Fundamental lemma).}
+Let \(F:[t_0,t_1]\to\mathbb{R}^f\) be continuous and suppose
+\begin{align*}
+\int_{t_0}^{t_1}F_a(t)\eta^a(t)\,dt=0
+\end{align*}
+for every smooth \(\eta\) with compact support in \((t_0,t_1)\).
+Prove that \(F=0\).
+\textit{Hint: if \(F_a(t_*)\neq 0\) for some \(t_*\) and some index \(a\),
+construct a bump function concentrated near \(t_*\).}
+
+\item[(b)] Compute the first variation
+\begin{align*}
+\delta S[q](\eta)
+=
+\left.
+\frac{d}{d\epsilon}S[q+\epsilon\eta]
+\right|_{\epsilon=0}
+\end{align*}
+for variations with \(\eta(t_0)=\eta(t_1)=0\), and deduce from (a) that
+\(\delta S=0\) is equivalent to the Euler--Lagrange equations.
+
+\item[(c)] Let \(F=F(q,t)\) be smooth and set
+\begin{align*}
+L'
+=
+L+\frac{d}{dt}F(q,t),
+\qquad\text{i.e.}\qquad
+L'
+=
+L+\frac{\partial F}{\partial q^a}\dot q^a
++\frac{\partial F}{\partial t}.
+\end{align*}
+Show that \(L\) and \(L'\) have exactly the same Euler--Lagrange equations.
+How do the actions \(S\) and \(S'\) differ?
+
+\item[(d)] \textbf{(Coordinate invariance).}
+Let \(q=q(Q)\) be a diffeomorphic change of generalized coordinates and let
+\begin{align*}
+\widetilde L(Q,\dot Q;t)
+=
+L\left(q(Q),\frac{\partial q}{\partial Q}\dot Q;t\right).
+\end{align*}
+Prove the identity
+\begin{align*}
+\frac{d}{dt}\frac{\partial\widetilde L}{\partial \dot Q^b}
+-
+\frac{\partial\widetilde L}{\partial Q^b}
+=
+\frac{\partial q^a}{\partial Q^b}
+\left(
+\frac{d}{dt}\frac{\partial L}{\partial\dot q^a}
+-
+\frac{\partial L}{\partial q^a}
+\right),
+\end{align*}
+and conclude that the Euler--Lagrange equations are coordinate independent.
+Why does the Cartesian component form \(m\ddot x^a=F^a\) acquire connection
+terms in curvilinear coordinates?
+\end{enumerate}
+
+\newpage
+\noindent
+Answer: \\
+\\
+
+\newpage
+\noindent
+\section*{Question 1 - \(\star\) Oscillator and pendulum, with and without multipliers}
+\begin{enumerate}
+\item[(a)] For
+\begin{align*}
+L=\frac12 m\dot q^2-\frac12 kq^2
+\end{align*}
+derive the equation of motion and its general solution, compute
+\begin{align*}
+E_L
+=
+\dot q\frac{\partial L}{\partial\dot q}-L
+\end{align*}
+and verify directly that \(\dot E_L=0\) on solutions of the Euler--Lagrange
+equation.
+
+\item[(b)] For the plane pendulum of length \(\ell\) use the angle \(\theta\)
+(measured from the downward vertical) to derive
+\begin{align*}
+\ddot\theta+\frac{g}{\ell}\sin\theta=0.
+\end{align*}
+Determine the small-oscillation frequency, and show that energy conservation
+reduces the problem to the quadrature
+\begin{align*}
+\dot\theta^2
+=
+\frac{2g}{\ell}
+\left(
+\cos\theta-\cos\theta_0
+\right),
+\end{align*}
+where \(0<\theta_0<\pi\) is the amplitude of a libration.
+Deduce the exact period as an integral and check that it tends to
+\(2\pi\sqrt{\ell/g}\) as \(\theta_0\to0\).
+
+\item[(c)] Treat the same pendulum in \(\mathbb{R}^2\) with the constraint
+\begin{align*}
+G(x,y)=x^2+y^2-\ell^2=0
+\end{align*}
+and
+\begin{align*}
+L=\frac12 m(\dot x^2+\dot y^2)-mgy.
+\end{align*}
+Write down the multiplier equations, and determine \(\lambda\) explicitly
+as a function of \((x,y,\dot x,\dot y)\).
+
+\item[(d)] Write the constraint force as
+\begin{align*}
+\vec F_{\mathrm{constraint}}
+=
+-\mathcal{T}\,\hat e_r,
+\end{align*}
+where
+\begin{align*}
+\hat e_r=(\sin\theta,-\cos\theta)
+\end{align*}
+points outwards.
+Show that the signed inward tension is
+\begin{align*}
+\mathcal{T}
+=
+m\left(g\cos\theta+\ell\dot\theta^2\right),
+\qquad
+\left|\vec F_{\mathrm{constraint}}\right|
+=
+|\mathcal{T}|.
+\end{align*}
+
+Explain the distinction between a rigid rod, which can exert compression,
+and a taut string.
+Confirm that (c) reproduces the equation of motion of (b).
+\end{enumerate}
+
+\newpage
+\noindent
+Answer: \\
+\\
+
+\end{document}
