@@ -68,7 +68,7 @@ Union condition: Let $(U_i = (-\infty, a_i))_{i \in I}$ be a collection of open 
  &= \bigcup_{i \in I} (-\infty, a_i) \tag{1.1}
 \end{align*}
 In (1.1) if \underline{any} $U_i = (-\infty, \infty)$ then, clearly: $J=(-\infty, \infty) \in \mathcal{U}$. If all $a_i < \infty$, then consider
-the set $A=\{a_i\;|\;i \in I\} \subset \mathbb{R}$.  Let $a = Sup(A) \in \mathbb{R}$ (note: $a=\infty$ possible). Then it should be clear that: $J=(-\infty, a) \in \mathcal{U}$.\\
+the set $A=\{a_i\;|\;i \in I\} \subset \mathbb{R}$.  Let $a = Sup(A) \in (\mathbb{R} \cup \infty)$ (as: $a=\infty$ possible). Then it should be clear that: $J=(-\infty, a) \in \mathcal{U}$.\\
 Hence the union of any collection of elements from $\mathcal{U}$ is again in $\mathcal{U}$.\\
 \\
 Intersection condition: Let $(U_i = (-\infty, a_i))_{i=1}^m$ be a finite collection of open sets from $\mathcal{U}$.  In this case let: $a=min_i(a_i)$.\\
@@ -174,7 +174,9 @@ The black "blob" in the graph is the point $(x, f(x))$.
 \newpage
 \noindent
 To prove continuity of such a function using the $(\mathbb{R},\mathcal{U})$ topology we just need to show that if we take any $B \in \mathcal{U}$,
-then $f^{-1}(B) \in \mathcal{U}$.
+then $f^{-1}(B) \in \mathcal{U}$.\\
+\\
+\textcolor{red}{I am at a loss as to the next step!}
 
 \newpage
 \noindent
@@ -258,6 +260,8 @@ continuous; however, the image of every converging sequence converges
 \vspace{1cm}
 \underline{Answer:}\\
 \\
+Note: I use $\mathcal{U}$ for $\mathcal{U}_{cocountable}$.\\
+\\
 (i) Let
 \begin{align*}
 B \subset \mathcal{U}
@@ -284,7 +288,7 @@ As:
 \begin{align*}
 C=X \setminus (X \setminus C)
 \end{align*}
-it is clear that $X \setminus C$ is open and hence $(X-C) \in \mathcal{U}$.\\
+It is clear that $X \setminus C$ is open and hence $(X-C) \in \mathcal{U}$.\\
 But, from the definition of a base for $\mathcal{U}$, there is an index $I\subset\mathbb{N}$ s.t
 \begin{align*}
 X \setminus C=\bigcup_{i\in I} b_i
@@ -292,5 +296,41 @@ X \setminus C=\bigcup_{i\in I} b_i
 This is a contradiction as $X \setminus C$ does not contain the $(c_i)_{i\in I}$.\\
 \qed\\
 \\
-(ii)
+(ii) Let $x_n \to x$. Then for any $U \in \mathcal{U}, \;\;\; \exists N \in \mathbb{N}$ s.t.:,
+\begin{align*}
+ x_n \in U,\ \forall n>N \quad \& \quad x\in U
+\end{align*}
+Assume that $(x_n)$ never stabilizes to $x$. \\
+Let:
+\begin{align*}
+D=\{x_n \mid x_n\neq x\}
+\end{align*}
+and $D$ is countably infinite.\\
+Hence: $(X \setminus D)\in\mathcal{U}$, i.e. we have found an
+open set in $\mathcal{U}$ s.t.
+\begin{align*}
+x\in(X \setminus D)\in\mathcal{U}
+\end{align*}
+but, by the definition of $D$:
+\begin{align*}
+\nexists N\in\mathbb{N}\text{ s.t.}
+\end{align*}
+\begin{align*}
+x_n\in (X \setminus D) \qquad \forall n>N
+\end{align*}
+Contradiction. Hence $x_n$ must stabilize to $x$ at
+some finite $n\in\mathbb{N}$.\\
+\qed \\
+\\
+(iii) The identity function: $f: (\mathbb{R}, \mathcal{U}) \to (\mathbb{R}, \mathcal{U}_{\mathbb{R}})$, where $f(x)=x$, with the
+two given topologies is not continuous.\\
+\\
+To demonstrate this we can take an open set in $\mathcal{U}_{\mathbb{R}}$ and show that its inverse
+image is NOT an open set in $\mathcal{U}$.\\
+\\
+Take $(0,1) \in \mathcal{U}_{\mathbb{R}}$, clearly $f^{-1}((0,1)) = (0,1)$.
+However, $\mathbb{R} \setminus (0,1)$ is not a countable set - and hence not open in $\mathcal{U}$.\\
+\qed
+
+
 \end{document}
