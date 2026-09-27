@@ -111,8 +111,8 @@ Answer: \\
 (a) Let us assume that $F_a(t_*) > 0$ for some $t_*$ - it makes no difference if it would be negative in the argument.
 As $F$ is continuous there is an interval $[t_* - \delta, t_* + \delta]$ for which $F(t) > 0, \forall t \in [t_* - \delta, t_* + \delta]$.\\
 Now consider the "smooth" function (i.e. infinitely differentiable) given by:
-$$ \eta^a(t) = 2 + \sin\left[-\pi/2 + 2 \pi \frac{(t - t_* + \delta)}{2 \delta}\right], \;\; t \in [t_* - \delta, t_* + \delta]$$
-Then $\eta^a(t) > 0$ on the same interval that $F_a(t)>0$ and zero elsewhere - hence their product is greater than zero on $[t_* - \delta, t_* + \delta]$ and 
+$$ \eta^a(t) = 1 + \sin\left[-\pi/2 + \pi \frac{(t - t_* + \delta)}{\delta}\right], \;\; t \in [t_* - \delta, t_* + \delta]$$
+and zero elsewhere.  Then $\eta^a(t) > 0$ on the same interval that $F_a(t)>0$ and zero elsewhere - hence their product is greater than zero on $[t_* - \delta, t_* + \delta]$ and 
 zero elsewhere.  Hence, for:
 \begin{align*}
 \int_{t_0}^{t_1} F_a(t) \eta^a(t) dt = 0 \;\; \text{for every smooth $\eta^a$ with compact support}
@@ -237,7 +237,7 @@ L' &= L+\frac{\partial F}{\partial q^a}\dot q^a
 \Rightarrow\quad
 \frac{\partial L'}{\partial q^a}
 &= \frac{\partial L}{\partial q^a}
- +\frac{\partial^2F}{\partial(q^a)^2}\dot q^a
+ +\frac{\partial^2F}{\partial q^a \partial q^b}\dot q^a
  +\frac{\partial^2 F}{\partial q^a \partial t}.
 \end{align*}
 We also have that:
@@ -253,21 +253,21 @@ We also have that:
 For the last term in (***):
 \begin{align*}
 \frac{d}{dt}\left(\frac{\partial F}{\partial q^a}\right)
-&= \frac{\partial^2F}{\partial(q^a)^2}\dot q^a
+&= \frac{\partial^2F}{\partial q^a \partial q^b}\dot q^b
  +\frac{\partial}{\partial t}
   \left(\frac{\partial F}{\partial q^a}\right) \\
-&= \frac{\partial^2F}{\partial(q^a)^2}\dot q^a
+&= \frac{\partial^2F}{\partial q^a \partial q^b}\dot q^b
  +\frac{\partial^2 F}{\partial t \partial q^a}
 \end{align*}
-Now the order of the 2nd order partials is not relevant (as $F$ is smooth) and hence:
+Now the derivative order of the 2nd order partials is not relevant (as $F$ is smooth) and hence:
 \begin{align*}
 \frac{d}{dt}\left(\frac{\partial L'}{\partial\dot q^a}\right)
 &= \boxed{\textcolor{red}{
    \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q^a}\right)}}
- +\frac{\partial^2F}{\partial(q^a)^2}\dot q^a
+ +\frac{\partial^2F}{\partial q^a \partial q^b}\dot q^b
  +\frac{\partial^2F}{\partial t\,\partial q^a}\\
 &= \boxed{\textcolor{red}{\frac{\partial L}{\partial q^a}}}
- +\frac{\partial^2F}{\partial(q^a)^2}\dot q^a
+ +\frac{\partial^2F}{\partial q^a \partial q^b}\dot q^b
  +\frac{\partial^2F}{\partial q^a\,\partial t} \\
 &= \frac{\partial L'}{\partial q^a}
 \end{align*}
