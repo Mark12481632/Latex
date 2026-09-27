@@ -108,10 +108,185 @@ terms in curvilinear coordinates?
 \noindent
 Answer: \\
 \\
+(a) Let us assume that $F_a(t_*) > 0$ for some $t_*$ - it makes no difference if it would be negative in the argument.
+As $F$ is continuous there is an interval $[t_* - \delta, t_* + \delta]$ for which $F(t) > 0, \forall t \in [t_* - \delta, t_* + \delta]$.\\
+Now consider the "smooth" function (i.e. infinitely differentiable) given by:
+$$ \eta^a(t) = 2 + \sin\left[-\pi/2 + 2 \pi \frac{(t - t_* + \delta)}{2 \delta}\right], \;\; t \in [t_* - \delta, t_* + \delta]$$
+Then $\eta^a(t) > 0$ on the same interval that $F_a(t)>0$ and zero elsewhere - hence their product is greater than zero on $[t_* - \delta, t_* + \delta]$ and 
+zero elsewhere.  Hence, for:
+\begin{align*}
+\int_{t_0}^{t_1} F_a(t) \eta^a(t) dt = 0 \;\; \text{for every smooth $\eta^a$ with compact support}
+\end{align*}
+we must conslude that $F_a(t) = 0$ on $(t_0, t_1)$\\
+\\
+(b)\\
+\begin{align*}
+S[q] := \int_{t_0}^{t_1} L(q,\dot q,t)\,dt
+\end{align*}
+Let $\eta$ be a perturbation of $q$ s.t. $\eta(t_0)=\eta(t_1)=0$. \\
+Then:
+\begin{align*}
+S[q+\epsilon\eta]
+  &= \int_{t_0}^{t_1}
+     L(q+\epsilon\eta,\dot q+\epsilon\dot\eta,t)\,dt,\\
+\Rightarrow\quad
+\frac{dS}{d\epsilon}
+  &= \int_{t_0}^{t_1}
+     \frac{d}{d\epsilon}
+     L(q+\epsilon\eta,\dot q+\epsilon\dot\eta,t)\,dt.
+     \tag{*}
+\end{align*}
+Now
+\begin{align*}
+\frac{d}{d\epsilon}
+L(q+\epsilon\eta,\dot q+\epsilon\dot\eta,t)
+=
+\frac{\partial}{\partial q}L(q+\epsilon\eta,\dot q+\epsilon\dot\eta,t) \eta
++
+\frac{\partial}{\partial\dot q}L(q+\epsilon\eta,\dot q+\epsilon\dot\eta,t) \dot\eta.
+\end{align*}
+So, (*) becomes:
+\begin{align*}
+\frac{dS}{d\epsilon}
+&=
+\int_{t_0}^{t_1}
+\left(\frac{\partial}{\partial q}L(q+\epsilon\eta,\dot q+\epsilon\dot\eta,t) \eta
++
+\frac{\partial}{\partial\dot q}
+L(q+\epsilon\eta,\dot q+\epsilon\dot\eta,t)\dot\eta
+\right) \\
+\implies \left. \frac{dS}{d\epsilon} \right|_{\epsilon=0} &=
+\int_{t_0}^{t_1}
+\left(\frac{\partial}{\partial q}L(q,\dot q,t) \eta
++
+\frac{\partial}{\partial\dot q}
+L(q,\dot q,t)\dot\eta
+\right)
+\tag{**}
+\end{align*}
+Integrating by parts:
+\begin{align*}
+\int_{t_0}^{t_1}
+\frac{\partial L}{\partial\dot q}\dot\eta\,dt
+=
+\left[
+\frac{\partial L}{\partial\dot q}\eta
+\right]_{t_0}^{t_1}
+-
+\int_{t_0}^{t_1}
+\frac{d}{dt}
+\left(\frac{\partial L}{\partial\dot q}\right)\eta\,dt.
+\end{align*}
 
 \newpage
 \noindent
-\section*{Question 1 - \(\star\) Oscillator and pendulum, with and without multipliers}
+Now $\left[\frac{\partial L}{\partial\dot q}\eta
+\right]_{t_0}^{t_1} = 0$, since: $\eta(t_0)=\eta(t_1)=0$.
+So, (**) becomes:
+\begin{align*}
+\left.\frac{dS}{d\epsilon}\right|_{\epsilon=0}
+&=
+\int_{t_0}^{t_1}
+\left(
+\frac{\partial L}{\partial q}\eta
+-
+\frac{d}{dt}
+\left(\frac{\partial L}{\partial\dot q}\right)\eta \right)
+dt\\
+&=
+\int_{t_0}^{t_1}
+\left(
+\frac{\partial L}{\partial q}
+-
+\frac{d}{dt}
+\left(\frac{\partial L}{\partial\dot q}\right)
+\right)\eta\,dt.
+\end{align*}
+Now, by assumption:
+\begin{align*}
+\left.\frac{dS}{d\epsilon}\right|_{\epsilon=0}
+=
+\delta S
+=
+\int_{t_0}^{t_1}
+\left(
+\frac{\partial L}{\partial q}
+-
+\frac{d}{dt}
+\left(\frac{\partial L}{\partial\dot q}\right)
+\right)\eta\,dt
+=
+0.
+\end{align*}
+Now $\eta$ is an arbitrary ``perturbation'' -- so use
+part (a) of this question to conclude that
+\begin{align*}
+\frac{\partial L}{\partial q}
+-
+\frac{d}{dt}
+\left(\frac{\partial L}{\partial\dot q}\right)
+=
+0.
+\end{align*}
+\qed \\
+\\
+(c) We are given $F=F(q, t)$ such that:
+\begin{align*}
+L' &= L+\frac{\partial F}{\partial q^a}\dot q^a
+       +\frac{\partial F}{\partial t}\\
+\Rightarrow\quad
+\frac{\partial L'}{\partial q^a}
+&= \frac{\partial L}{\partial q^a}
+ +\frac{\partial^2F}{\partial(q^a)^2}\dot q^a
+ +\frac{\partial^2 F}{\partial q^a \partial t}.
+\end{align*}
+We also have that:
+\begin{align*}
+\frac{\partial L'}{\partial\dot q^a}
+&= \frac{\partial L}{\partial\dot q^a}
+ +\frac{\partial F}{\partial q^a}\\
+\Rightarrow\quad
+\frac{d}{dt}\left(\frac{\partial L'}{\partial\dot q^a}\right)
+&= \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q^a}\right)
+ +\frac{d}{dt}\left(\frac{\partial F}{\partial q^a}\right) \tag{***}
+\end{align*}
+For the last term in (***):
+\begin{align*}
+\frac{d}{dt}\left(\frac{\partial F}{\partial q^a}\right)
+&= \frac{\partial^2F}{\partial(q^a)^2}\dot q^a
+ +\frac{\partial}{\partial t}
+  \left(\frac{\partial F}{\partial q^a}\right) \\
+&= \frac{\partial^2F}{\partial(q^a)^2}\dot q^a
+ +\frac{\partial^2 F}{\partial t \partial q^a}
+\end{align*}
+Now the order of the 2nd order partials is not relevant (as $F$ is smooth) and hence:
+\begin{align*}
+\frac{d}{dt}\left(\frac{\partial L'}{\partial\dot q^a}\right)
+&= \boxed{\textcolor{red}{
+   \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q^a}\right)}}
+ +\frac{\partial^2F}{\partial(q^a)^2}\dot q^a
+ +\frac{\partial^2F}{\partial t\,\partial q^a}\\
+&= \boxed{\textcolor{red}{\frac{\partial L}{\partial q^a}}}
+ +\frac{\partial^2F}{\partial(q^a)^2}\dot q^a
+ +\frac{\partial^2F}{\partial q^a\,\partial t} \\
+&= \frac{\partial L'}{\partial q^a}
+\end{align*}
+The middle line follows as $L$ satisfies the Langrange equation and the two terms in red boxes
+are equal. \\
+\\
+If we consider the action for these two Langrangians for the same path ($q$):
+\begin{align*}
+S[q] &= \int_{t_0}^{t_1} L(q, \dot{q}, t) \; dt \\
+S'[q] &=  \int_{t_0}^{t_1} L(q, \dot{q}, t) + \frac{dF}{dt} \; dt \\
+      &= \int_{t_0}^{t_1} L(q, \dot{q}, t) \; dt + F(q(t_1), t_1) - F(q(t_0), t_0) \\
+      &= S[q] + F(q(t_1), t_1) - F(q(t_0), t_0)
+\end{align*}
+\\
+(d)
+
+\newpage
+\noindent
+\section*{Question 2 - \(\star\) Oscillator and pendulum, with and without multipliers}
 \begin{enumerate}
 \item[(a)] For
 \begin{align*}
@@ -187,5 +362,139 @@ Confirm that (c) reproduces the equation of motion of (b).
 \noindent
 Answer: \\
 \\
+(a) \begin{align*}
+L &= \frac{1}{2}m\dot{q}^{\,2}-\frac{1}{2}kq^2\\
+\Rightarrow\quad \frac{\partial L}{\partial \dot{q}} &= m\dot{q}\\
+\Rightarrow\quad E_L &= \dot{q}\frac{\partial L}{\partial \dot{q}}-L\\
+&= \dot{q}(m\dot{q})-\left[\frac{1}{2}m\dot{q}^{\,2}+\frac{1}{2}kq^2\right]\\
+&= \frac{1}{2}m\dot{q}^{\,2}+\frac{1}{2}kq^2
+\end{align*}
+But this is The total energy of The System - which
+for an isolated system must be constant.  Indeed:
+\begin{align*}
+\dot{E}_L &= m \dot{q} \ddot{q} + kq \dot{q} \\
+&= \dot{q} [m \ddot{q} + kq] \\
+&= 0 \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(from E-L equations)}
+\end{align*}
+(b) For The pendulum we have:
+\begin{align*}
+\text{k.e. of pendulum} &= \frac{1}{2}mv^2
+= \frac{1}{2}ml^2\dot{\theta}^2\\
+\text{p.e. of pendulum} &= mlg(1-\cos\theta)
+\end{align*}
+Here: p.e = 0 at bottom of pendulum swing. \\
+Only 1 degree of freedom: $\theta$
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.35\textwidth]{Diagrams/Theoretical_Physics_WK_2_Q2.png}
+\caption{Simple Pendulum}
+\end{figure}
+The Lagrangian is:
+\begin{align*}
+L=\frac{1}{2}ml^2\dot{\theta}^2-mlg(1-\cos\theta)
+\end{align*}
+Lagrange's dynamical eqn is then:
+\begin{align*}
+\frac{d}{dt}\frac{\partial L}{\partial\dot{\theta}}
+&=\frac{\partial L}{\partial\theta}\\
+\Rightarrow\quad
+\frac{d}{dt}\left(ml^2\dot{\theta}\right)
+&=-mlg\sin\theta\\
+\Rightarrow\quad
+ml^2\ddot{\theta}
+&=-mlg\sin\theta\\
+\Rightarrow\quad
+\ddot{\theta}+\frac{g}{l}\sin\theta
+&=0 \tag{2.1}
+\end{align*}
+For \textbf{small oscillations} $\theta$ is small $\implies \sin(\theta) = \theta$, then (2.1) becomes:
+\begin{align*}
+\ddot{\theta} = - \frac{g}{l}\theta \tag{2.2}
+\end{align*}
+Under such motion, the frequency is given by: $\omega = \sqrt{\frac{g}{l}}$.\\
+\\
+For energy conservation - given by $E_L$, we have that:
+\begin{align*}
+E_L &= \dot{\theta}\frac{\partial L}{\partial\dot{\theta}}-L\\
+&= \dot{\theta}\left[ml^2\dot{\theta}\right]-\left[\frac{1}{2}ml^2\dot{\theta}^2-mlg(1-\cos\theta)\right]\\
+&= \frac{1}{2}ml^2\dot{\theta}^2+mlg(1-\cos\theta).\tag{2.3}
+\end{align*}
+We know that at $\theta=\theta_0$ (max amplitude) all energy is potential energy (hence $\dot{\theta}=0$). Hence (2.3) becomes
+\begin{align*}
+mgl(1-\cos\theta_0)&=\frac{1}{2}ml^2\dot{\theta}^2+mlg(1-\cos\theta)\\
+\Rightarrow\quad \frac{1}{2}ml^2\dot{\theta}^2&=mlg(\cos\theta-\cos\theta_0)\\
+\Rightarrow\quad \dot{\theta}^2&=\frac{2g}{l}(\cos\theta-\cos\theta_0) \tag{2.4}
+\end{align*}
+\\
+Here we consider determining the period of motion from (2.4). 
+\begin{align*}
+\dot{\theta}&=\sqrt{\frac{2g}{L}(\cos\theta-\cos\theta_0)}\\
+\Rightarrow\quad \sqrt{\frac{L}{2g}}\frac{d\theta}{\sqrt{\cos\theta-\cos\theta_0}} & = dt \\
+\Rightarrow\quad\sqrt{\frac{L}{2g}} \int_{-\theta_0}^{\theta_0} \frac{d\theta}{\sqrt{\cos\theta-\cos\theta_0}} & = \int_{0}^\frac{T}{2} dt \tag{2.5}
+\end{align*}
+Where in (2.5) I am integrating over 1/2 period of oscillation, $T/2$, when the pendulum swings from
+$-\theta_0$ to $\theta_0$.
+
+\newpage
+\noindent
+Next, for very small $\theta, \theta_0$, expand $cos(\theta) \approx 1 - \theta^2/2$ and same for $cos(\theta_0)$.  With this equation (2.5)
+becomes:
+\begin{align*}
+\sqrt{\frac{L}{2g}}\int_{-\theta_0}^{\theta_0}
+\frac{d\theta}{\frac{1}{\sqrt{2}}\left(\theta_0^2-\theta^2\right)^{1/2}}
+=\frac{T}{2} \\
+\Rightarrow\quad \sqrt{\frac{L}{g}}\int_{-\theta_0}^{\theta_0}
+\frac{d\theta}{\left(\theta_0^2-\theta^2\right)^{1/2}} \tag{2.6}
+=\frac{T}{2}
+\end{align*}
+The intergal in (2.6) is a standard integral and evaluates to $\left[\arcsin(\frac{\theta}{\theta_0}) \right]_{-\theta_0}^{\theta_0} = \frac{\pi}{2} - (-\frac{\pi}{2}) = \pi$.
+Substituting this into (2.6) gives:
+\begin{align*}
+T = 2\pi\sqrt{\frac{L}{g}}
+\end{align*}
+\\
+(c) To be honest I looked at a video online on how to solve this using Lagrangian Multipliers:
+\href{https://www.youtube.com/watch?v=keMzpa_iWjs&t=809s}{\textbf{Video Link}}.\\
+\\
+We can construct a modified Lagrangian, $K$, that contains both the "usual" Lagrangian, $L$, together with the
+constraint, $G$, and a Lagrangian multiplier, $\lambda(t)$:
+\begin{align*}
+K(x,y,\dot{x},\dot{y}, t) &= L(x,y,\dot{x},\dot{y}, t) + \lambda G(x,y) \\
+&= \frac{1}{2}m(\dot{x}^2 + \dot{y}^2) - mgy + \lambda(x^2 + y^2 -l^2)
+\end{align*}
+We then perform the usual differentiation for both $x$ and $y$ coordinates as we would have
+done for the "usual" Lagrangian:
+\begin{align*}
+ \frac{d}{dt}\frac{\partial K}{\partial \dot{x}} &= \frac{\partial K}{\partial x} \tag{2.7}\\
+ \frac{d}{dt}\frac{\partial K}{\partial \dot{y}} &= \frac{\partial K}{\partial y} \tag{2.8}
+\end{align*}
+And we have the additional equation - from the constraint, that:
+\begin{align*}
+ x^2 + y^2 - l^2 = 0 \tag{2.9}
+\end{align*}
+Evaluating (2.7) and (2.8) we get:
+\begin{align*}
+m\ddot{x} &= 2\lambda x \tag{2.10}\\
+m\ddot{y} &= -mg+2\lambda y \tag{2.11}
+\end{align*}
+From the constraint we have:
+\begin{align*}
+x^2 + y^2 &= l^2 \\
+\implies 2x\dot{x} + 2y\dot{y} &= 0 \\ 
+\implies x\ddot{x} + \dot{x}^2 + y\ddot{y} + \dot{y}^2 &= 0 \\ 
+\implies x\ddot{x} + y\ddot{y} &= -(\dot{x}^2 + \dot{y}^2)
+\end{align*}
+
+\newpage
+\noindent
+Using (2.10), (2.11) and $x^2 + y^2 = l^2$:
+\begin{align*}
+\lambda = \frac{m}{2 l^2}[gy - (\dot{x}^2 + \dot{y}^2)] \tag{2.12}
+\end{align*}
+\\
+(d)
+
+
 
 \end{document}
