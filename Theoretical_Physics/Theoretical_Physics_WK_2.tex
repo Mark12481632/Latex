@@ -109,8 +109,8 @@ terms in curvilinear coordinates?
 Answer: \\
 \\
 (a) Let us assume that $F_a(t_*) > 0$ for some $t_*$ - it makes no difference if it would be negative in the argument.
-As $F$ is continuous there is an interval $[t_* - \delta, t_* + \delta]$ for which $F(t) > 0, \forall t \in [t_* - \delta, t_* + \delta]$.\\
-Now consider the "smooth" function (i.e. infinitely differentiable) given by:
+As $F$ is continuous there is an interval $[t_* - \delta, t_* + \delta]$ for which $F(t) > 0, \forall t \in [t_* - \delta, t_* + \delta]$.
+Now consider the $C^1$ function given by:
 $$ \eta^a(t) = 1 + \sin\left[-\pi/2 + \pi \frac{(t - t_* + \delta)}{\delta}\right], \;\; t \in [t_* - \delta, t_* + \delta]$$
 and zero elsewhere.  Then $\eta^a(t) > 0$ on the same interval that $F_a(t)>0$ and zero elsewhere - hence their product is greater than zero on $[t_* - \delta, t_* + \delta]$ and 
 zero elsewhere.  Hence, for:
@@ -235,29 +235,29 @@ part (a) of this question to conclude that
 L' &= L+\frac{\partial F}{\partial q^a}\dot q^a
        +\frac{\partial F}{\partial t}\\
 \Rightarrow\quad
-\frac{\partial L'}{\partial q^a}
-&= \frac{\partial L}{\partial q^a}
+\frac{\partial L'}{\partial q^b}
+&= \frac{\partial L}{\partial q^b}
  +\frac{\partial^2F}{\partial q^a \partial q^b}\dot q^a
- +\frac{\partial^2 F}{\partial q^a \partial t}.
+ +\frac{\partial^2 F}{\partial q^b \partial t}.
 \end{align*}
 We also have that:
 \begin{align*}
-\frac{\partial L'}{\partial\dot q^a}
-&= \frac{\partial L}{\partial\dot q^a}
- +\frac{\partial F}{\partial q^a}\\
+\frac{\partial L'}{\partial\dot q^b}
+&= \frac{\partial L}{\partial\dot q^b}
+ +\frac{\partial F}{\partial q^b}\\
 \Rightarrow\quad
-\frac{d}{dt}\left(\frac{\partial L'}{\partial\dot q^a}\right)
-&= \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q^a}\right)
- +\frac{d}{dt}\left(\frac{\partial F}{\partial q^a}\right) \tag{***}
+\frac{d}{dt}\left(\frac{\partial L'}{\partial\dot q^b}\right)
+&= \frac{d}{dt}\left(\frac{\partial L}{\partial\dot q^b}\right)
+ +\frac{d}{dt}\left(\frac{\partial F}{\partial q^b}\right) \tag{***}
 \end{align*}
 For the last term in (***):
 \begin{align*}
-\frac{d}{dt}\left(\frac{\partial F}{\partial q^a}\right)
-&= \frac{\partial^2F}{\partial q^a \partial q^b}\dot q^b
+\frac{d}{dt}\left(\frac{\partial F}{\partial q^b}\right)
+&= \frac{\partial^2F}{\partial q^b \partial q^c}\dot q^c
  +\frac{\partial}{\partial t}
-  \left(\frac{\partial F}{\partial q^a}\right) \\
-&= \frac{\partial^2F}{\partial q^a \partial q^b}\dot q^b
- +\frac{\partial^2 F}{\partial t \partial q^a}
+  \left(\frac{\partial F}{\partial q^b}\right) \\
+&= \frac{\partial^2F}{\partial q^b \partial q^c}\dot q^c
+ +\frac{\partial^2 F}{\partial t \partial q^b}
 \end{align*}
 Now the derivative order of the 2nd order partials is not relevant (as $F$ is smooth) and hence:
 \begin{align*}
@@ -272,7 +272,7 @@ Now the derivative order of the 2nd order partials is not relevant (as $F$ is sm
 &= \frac{\partial L'}{\partial q^a}
 \end{align*}
 The middle line follows as $L$ satisfies the Langrange equation and the two terms in red boxes
-are equal. \\
+are equal. \textcolor{red}{NOTE: In Einstein notation the double indices are dummy.}\\
 \\
 If we consider the action for these two Langrangians for the same path ($q$):
 \begin{align*}
@@ -283,6 +283,87 @@ S'[q] &=  \int_{t_0}^{t_1} L(q, \dot{q}, t) + \frac{dF}{dt} \; dt \\
 \end{align*}
 \\
 (d)
+Given $q=q(Q)$ -- no time dependence.  Then
+\begin{align*}
+\frac{\partial\hat L}{\partial Q^b}
+&=
+\frac{\partial L}{\partial q^a}
+\cdot
+\frac{\partial q^a}{\partial Q^b} \tag{A}
+\end{align*}
+Also:
+\begin{align*}
+\frac{\partial\hat L}{\partial\dot Q^b}
+&=
+\frac{\partial L}{\partial\dot q^a}
+\cdot
+\frac{\partial\dot q^a}{\partial\dot Q^b}.
+\tag{B}
+\end{align*}
+Now
+\begin{align*}
+\dot q^a
+&=
+\frac{\partial q^a}{\partial Q^b}\dot Q^b\\
+\Rightarrow\quad
+\frac{\partial\dot q^a}{\partial\dot Q^b}
+&=
+\frac{\partial q^a}{\partial Q^b}.
+\tag{C}
+\end{align*}
+Using this equality equation (B) becomes:
+\begin{align*}
+\frac{\partial\hat L}{\partial\dot Q^b}
+&=
+\frac{\partial L}{\partial\dot q^a}
+\frac{\partial q^a}{\partial Q^b} \tag{D}
+\end{align*}
+Then, usimg the product rule, in (D):
+\begin{align*}
+\frac{d}{dt}
+\left(\frac{\partial\hat L}{\partial\dot Q^b}\right)
+&=
+\left(\frac{\partial q^a}{\partial Q^b}\right)
+\left(\frac{d}{dt}\frac{\partial L}{\partial\dot q^a}\right)
++
+\left(\frac{\partial L}{\partial\dot q^a}\right)
+\left(\frac{d}{dt}\frac{\partial q^a}{\partial Q^b}\right).
+\tag{E}
+\end{align*}
+The last term in equation (E) is time independent - and
+is hence zero. So (E) becomes:
+\begin{align*}
+\frac{d}{dt}
+\left(\frac{\partial\hat L}{\partial\dot Q^b}\right)
+&=
+\left(\frac{\partial q^a}{\partial Q^b}\right)
+\left(\frac{d}{dt}\frac{\partial L}{\partial\dot q^a}\right).
+\tag{F}
+\end{align*}
+Lagrange's eqn in terms of $\hat L$ is, using (A) and (F):
+\begin{align*}
+\left(\frac{\partial\hat L}{\partial Q}\right)
+-
+\frac{d}{dt}
+\left(\frac{\partial\hat L}{\partial\dot Q^b}\right)
+&=
+\left(\frac{\partial L}{\partial q^a}\right)
+\left(\frac{\partial q^a}{\partial Q^b}\right)
+-
+\left(\frac{\partial q^a}{\partial Q^b}\right)
+\left(\frac{d}{dt}\frac{\partial L}{\partial\dot q^a}\right)\\
+&=
+\left(\frac{\partial q^a}{\partial Q^b}\right)
+\left[
+\frac{\partial L}{\partial q^a}
+-
+\frac{d}{dt}
+\left(\frac{\partial L}{\partial\dot q^a}\right)
+\right].
+\end{align*}
+\qed\\
+\\
+I am not sure what is requested in the last part of this question.
 
 \newpage
 \noindent
@@ -408,7 +489,7 @@ ml^2\ddot{\theta}
 \ddot{\theta}+\frac{g}{l}\sin\theta
 &=0 \tag{2.1}
 \end{align*}
-For \textbf{small oscillations} $\theta$ is small $\implies \sin(\theta) = \theta$, then (2.1) becomes:
+For \textbf{small oscillations} $\theta$ is small $\implies \sin(\theta) \approx \theta$, then (2.1) becomes:
 \begin{align*}
 \ddot{\theta} = - \frac{g}{l}\theta \tag{2.2}
 \end{align*}
@@ -429,9 +510,9 @@ mgl(1-\cos\theta_0)&=\frac{1}{2}ml^2\dot{\theta}^2+mlg(1-\cos\theta)\\
 \\
 Here we consider determining the period of motion from (2.4). 
 \begin{align*}
-\dot{\theta}&=\sqrt{\frac{2g}{L}(\cos\theta-\cos\theta_0)}\\
-\Rightarrow\quad \sqrt{\frac{L}{2g}}\frac{d\theta}{\sqrt{\cos\theta-\cos\theta_0}} & = dt \\
-\Rightarrow\quad\sqrt{\frac{L}{2g}} \int_{-\theta_0}^{\theta_0} \frac{d\theta}{\sqrt{\cos\theta-\cos\theta_0}} & = \int_{0}^\frac{T}{2} dt \tag{2.5}
+\dot{\theta}&=\sqrt{\frac{2g}{l}(\cos\theta-\cos\theta_0)}\\
+\Rightarrow\quad \sqrt{\frac{l}{2g}}\frac{d\theta}{\sqrt{\cos\theta-\cos\theta_0}} & = dt \\
+\Rightarrow\quad\sqrt{\frac{l}{2g}} \int_{-\theta_0}^{\theta_0} \frac{d\theta}{\sqrt{\cos\theta-\cos\theta_0}} & = \int_{0}^\frac{T}{2} dt \tag{2.5}
 \end{align*}
 Where in (2.5) I am integrating over 1/2 period of oscillation, $T/2$, when the pendulum swings from
 $-\theta_0$ to $\theta_0$.
@@ -441,17 +522,17 @@ $-\theta_0$ to $\theta_0$.
 Next, for very small $\theta, \theta_0$, expand $cos(\theta) \approx 1 - \theta^2/2$ and same for $cos(\theta_0)$.  With this equation (2.5)
 becomes:
 \begin{align*}
-\sqrt{\frac{L}{2g}}\int_{-\theta_0}^{\theta_0}
+\sqrt{\frac{l}{2g}}\int_{-\theta_0}^{\theta_0}
 \frac{d\theta}{\frac{1}{\sqrt{2}}\left(\theta_0^2-\theta^2\right)^{1/2}}
 =\frac{T}{2} \\
-\Rightarrow\quad \sqrt{\frac{L}{g}}\int_{-\theta_0}^{\theta_0}
+\Rightarrow\quad \sqrt{\frac{l}{g}}\int_{-\theta_0}^{\theta_0}
 \frac{d\theta}{\left(\theta_0^2-\theta^2\right)^{1/2}} \tag{2.6}
 =\frac{T}{2}
 \end{align*}
 The intergal in (2.6) is a standard integral and evaluates to $\left[\arcsin(\frac{\theta}{\theta_0}) \right]_{-\theta_0}^{\theta_0} = \frac{\pi}{2} - (-\frac{\pi}{2}) = \pi$.
 Substituting this into (2.6) gives:
 \begin{align*}
-T = 2\pi\sqrt{\frac{L}{g}}
+T = 2\pi\sqrt{\frac{l}{g}}
 \end{align*}
 \\
 (c) To be honest I looked at a video online on how to solve this using Lagrangian Multipliers:
