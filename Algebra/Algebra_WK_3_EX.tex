@@ -1,7 +1,6 @@
-\documentclass[12pt]{article}
+\documentclass[12pt,a4paper]{article}
 \usepackage{amsmath}
 \usepackage{amssymb}  % Provides \mathbb and other symbols
-\usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{enumitem}
@@ -15,127 +14,94 @@
 \usepackage{array}         % For better table alignment
 \usepackage{mdframed}
 \usepackage{cancel}
-
-% Set the top margin
-\geometry{top=1in} % You can adjust the measurement as needed
-
+\usepackage[margin=2.5cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
 
 \begin{document}
-
 \begin{titlepage}
 \centering
-\vspace*{\fill} % Adds vertical space to center the title block vertically
-
-{\Huge Algebra} \\[0.5cm] % Title 2
-{\Huge Home Work 3}\\[1.5cm] % Title 3
-{\Large Student: Mark Roberts}\\[0.5cm] % Student ID
-{\Large \today} % Date, \today adds today's date
-
+\vspace*{\fill}
+{\Huge Algebra} \\[0.5cm]
+{\Huge Home Work 3}\\[1.5cm]
+{\Large Student: 26-712-224}\\[0.5cm]
+{\Large \today}
 \vspace*{\fill}
 \end{titlepage}
+
 \newpage
+\noindent\textbf{A)} Let $G$ be a group and let $H,K\subset G$ be subgroups of $G$. Show that if $G=H\cup K$ then $H=G$ or $K=G$.\\
+(\textit{Hint:} Argue by contradiction. If $a\in H-K$ and $b\in K-H$, consider $ab$.)\\
+
+\vspace{1cm}
 \noindent
-\section*{\textbf{Question 3.1.1}}
-\textbf{Part 1}: \\
-Let $\phi : G \to H$ be a homomorphism between the two groups $G$ and $H$.  Let $E \le H$ be a subgroup of H.  Prove that: $\phi^{-1}(E) \le G$ (i.e. $\phi^{-1}(E)$ is a subgroup of $G$).\\
+Answer:\\
 \\
-Let $K=\phi^{-1}(E) \subset G$.  We just need to show that $K$ is a subgroup of $G$.  We apply the usual subgroup tests:\\
-\begin{itemize}[noitemsep, topsep=0pt]
-    \item \textbf{Check $K$ not empty}:\\
-    From the properties of a homomorphism we know that $1_G \in K$ (and hence $K$ not empty).\\
-    \item \textbf{Check $K$ contains inverses}:\\
-    $k \in K \implies \phi(k) \in E \implies \phi(k)^{-1} \in E \implies \phi(k^{-1}) \in E \implies k^{-1} \in K$.\\
-    These steps follow as $E$ itself is a group and $\phi$ a homomorphism. \\
-    \item \textbf{Check $K$ stable}:\\
-    Let $a, b \in K \implies \phi(a), \phi(b) \in E \implies \phi(a)\phi(b) = \phi(ab) \in E \implies ab \in K$.
-\end{itemize}
-\qed \\
+(a) Given $H,K<G$ such that: $H\cup K=G$ (*).\\
 \\
-\textbf{Part 2}: \\
-If $E \trianglelefteq H$ prove that $\phi^{-1}(E) \trianglelefteq G$.  Deduce that: $Ker(\phi) \trianglelefteq G$. \\
-\\
-From part (1) we know that $E \le H \implies \phi^{-1}(E) \le G$; so we just need to confirm that $E$ normal in $H$ implies that $K = \phi^{-1}(E)$ normal in $G$.  Now take any $g \in G$ and $k \in K$.  Then:
+Assume that $H \not\subset K$ and $K \not\subset H$ then $\exists h\in H\setminus K$ and $k\in K\setminus H$.\\
+Then:
 \begin{align*}
-    &\phi(gkg^{-1}) = \phi(g)\phi(k)\phi(g^{-1}) = \phi(g)\phi(k)\phi(g)^{-1} \;\;\;\;\;\;\;\;\;\; \text{(since $\phi$ is a homomorphism)} \\
-    \implies &\phi(gkg^{-1}) \in E  \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(since $\phi(k) \in E$ and $E$ is normal)} \\
-    \implies &gkg^{-1} \in \phi^{-1}(E) = K
+hk&\in G=H\cup K.\\
+\Rightarrow\quad hk&\in H\quad\text{or}\quad hk\in K.
 \end{align*}
-Hence, $K=\phi^{-1}(E)$ must be normal in $G$.
-
-\newpage
-\section*{\textbf{Question 3.1.3}}
-Given that $A$ is an abelian group and that $B \le A$.  Prove that $A/B$ is an abelian group. \\
-\\
-Since $A$ is abelian we know that $B$ is a normal subgroup and that $A/B$ is a group. To show that it is itself abelian let us first look at the definition of the group $A/B$:
+If we assume $hk\in H$.
 \begin{align*}
-    A/B &= \{aB \; | \; a \in A \}
+\Rightarrow\quad hk&=h'\quad\text{for some }h'\in H.\\
+\Rightarrow\quad k&=h^{-1}h'\in H.
 \end{align*}
-We now just need to show that the binary operation defined on $A/B$ is commutative.\\
+\underline{Contradiction} - which will also occuresif we assumn $hk \in K$\\
 \\
-Let $\alpha B$ and $\beta B$ (where $\alpha, \beta \in A$) be two elements of this set.  Then:
+Hence, if $(*)$ holds we must have $H < K$ or $K < H$.
 \begin{align*}
-    (\alpha B)(\beta B) &= \{(\alpha b_1)(\beta b_2) \; | \; b_1, b_2 \in B \} \\
-        &= \{\alpha b_1 \beta b_2 \; | \; b_1, b_2 \in B \} \\
-        &= \{\beta b_1 \alpha b_2 \; | \; b_1, b_2 \in B \} \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(since $A$ is abelian)} \\
-        &= \{(\beta b_1)(\alpha b_2) \; | \; b_1, b_2 \in B \} \\
-        &= (\beta B)(\alpha B)
+\Rightarrow\quad H=G \quad\quad \text{OR \;\;\;\;$K=G$}
 \end{align*}
-\qed
-
-\newpage
-\section*{\textbf{Question 3.1.5}}
-Let $G$ be a group and $G/N$ a quotient group (and hence $N$ is normal).  Show that the order of $gN \in G/N$ is the smallest power of $g$ such that $g \in N$.\\
+(b) Let $\langle g \rangle=C_m$ and $\langle h \rangle=C_n$ - so $g \in C_m$ is a generator for $C_m$ and
+$h \in C_n$ is a generator for $C_n$.\\
+As $C_m, C_n$ are both cyclic of orders $m, n$ respectively it follows that every
+$x \in C_m$ has an order satisfying: $\text{ord} \; | \; m$.  Also, every $y \in C_n$ has an order
+that satisfies $\text{ord}(y) \; | \; n$. \\
 \\
-Firstly, the order of $gN \in G/N$ is the smallest $n \in \mathbf{N}$ such that: $(gN)^n = N$.  Now, this is equivalent to: $g^nN = N$.  But this last equation only holds when $g^n \in N$.  So, clearly, we have that: $|gN|$ is the smallest positive integer such that $g^n \in N$.\\
-\qed
+(i) Consider any $x \in C_m$ and $y=f(x) \in C_n$.\\
+As $x^m=1 \implies f(1)=f(x^m)=[f(x)]^m = y^m = 1$.
+
 
 \newpage
-\section*{\textbf{Question 3.1.9}}
-Define: $\phi: \mathbf{C}^{\times} \to \mathbf{R}^{\times}$; by $\phi(a+bi) = a^2 + b^2$.\\
+
+\noindent\textbf{B)} Let $C_m$ and $C_n$ be two finite cyclic groups of cardinality $m$ and $n$ respectively. Let $d=\gcd(m,n)$ be the greatest common divisor of $m$ and $n$. We want to classify all morphisms of groups $f:C_m\to C_n$.
+
+\begin{enumerate}
+\item[(1)] Show that, for every $x\in C_m$, $\operatorname{ord}(f(x))$ is a divisor of $d$. (\textit{Hint:} Show that this number is both a divisor of $m$ and $n$.)
+\item[(2)] Let $C_d\subset C_n$ be the unique subgroup of cardinality $d$. Show that the image of $f$ is a contained in $C_d$. What happens if $d=1$?
+\item[(3)] Fix a generator $g\in C_m$. Show that for every $y\in C_d$, there is a unique morphism of groups $f:C_m\to C_n$ such that $f(g)=y$.
+\item[(4)] What is the cardinality of the set of homomorphisms from $C_m$ to $C_n$?
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
 \\
-\textbf{1. Proof $\phi$ is a homomorphism}:\\
-We have two properties that we must prove:
-\begin{itemize}[noitemsep, topsep=0pt]
-    \item Check $\phi$ maps identity to identity.\\
-    Now $1_{\mathbf{C}^{\times}}=1$ and $1_{\mathbf{R}^{\times}}=1$.  And we see that: $\phi(1)=1$ - so this property holds.\\
-    \item Check $\phi(ab) = \phi(a)\phi(b)$:\\
-    Let $a=a_1 + a_2 i$ and $b=b_1 + b_2 i$.  Then:
-    \begin{align*}
-      \phi(ab) &= \phi((a_1 + a_2 i)(b_1 + b_2 i)) = \phi(a_1 b_1 - a_2 b_2 + (a_1 b_2 + a_2 b_1)i) \\
-      &= [a_1 b_1 - a_2 b_2]^2 + [a_1 b_2 + a_2 b_1]^2 \\
-      &= [(a_1b_1)^2 + (a_2b_2)^2 - 2(a_1b_1a_2b_2)] + [(a_1b_2)^2 + (a_2b_1)^2 + 2(a_1b_2a_2b_1)] \\
-      &= (a_1^2 + a_2^2)(b_1^2 + b_2^2) \\
-      &= \phi(a_1 + a_2 i) \phi(b_1 + b_2 i) \\
-      &= \phi(a) \phi(b)
-    \end{align*}
-\end{itemize}
-These two properties holding demonstrates that $\phi$ is indeed a homomorphism.\\
-\\
-\\
-The kernel of this homomorphism are all those complex numbers in $\mathbf{C}^{\times}$ whose modulus is 1.
-This is simply those complex numbers of modulus 1 - i.e. the circle of complex numbers of radius 1 around the origin.
-
-\newpage
-\section*{\textbf{Question 3.1.10}}
 
 
 \newpage
-\section*{\textbf{Question 3.1.14}}
 
-\newpage
-\section*{\textbf{Question 3.1.20}}
+\noindent\textbf{C)} Let $S$ be a set. A map $p:S\to S$ is called a \textit{projector} if $p\circ p=p$. Let $G\subset\operatorname{Map}(S,S)$ be a subset closed under composition (i.e., if $f,g\in G$, then $f\circ g\in G$) and such that $(G,\circ)$ is a group. (Note that we are not asking $G$ to be a submonoid of $\operatorname{Map}(S,S)$, i.e., $G$ does not necessary contain $\operatorname{Id}_S$.)
 
-
-\newpage
-\section*{\textbf{Question 3.1.32}}
-$Q_8$ is the quaternion group, where:
+\begin{enumerate}
+\item[(1)] Show that $G$ contains one and only one projector. Let $p$ be the unique projector contained in $G$ and let $T=p(S)$ be its image. Let
 \begin{align*}
-      Q_8 = \{\pm1,\pm i,\pm j,\pm k \} \tag{3.1.32.1} \\
-      i^2=j^2=k^2=ijk=-1 \tag{3.1.32.2} \\
-      ij=k,\quad jk=i,\quad ki=j  \tag{3.1.32.3}
+q=p|_{S-T}:S-T\to T
 \end{align*}
-1) Prove every subgroup of $Q_8$ is normal. \\
-2) For each subgroup find the isomorphism type of its  corresponding quotient.
+be the restriction of $p$ to $S-T$.
 
+\item[(2)] Let $f\in G$. Show that $f(S)=T$ and that $f|_T:T\to T$ is a bijection. Show that $f|_{S-T}:S-T\to T$ is determined by $f|_T$ via the formula $f|_{S-T}=f|_T\circ q$. What is the inverse of $f$ in $G$?
+
+\item[(3)] Show that given a projector $p:S\to S$, there exists a largest subset $G(p)\subset\operatorname{Map}(S,S)$, containing $p$, stable under composition, and such that $(G(p),\circ)$ is a group. Show that $G(p)$ is isomorphic to $(\operatorname{Bij}(T,T),\circ)$, where $T=p(S)$.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
 
 \end{document}

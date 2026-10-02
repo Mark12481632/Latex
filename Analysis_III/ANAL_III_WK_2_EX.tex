@@ -31,4 +31,63 @@
 
 \newpage
 
+\noindent\textbf{Exercise 1 (Step functions, 1+2+1 P.)}\\
+Let us define, for \(x\in[0;1]\),
+\begin{align*}
+f(x)=\sum_{k=0}^{+\infty}\chi_{[2^{-k-1},2^{-k}]}(x).
+\end{align*}
+(a) Is \(f\) a step function? Justify your answer briefly (you do not need to give a complete proof).
+
+(b) Show that there exists a step function \(g:[0;1]\to\mathbb{R}\) with \(f=g\) almost everywhere and explicitly write down the set
+\begin{align*}
+\{x\in[0;1]:f(x)\ne g(x)\}.
+\end{align*}
+(c) Compute \(\int_0^1 f(x)\,dx\) by making use of (b).
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(a) As it is given $f(x)$ is NOT a step function.  The reason being that a step function is defines to consist of a finite
+number of intervals - the sum shown is not finite.\\
+Also, there is no finite interval representation for that exact same $f$.\\
+\\
+(b) The simple step function: $g:[0, 1] \to \mathbb{R}$ given by: $g(x) = \chi_{[0,1]}(x)$ is such that $f=g$ (a.e.).\\
+Now the ends of the each interval: $\chi_{[2^{-k-1},2^{-k}]}$ are "double counted" - except for\\
+$k=0 \text{ when } \chi_{[2^{-k-1},2^{-k}]} = \chi_{[\frac{1}{2},1]}$.\\
+Consequently, the points where $f \ne g$ is the set:
+$$ D = \left\{ \frac{1}{2^k} \; \ \; k \in \mathbb{N}_{+} \right\} \cup \{\emptyset\} $$
+Not that $D$ is countable and hence a set of measure zero.  I.e. $f=g$ (a.e).\\
+ \\
+(c) It is clear that $g$ is Lebesgue Integrable.\\
+Using Theorem 11.2.15 in the notes we can conclude that, for Lebesgue Integration:\\
+$$\int g = \int f$$
+As $\int g = \lambda([0,1]) = 1$, we can conclude that:
+$$\int f = 1$$
+
+
+
+\newpage
+\noindent\textbf{Exercise 2 (Sequences of step functions, 2+1+2+1 P.)}
+
+\noindent Let $I$ be a compact interval in $\mathbb{R}^n$.
+\begin{enumerate}
+\item[(a)] Let $f:I^\circ\to\mathbb{R}$ be continuous and defined on the interior $I^\circ$ of $I$. Assuming that $f$ is unbounded from below, show that there cannot exist an increasing sequence $(f_k)_{k\in\mathbb{N}}\in T^{\mathrm{inc}}$ of step functions with $f_k\to f$ almost everywhere.
+\item[(b)] Let $(f_k)_{k\in\mathbb{N}}\in T^{\mathrm{dec}}$ be a decreasing sequence of step functions for which $f_k\to\chi_I$ almost everywhere. Show that
+\begin{align*}
+\int_I f_k(x)\,dx\to\lambda_n(I)
+\end{align*}
+by reducing the problem to an application of Theorem 11.2.10(1).
+\item[(c)] Consider the sequence of step functions $f_k:[0;1]\to\mathbb{R}$ given by
+\begin{align*}
+f_k(x)=k\chi_{[0;1/k]}(x).
+\end{align*}
+Prove that $f_k\to 0$ pointwise almost everywhere and compute $\int_0^1 f_k(x)\,dx$ for every $k\in\mathbb{N}$. Why is this not in contradiction with Theorem 11.2.10(1)?
+\item[(d)] Let $f,g:I\to\mathbb{R}$ be two functions so that $f=g$ almost everywhere. Show that if $f\in\mathcal{L}^{\mathrm{inc}}$, then also $g\in\mathcal{L}^{\mathrm{inc}}$ and
+\begin{align*}
+\int_I f(x)\,dx=\int_I g(x)\,dx.
+\end{align*}
+\end{enumerate}
+
+
 \end{document}
