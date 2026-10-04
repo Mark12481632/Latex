@@ -56,8 +56,8 @@ Answer:\\
 \end{align*}
 To show that $\mathcal{B}_y$ is a basis for $Y$ we need to demonstrate two things:
 \begin{enumerate}
-\item[(a)] $\forall y\in Y,\ \exists U\in\mathcal{B}_y$ s.t. $y\in B$\\
-Well, take $y\in Y$. As $Y\subset X$ and $\mathcal{B}_x$ is a basis for $X$, $\exists B_y\in\mathcal{B}$ s.t. $y\in B_y$.\\
+\item[(a)] $\forall y\in Y,\ \exists U\in\mathcal{B}_y$ s.t. $y\in U$\\
+Well, take $y\in Y$. As $Y\subset X$ and $\mathcal{B}_x$ is a basis for $X$, $\exists B_y\in\mathcal{B}_X$ s.t. $y\in B_y$.\\
 Clearly
 \begin{align*}
 U&=B_y\cap Y\in\mathcal{B}_y\\
@@ -73,8 +73,7 @@ Take $U_1=Y\cap B_1$, $U_2=Y\cap B_2$ where $B_1,B_2\in\mathcal{B}_x$. Then:
 U_1\cap U_2&=(Y\cap B_1)\cap(Y\cap B_2)\\
 &=Y\cap(B_1\cap B_2).
 \end{align*}
-As $\mathcal{B}_x$ is a basis for $X$ and $y\in X$\\
-$\exists B_3\in\mathcal{B}_y$ s.t. $y\in B_3\subset B_1\cap B_2$.
+As $\mathcal{B}_x$ is a basis for $X$ and $y\in X$ $\exists B_3\in\mathcal{B}_x$ s.t. $y\in B_3\subset B_1\cap B_2$.
 \begin{align*}
 \Rightarrow\quad y\in Y\cap B_3=U_3&\subset Y\cap(B_1\cap B_2)\\
 &=(Y\cap B_1)\cap(Y\cap B_2)\\
@@ -125,7 +124,7 @@ T&=\bigcup_{i\in I}U_i\qquad\text{each }U_i\in\mathcal{B}_1.\\
 \end{align*}
 Since the `double union' is still a union of open sets in $\mathcal{U}_2$. Hence
 \begin{align*}
-T\in\mathcal{U}\Rightarrow T\in\mathcal{U}_2\Rightarrow\mathcal{U}_1\subset\mathcal{U}_2.
+T\in\mathcal{U}_1\Rightarrow T\in\mathcal{U}_2\Rightarrow\mathcal{U}_1\subset\mathcal{U}_2.
 \end{align*}
 Part (b) allows the reverse argument to be made - i.e. $\mathcal{U}_2\subset\mathcal{U}_1$.\\
 Both arguments demonstrate that $\mathcal{U}_1=\mathcal{U}_2$.\\
@@ -133,7 +132,21 @@ Both arguments demonstrate that $\mathcal{U}_1=\mathcal{U}_2$.\\
 
 \newpage
 \noindent
-(ii)
+(ii) Assume now that $\mathcal{U}_1=\mathcal{U}_2$ (i.e. $\langle\mathcal{B}_1\rangle=\langle\mathcal{B}_2\rangle$).
+Take any $U\in\mathcal{B}_1$.\\
+Then $U\in\mathcal{U}_1\Rightarrow U\in\mathcal{U}_2$.\\
+So, there exists an index set $I$ s.t.
+\begin{align*}
+U=\bigcup_{i\in I}V_i\qquad(\text{each }V_j\in\mathcal{B}_2).\qquad(*)
+\end{align*}
+Eqn $(*)\Rightarrow$ given $x\in U$, $\exists j\in I$ s.t. $x\in V_j$.
+Also from $(*)$:
+\begin{align*}
+x\in V_j\subset U.
+\end{align*}
+This covers condition (a).
+Reversing the roles of $\mathcal{U}_1,\mathcal{U}_2$ gives (b)\\
+\qed
 
 \newpage
 \section*{Exercise 3}
@@ -162,13 +175,13 @@ The graphs for the 1st 3 spaces is shown below - on the annulus I have used $a=1
 \noindent
 I hope it is OK to use mainly descriptive solutions for this problem.\\
 \\
-(i) All parts of the "double" parabola are connected through the point $(0,0)$.\\
-There is no way to split this set by using two open sets. This set is connected.\\
+(i) This set is path connected - hence connected!\\
 \\
-(ii) I assume that we are excluding the point where $x=0$. In this case we can split two set into 
-two sets - $(x,y)=(x, -1/x)$ where $x < 0$ and $x>0$.\\
+(ii) I assume that we are excluding the point where $x=0$. Here we can split $R^2$ into
+two (open) half-planes (either side of $x=0$).  They don't overlap and they contain the complete set.\\
 \\
-(iii) The annulus is also connected as there are no two open sets that seperate it.\\
+(iii) The annulus when intersected with open sets of $R^2$ give connected sets of the annulus.\\
+Hence, the annulus is also connected.\\
 \\
 (iv) Take $S= \mathbb{R} \setminus \mathbb{Q}$.  Then consider the two sets in $S$ defined by:\\
 $U_1 = (-\infty, 1) \cap S$ and $U_2 = (1, \infty) \cap S$ - part of the induced topology.\\
@@ -213,7 +226,7 @@ Contradiction. Hence, no such $S$ exists.\\
 \mathcal{U} & = \{\varnothing,X\}\\
 \Rightarrow\quad\mathcal{U}_Y &= \{\varnothing,Y\}.
 \end{align*}
-It is not possible to find two open sets in $\mathcal{U}_Y$ s.t. $U\neq\varnothing,\ V\neq Y$ with $U\cap V=\varnothing$\\
+It is not possible to find two open sets in $\mathcal{U}_Y$ s.t. $U\neq\varnothing,\ V\neq \varnothing$ with $U\cap V=\varnothing$\\
 and $Y=U\cup V$. \\
 \\
 Hence: \underline{$Y$ is connected.}
@@ -228,7 +241,9 @@ Hence: \underline{$Y$ is connected.}
 The discrete topology is such that all sets are both open \& closed (i.e. clopen).\\
 Using the result from part (i), we must conclude that:\\
 \\
-\underline{$Y$ is disconnected.}
+\underline{$Y$ is disconnected.}\\
+\\
+\textit{This only applies if $Y$ contains more than 1 point!!}
 \end{enumerate}
 
 
@@ -256,14 +271,14 @@ Answer:\\
 (i) $(X, \mathcal{U})$ is a topological space which is connected and 
 $f:X\to\mathbb{Z}$ continuous with $\mathbb{Z}$ having the discrete topology.\\
 \\
-Then, for every $z\in\mathbb{Z}$ $\{z\}$ is an open set (with the discrete topology).\\
-Then, as $f$ is continuous
+Then, for every $z\in\mathbb{Z}$, we have that $\{z\}$ is an open set (with the discrete topology) and
+as $f$ is continuous: $f^{-1}(\{z\})$ is open in $X$.  Consequently, for any $T \subset \mathbb{Z}$:
 \begin{align*}
-f^{-1}(\{z\})=U \in \mathcal{U} \quad\quad\quad\quad\quad\quad\quad \text{(i.e. $U$ is open in $X$)}
+f^{-1}(T) \in \mathcal{U}
 \end{align*}
 Now let $f$ take at least two distinct values on $\mathbb{Z}$. Let one such value be $k$.\\
-Then, let $U=\{z\in\mathbb{Z}\mid f(z)=k\}$.  Clearly $U$ is open in $\mathbb{Z}$.\\ 
-Also let $V=\{z\in\mathbb{Z}\mid f(z)\neq k\}$ which must also be open in $\mathbb{Z}$.\\
+Then, let $U=\{k\}$ - clearly $U$ is open in $\mathbb{Z}$.\\ 
+Also let $V=\{z\in\mathbb{Z}\mid z \ne k\}$ - also clearly open in $\mathbb{Z}$.\\
 Then:
 \begin{align*}
 f^{-1}(U)&=\bar{U}\quad\text{is open in }X.\\
@@ -315,18 +330,20 @@ we define a new function:
 \begin{align*}
 f(x)=\frac{h(x)-x}{|h(x)-x|}
 \end{align*}
-If we assume that $h$ has no fixed pt in $[0,1]$ then $f$ is always well defined on $[0,1]$ taking values of $\pm1$.\\
+If we assume that $h$ has no fixed pt in $[0,1]$ then $f$ is always well defined and continuous on $[0,1]$ taking values of $\pm1$.\\
 Hence
 \begin{align*}
 f:[0,1]\to\{-1,+1\}\quad(\subset\mathbb{Z}).
 \end{align*}
-$\{-1,+1\}$ has the discrete topology if we intersect this set with the Euclidean topology defined on $\mathbb{R}$.\\
-From part (i) we must conclude that $f$ is constant as $[0,1]$ is connected (in the usual Euclidean topology).
-But this means that
+$\{-1,+1\}$ has the discrete topology (obtained when we intersect this set with the Euclidean topology defined on $\mathbb{R}$).\\
+We know that under the Euclidean topology the set $[0, 1]$ is connected.
+The codomain of $f$ is a discrete topological space which means that the function MUST be constant if it is continuous.\\
+\\
+But this means that:
 \begin{align*}
 \frac{h(x)-x}{|h(x)-x|}\quad\text{is constant}\quad\forall x\in[0,1].
 \end{align*}
-But this clearly can't be true!\\
+But this clearly isn't true; since $f(0)=1; f(1)=-1$ must hold.\\
 So, our assumption of no fixed points for $h$ is false. I.e.
 \begin{align*}
 \exists x\in[0,1]\quad\text{s.t.}\quad h(x)=x.

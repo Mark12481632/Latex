@@ -37,7 +37,7 @@
 \noindent
 Answer:\\
 \\
-(a) Given $H,K<G$ such that: $H\cup K=G$ (*).\\
+Given $H,K<G$ such that: $H\cup K=G$ (*).\\
 \\
 Assume that $H \not\subset K$ and $K \not\subset H$ then $\exists h\in H\setminus K$ and $k\in K\setminus H$.\\
 Then:
@@ -56,15 +56,6 @@ Hence, if $(*)$ holds we must have $H < K$ or $K < H$.
 \begin{align*}
 \Rightarrow\quad H=G \quad\quad \text{OR \;\;\;\;$K=G$}
 \end{align*}
-(b) Let $\langle g \rangle=C_m$ and $\langle h \rangle=C_n$ - so $g \in C_m$ is a generator for $C_m$ and
-$h \in C_n$ is a generator for $C_n$.\\
-As $C_m, C_n$ are both cyclic of orders $m, n$ respectively it follows that every
-$x \in C_m$ has an order satisfying: $\text{ord} \; | \; m$.  Also, every $y \in C_n$ has an order
-that satisfies $\text{ord}(y) \; | \; n$. \\
-\\
-(i) Consider any $x \in C_m$ and $y=f(x) \in C_n$.\\
-As $x^m=1 \implies f(1)=f(x^m)=[f(x)]^m = y^m = 1$.
-
 
 \newpage
 
@@ -81,7 +72,36 @@ As $x^m=1 \implies f(1)=f(x^m)=[f(x)]^m = y^m = 1$.
 \noindent
 Answer:\\
 \\
-
+(1) Let $x\in C_m\Rightarrow\operatorname{ord}(x)\mid m$.  But then $f(x)$ has $\operatorname{ord}[f(x)]\mid m$ since:
+\begin{align*}
+[f(x)]^m&=f(x^m)=f(1)\\
+&=1
+\end{align*}
+But $f(x)\in C_n\Rightarrow\operatorname{ord}[f(x)]\mid n$.  Hence $\operatorname{ord}[f(x)]\mid n$ \& $\operatorname{ord}[f(x)]\mid m$
+\begin{align*}
+\Rightarrow\quad\operatorname{ord}[f(x)]\mid\gcd(m,n)
+\end{align*}
+\\
+(2) Let $K=f(C_m)$.  Then every element of $K$ has order that divides $d=\gcd(m,n)$.
+\begin{align*}
+\therefore\quad K=f(C_m)\subset C_d \quad\quad\quad\quad \text{(since $C_d$ is unique)}
+\end{align*}
+If $d=1\Rightarrow C_1=\{1\}$ and $C_1$ only contains the identity element.\\
+Hence
+\begin{align*}
+f(x)=1\qquad\forall x\in C_m.
+\end{align*}
+\\
+(3) Let $\langle g\rangle=C_m$ and set $f(g)=y\in C_d$.\\
+Then as $C_m$ is cyclic every element is of the form $g^k$ ($0\leq k<m$). Hence
+\begin{align*}
+f(g^k)=[f(g)]^k=y^k
+\end{align*}
+That is the map $f$ is defined uniquely from $C_m\to C_d$ (and hence for $C_m\to C_n$) for every element
+in $C_m$.\\
+\\
+(4) The cardinality of the set of homomorphisms ($f: C_m \to C_n$) is defined by the number of different
+maps that map $g$ (where $\langle g \rangle = C_m$) to an element of $C_n$ that has order $s$, where $s \mid gcd(m,n)$.
 
 \newpage
 
@@ -103,5 +123,16 @@ be the restriction of $p$ to $S-T$.
 \noindent
 Answer:\\
 \\
+(1) $G$ is a group and $p \in G$.  We need to show that $p$ is the effective identity element
+for $G$ and then its uniqueness is assured.  We do this as follows:
+\begin{align*}
+ p^{-1} \circ (p \circ p) &= p^{-1} \circ p \\
+ &= e \quad \quad \quad \quad \text{(the identity for $G$)} \\
+ &= (p^{-1} \circ p) \circ p \\
+ &= 1 \circ p \\
+ &= p
+\end{align*}
+Hence, $p$ acts as identity for $G$ and is therefore unique.
+
 
 \end{document}
