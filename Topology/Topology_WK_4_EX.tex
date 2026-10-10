@@ -1,0 +1,311 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Provides \mathbb and other symbols
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}  % For colored boxes
+\usepackage[table]{xcolor} % For coloring table cells
+\usepackage{array}         % For better table alignment
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage{amsmath,amssymb}
+
+% Set the top margin
+
+\geometry{top=1in} % You can adjust the measurement as needed
+
+
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{\fill} % Adds vertical space to center the title block vertically
+{\Huge Topology} \\[0.5cm] % Title 2
+{\Huge Home Work 4}\\[1.5cm] % Title 3
+{\Large Student: 26-712-224}\\[0.5cm] % Student ID
+{\Large \today} % Date, \today adds today's date
+\vspace*{\fill}
+\end{titlepage}
+
+\newpage
+\noindent
+\noindent\textbf{Exercise 1.} Let $(X,\mathcal{U})$ be a topological space.
+\begin{enumerate}
+\item[(a)] Let $C\subseteq X$ be connected. Prove that its closure $\overline{C}$ is connected.
+\item[(b)] Let $C_1,C_2\subseteq X$ be connected and assume that $C_1\cap C_2\neq\emptyset$. Prove that $C_1\cup C_2$ is connected.
+\item[(c)] Let $p\in X$, and consider the connected component
+\begin{align*}
+C(p):=\bigcup_{\substack{C\subseteq X\ \text{connected}\\p\in C}} C \tag{1.1}
+\end{align*}
+Prove that $C(p)$ is connected and closed in $X$.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(1)(a) $(X,\mathcal{U})$ a topological space. We are given that $C\subset X$ is connected.\\
+Let $\overline{C} \supset C$ be the closure of $C$ and assume that it is not connected. Then $\exists\,U,V\in\mathcal{U}_{\overline{C}}$ both nonempty and disjoint such that:
+\begin{align*}
+U\cup V = \overline{C}.
+\end{align*}
+As $C$ is connected it is clear that $C$ itself is contained in $U$ or $V$ (say $U$).  If this were not the case
+we would have found two open disjoint sets (i.e. $U \cap C$ and $V \cap C$) in $\mathcal{U}_{C}$ that seperated $C$.
+Consequently, we must have that:
+\begin{align*}
+C\subset U \quad\text{and}\quad \overline{C}\cap V\neq\emptyset.
+\end{align*}
+As $\overline{C}\cap V\neq\emptyset$ let $p\in\overline{C}\cap V$, i.e. $p\in\overline{C}\setminus C$ (i.e. an accumulation point of $C$). But, by definition, if $p\in\overline{C}\setminus C$
+\begin{align*}
+\Rightarrow\quad \forall\,O\in\mathcal{U}\ \text{s.t.}\ p\in O
+\quad\implies\quad O\cap C\neq\emptyset.
+\end{align*}
+But $V$ is one such $O \cap \overline{C}$ and hence:
+\begin{align*}
+\emptyset \neq V\cap C \subset V\cap U 
+\end{align*}
+\begin{center}
+\underline{contradiction}.
+\end{center}
+Hence $C$ connected $\Rightarrow$ $\overline{C}$ also connected.\\
+\qed\\
+\\
+(b) \noindent Assume $C_1,C_2\subset X$ are both connected.
+Given $C_1\cap C_2\neq\emptyset$ show $C_1\cup C_2$ connected.
+
+\noindent Assume $C_1\cup C_2$ is not connected. Then
+$\exists\,U,V\in\mathcal{U}_{C_1\cup C_2}$ s.t. $U,V$ are disjoint and non-empty,
+and
+\begin{align*}
+U\cup V = C_1\cup C_2.
+\end{align*}
+Clearly $C_1$ \& $C_2$ -- both connected -- must reside in different
+$(U,V)$. Say $C_1\subset U$ \& $C_2\subset V$ - use same argument as in part (a) to show this.\\
+\\
+But
+\begin{align*}
+C_1\cap C_2 &\subset U\cap V\\
+\text{and}\quad C_1\cap C_2\neq\emptyset
+&\Rightarrow U\cap V\neq\emptyset.
+\end{align*}
+\begin{center}
+Contradiction
+\end{center}
+Hence $C_1\cup C_2$ is connected.\\
+\qed\\
+\\
+(c) \noindent Let
+\begin{align*}
+C(p)=\bigcup_{\substack{p\in C\\C\text{ connected}}}C.
+\end{align*}
+Assume $C(p)$ is not connected. Then $\exists\,U,V\in\mathcal{U}_{C(p)}$ both open,
+disjoint, non-empty and $C(p) =U\cup V$.\\
+A similar argument to part (b) follows. As each $C$ in $C(p)$
+is connected it will belong to either $U$ or $V$.  $U \text{ and } V$ are both nonempty by assumption.  
+This means that both $U$ and $V$ will contain different connected $C$'s.
+Consequently, we must have that: $p \in U$ and $p \in V \implies p \in U \cap V$.
+\begin{center}
+contradiction.
+\end{center}
+Hence $C(p)$ is connected.\\
+\\
+\noindent Now $C(p)$ connected $\Rightarrow\overline{C(p)}$ connected (in part (1)).
+\begin{align*}
+&\Rightarrow C(p)\subset\overline{C(p)}\subset C(p)
+\quad\text{from the definition of $C(p)$ (1.1).}\\
+&\Rightarrow C(p)=\overline{C(p)}\\
+&\Rightarrow C(p)\text{ is closed.}
+\end{align*}
+\qed
+
+\newpage
+\noindent\textbf{Exercise 2.}\\
+\\
+A topological space $(X,\mathcal{U})$ is called $T_1$ if for every pair of distinct points $x,y\in X$, there exists an open set $U$ such that
+\begin{align*}
+x\in U,\qquad y\notin U,
+\end{align*}
+and an open set $V$ such that
+\begin{align*}
+y\in V,\qquad x\notin V.
+\end{align*}
+Notice that the open sets $U$ and $V$ are not required to be disjoint.
+\begin{enumerate}
+\item[(a)] Prove that a topological space $(X,\mathcal{U})$ is $T_1$ if and only if every singleton $\{x\}$ is closed in $X$.
+\end{enumerate}
+Consider on $\mathbb{R}$ the topology of right rays
+\begin{align*}
+\mathcal{T}=\{(a,+\infty):a\in\mathbb{R}\}\cup\{\emptyset,\mathbb{R}\}.
+\end{align*}
+\begin{enumerate}
+\item[(b)] Is $(\mathbb{R},\mathcal{T})$ Hausdorff? Is $(\mathbb{R},\mathcal{T})$ a $T_1$ space? Justify your answers.
+\end{enumerate}
+
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(a) Let $(X,\mathcal{U})$ be a topological space.\\
+(i) Assume every singleton set $\{x\}$ $(x\in X)$ is closed in $X$.
+
+\noindent Given $x,y$ $(x\neq y)$ in $X$. Then:
+\begin{align*}
+U=X\setminus\{x\} &\quad\text{is open i.e. } U\in\mathcal{U}\\
+V=X\setminus\{y\} &\quad\text{is open i.e. } V\in\mathcal{U}.
+\end{align*}
+Clearly:
+\begin{align*}
+&y\in U \quad\text{and}\quad x\notin U.\\
+\text{\&}\quad &x\in V \quad\text{and}\quad y\notin V.
+\end{align*}
+Hence $(X,\mathcal{U})$ is $T_1$.\\
+\\
+(ii) Assume $(X,\mathcal{U})$ is $T_1$.\\
+Given $x\in X$, then $\forall\,y\in X\setminus\{x\}$ - since $(X,\mathcal{U})$ is T1 - there is an open set $U_y$\\
+such that: $y\in U_y$ \& $x\notin U_y$.\\
+\\
+Define:
+\begin{align*}
+U=\bigcup_{y\in X\setminus\{x\}}U_y.
+\end{align*}
+Then $U$ is also open (i.e. $U\in\mathcal{U}$).
+
+\noindent Then $X\setminus U=\{x\}$ is closed.\\
+\qed
+
+\newpage
+\noindent
+(b) 
+\begin{align*}
+\mathcal{T}=\{(a,+\infty)\mid a\in\mathbb{R}\}\cup\{\emptyset,\mathbb{R}\}
+\end{align*}
+is a topology on $\mathbb{R}$.\\
+\\
+To determine if $\mathcal{T}$ is Hausdorff we must check that if given any $x,y\in\mathbb{R}$ $(x<y)$ there are
+disjoint open sets that contain $x$ and $y$.\\
+All open sets that contain $x$ are of the form $(p,+\infty)$ where $p<x$ - or $\mathbb{R}$ itself.\\
+All open sets containing $y$ are of the form $(q,+\infty)$ where $q<y$ - or $\mathbb{R}$ itself.\\
+As $x<y$. Any open set containing $x$ \underline{must} also contain $y$
+$\Rightarrow (\mathbb{R},\mathcal{T})$ is \underline{not} Hausdorff.\\
+\\
+The same argument shows that \underline{any} open set that contains $x$ \underline{must} contain $y$.
+So $(\mathbb{R},\mathcal{T})$ is also \underline{not} $T_1$.
+
+\newpage
+\noindent\textbf{Exercise 3.}
+
+\noindent A map $f:X\to Y$ between topological spaces is called open if, for every open set $U\subseteq X$, $f(U)$ is open in $Y$.
+\begin{enumerate}
+\item[(a)] Given $(X,\mathcal{U})$ and $(Y,\mathcal{V})$ topological spaces, show that, if $f:X\to Y$ is bijective, continuous and open, then $f$ is a homeomorphism.
+\end{enumerate}
+Consider the torus $T\subseteq\mathbb{R}^3$, endowed with the topology $\mathcal{U}_T$ induced by the Euclidean topology on $\mathbb{R}^3$. Consider also $S^1\times S^1$ with the product topology.
+
+\noindent Recall from class the following map, given in angular coordinates,
+\begin{align*}
+F:S^1\times S^1&\longrightarrow T,\\
+(\theta,\varphi)&\longmapsto
+\bigl((2+\cos(2\pi\theta))\cos(2\pi\varphi),
+(2+\cos(2\pi\theta))\sin(2\pi\varphi),
+\sin(2\pi\theta)\bigr).
+\end{align*}
+\begin{enumerate}
+\item[(b)] Prove that $F$ is a homeomorphism.
+\end{enumerate}
+\newpage
+\noindent\textbf{Exercise 4.} Let $(X,\mathcal{U})$ and $(Y,\mathcal{V})$ be non-empty topological spaces and consider $X\times Y$ endowed with the product topology. Prove that $X\times Y$ is connected if and only if both $X$ and $Y$ are connected.
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(i) Given that $(X \times Y, \mathcal{U}_{X \times Y})$ is connected prove that $(X,\mathcal{U}_{X})$ and $(Y,\mathcal{U}_{Y})$ are both connected.\\
+\\
+First we construct a map:
+\begin{align*}
+&f: (X \times Y, \mathcal{U}_{X \times Y}) \to (X,\mathcal{U}_{X}) \\
+&f(x,y) = x
+\end{align*}
+This map is continuous since, for $O \in \mathcal{U}_{X} \implies f^{-1}(O) = O \times Y$ - which is open in $\mathcal{U}_{X \times Y}$. This map is also clearly surjective.  So, given that $(X \times Y, \mathcal{U}_{X \times Y})$ is connected we must have that $(X,\mathcal{U}_{X})$ is also connected.\\
+\\
+The same argument can be applied to show that $(Y,\mathcal{U}_{Y})$ must also be connected.\\ 
+\\
+(ii) Given that $(X,\mathcal{U})$ and $(Y,\mathcal{V})$ are both connected.\\
+\\
+Suppose $X \times Y = U \cup V$ is a separation into non-empty disjoint open sets. Choose $(x_0,y_0) \in U$.
+The connected slice $\{x_0\} \times Y$ lies entirely in $U$. For every $y \in Y$, the connected slice $X \times \{y\}$ intersects it at $(x_0,y)$, so also lies entirely in $U$.\\
+\\
+Thus $U = X \times Y$, contradicting $V \neq \varnothing$.
+\newpage
+\noindent\textbf{Exercise 5.} Let $(X,\mathcal{U})$ and $(Y,\mathcal{V})$ be non-empty topological spaces and consider $X\times Y$ endowed with the product topology $\mathcal{U}_{X\times Y}$. Prove that $(X\times Y,\mathcal{U}_{X\times Y})$ is Hausdorff if and only if both $(X,\mathcal{U})$ and $(Y,\mathcal{V})$ are Hausdorff.
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(a) Assume $(X,\mathcal{U}_x),(Y,\mathcal{U}_y)$ are both Hausdorff.
+Let $(x_1,y_1)$ \& $(x_2,y_2)$ be two distinct points in $X\times Y$.\\
+(i) Assume $x_1\neq x_2$ \& $y_1\neq y_2$.
+Then
+\begin{align*}
+&\exists\,U_1,U_2\in\mathcal{U}_x\ \text{s.t.}\ x_1\in U_1,\ x_2\in U_2,\quad U_1\cap U_2=\emptyset\\
+\text{\&}\quad &\exists\,V_1,V_2\in\mathcal{U}_y\ \text{s.t.}\ y_1\in V_1,\ y_2\in V_2,\quad V_1\cap V_2=\emptyset.
+\end{align*}
+Then
+\begin{align*}
+&(x_1,y_1)\in U_1\times V_1;\quad (x_2,y_2)\in U_2\times V_2\\
+\text{\&}\quad&(U_1\times V_1)\cap(U_2\times V_2)=\emptyset.
+\end{align*}
+Hence: $(X\times Y,\mathcal{U}_{X\times Y})$ is Hausdorff.\\
+\\
+(ii) If $y_1=y_2=y$ we just take $V\in\mathcal{U}_y$ s.t. $y\in V$.
+Again
+\begin{align*}
+&(x_1,y)\in U_1\times V\quad\text{\&}\quad(x_2,y)\in U_2\times V\\
+\text{\&}\quad &(U_1\times V)\cap(U_2\times V)=\emptyset.
+\end{align*}
+Hence: $(X\times Y,\mathcal{U}_{X\times Y})$ is again Hausdorff.\\
+\\
+(Same logic if $x_1=x_2$ \& $y_1\neq y_2$).
+\begin{align*}
+\therefore\quad(X\times Y,\mathcal{U}_{X\times Y})\text{ is Hausdorff}
+\end{align*}
+\\
+(b) Assume that $(X\times Y,\mathcal{U}_{X\times Y})$ is Hausdorff.\\
+Take any two distinct points $(x_1, y), (x_2, y) \in X\times Y$.  As $X\times Y$ Hausdorff there must exist
+two open and disjoint "rectangles" $R_1 \; \& \; R_2$ s.t. $(x_i, y) \in R_i$.\\
+\\
+Let $R_1 = U_1 \times V_1$ and $R_2 = U_2 \times V_2$ - where $U_i \in \mathcal{U}_{X}$ and  $V_i \in \mathcal{U}_{Y}$.\\
+Let $V = V_1 \cap V_2$, then $U_1 \times V$ and $U_2 \times V$ are also open disjoint "rectangles" in $X \times Y$ that seperate the
+two points $(x_1, y)$ and $(x_2, y)$ - and their being disjoint means that $U_1 \cap U_2 = \emptyset$.\\
+We conclude that $(X, \mathcal{U}_{X})$ is Hausdorf.\\
+\\
+The exact same argument can be applied for $(Y, \mathcal{U}_{Y})$ to show it is also Hausdorff.\\
+\\
+Hence we must have that both $(X, \mathcal{U}_{X})$ and $(Y, \mathcal{U}_{Y})$ are Hausdorff.
+\qed
+\newpage
+\noindent\textbf{Exercise 6.} \textit{(Universal property of the Product Topology)}
+
+\noindent Let $(X_\alpha,\mathcal{U}_\alpha)_{\alpha\in A}$ be a family of topological spaces. Consider the set $X:=\prod_{\alpha\in A}X_\alpha$ and, for every $\alpha\in A$, the projection $p_\alpha:X\to X_\alpha$. Prove that the product topology $\mathcal{U}_X$ on $X$ is the unique topology of $X$ such that, for every topological space $(Y,\mathcal{V})$ and map $f:Y\to X$, $f$ is continuous if and only if $p_\alpha\circ f:Y\to X_\alpha$ is continuous for every $\alpha\in A$.
+\begin{align*}
+\begin{array}{ccc}
+(Y,\mathcal{V}) & \xrightarrow{\quad f\quad} & (X,\mathcal{U}_X)\\
+& \underset{p_\alpha\circ f}{\searrow} & \big\downarrow{\scriptstyle p_\alpha}\\
+&& (X_\alpha,\mathcal{U}_\alpha)
+\end{array}
+\end{align*}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+
+
+\end{document}

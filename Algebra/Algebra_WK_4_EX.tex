@@ -1,0 +1,171 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Provides \mathbb and other symbols
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}  % For colored boxes
+\usepackage[table]{xcolor} % For coloring table cells
+\usepackage{array}         % For better table alignment
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage[margin=2.5cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{\fill}
+{\Huge Algebra} \\[0.5cm]
+{\Huge Home Work 4}\\[1.5cm]
+{\Large Student: 26-712-224}\\[0.5cm]
+{\Large \today}
+\vspace*{\fill}
+\end{titlepage}
+
+\newpage
+\noindent\textbf{A)} Let $\ell \geq 1$ be an integer and consider the cyclic group $(\mathbb{Z}/\ell\mathbb{Z},+)$. Given $n\in\mathbb{Z}$, we write $\overline{n}=n+\ell\mathbb{Z}$ for the class of $n$ in $\mathbb{Z}/\ell\mathbb{Z}$.
+\begin{enumerate}
+\item[(1)] Show that there is a well-defined composition law $\times$ on $\mathbb{Z}/\ell\mathbb{Z}$ such that $\overline{m}\times\overline{n}=\overline{m\times n}$, for all $m,n\in\mathbb{Z}$.
+\item[(2)] Show that $(\mathbb{Z}/\ell\mathbb{Z},\times)$ is a commutative monoid.
+\item[(3)] For $n\in\mathbb{Z}$, show that $\overline{n}$ is invertible in $(\mathbb{Z}/\ell\mathbb{Z},\times)$ iff $\gcd(n,\ell)=1$.
+\item[(4)] Let $(\mathbb{Z}/\ell\mathbb{Z})^\times\subset\mathbb{Z}/\ell\mathbb{Z}$ be the subset of invertible elements in $(\mathbb{Z}/\ell\mathbb{Z},\times)$. Show that $((\mathbb{Z}/\ell\mathbb{Z})^\times,\times)$ is an abelian group.
+\item[(5)] Let $p$ be a prime number. Show that $\overline{n}^{p-1}=\overline{1}$ in $\mathbb{Z}/p\mathbb{Z}$ for all $1\leq n\leq p-1$.
+(\textit{Hint:} Note that $(\mathbb{Z}/p\mathbb{Z})^\times=(\mathbb{Z}/p\mathbb{Z})\setminus\{\overline{0}\}$ and use the previous question.)
+\item[(6)] Deduce that for every $x\in\mathbb{Z}$, $x^p-x$ is divisible by $p$. (This is Fermat's little theorem.)
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(1) For $(\mathbb{Z} / l\mathbb{Z}, \times)$, $l \ge 1$, to be well defined we need to show that:
+\begin{align*}
+  \overline{m} \times \overline{n} = \overline{m \times n} \;\;\;\;\;\;\;\; \forall m,n \in \mathbb{Z}
+\end{align*}
+is independent of any of the representatives taken from $\overline{m}$ and $\overline{n}$.\\
+\\
+Let: $n_1, n_2 \in \overline{n}$ and $m_1, m_2 \in \overline{m}$, then we must have there there
+are $q_1, q_2, p_1, p_2 \in \mathbb{Z}$ such that: $n_1 = n + q_1 l$, $n_2 = n + q_2 l$, $m_1 = m + p_1 l$ and $m_2 = m + q_2 l$.  Then:
+\begin{align*}
+  n_1 \times m_1 = (n + q_1 l)(m + p_1 l) = n m + r_1 l \;\;\;\;\; \text{(where $r_1 \in \mathbb{Z}$)} \tag{1.1} \\
+  n_2 \times m_2 = (n + q_2 l)(m + p_2 l) = n m + r_2 l \;\;\;\;\; \text{(where $r_2 \in \mathbb{Z}$)} \tag{1.2}
+\end{align*}
+Both representations are in $\overline{m \times n}$ and so the operation is well defined.\\
+\\
+(2) To show that $(\mathbb{Z} / l\mathbb{Z}, \times)$ is a monoid one need only show that the composition operation ($\times$) is associative and that
+there is an identity element.\\
+\\
+Clearly $\overline{1}$ is the identity element.\\
+Following from part (1) - To show that $\times$ is associative we take 3 elements and show that composition is associative.
+Let $\overline{a}, \overline{b}, \overline{c}$ be the three elements of $(\mathbb{Z} / l\mathbb{Z}, \times)$.
+\begin{align*}
+  \overline{a} \times (\overline{b} \times \overline{c}) &= \overline{a} \times (\overline{b \times c}) \\
+  &= \overline{a \times b \times c }
+\end{align*}
+Also:
+\begin{align*}
+  (\overline{a} \times \overline{b}) \times \overline{c} &= (\overline{a \times b}) \times \overline{c} \\
+  &= \overline{a \times b \times c }
+\end{align*}
+\qed\\
+
+\newpage
+\noindent
+(3) Let $\overline{n} \in (\mathbb{Z} / l\mathbb{Z}, \times)$ be invertible.  Then $\exists \overline{m} \in (\mathbb{Z} / l\mathbb{Z}, \times)$ such that:
+$$\overline{n}\times \overline{m} = \overline{n \times m} = \overline{1}$$
+Put another way, take any $n \in \overline{n}$ then this number is invertible in $(\mathbb{Z} / l\mathbb{Z}, \times) \iff \gcd(n,l)=1$.\\
+\\
+\textbf{Proof:}\\
+Assume that $n$ is invertible in $(\mathbb{Z} / l\mathbb{Z}, \times)$.  Then there exists an $m \in (\mathbb{Z} / l\mathbb{Z}, \times)$ such that:
+\begin{align*}
+    (n + k_1 l)(m + k_2 l) &= (1 + k_3 l) \\
+\implies nm + k_4 l &= 1 + k_3 l \\
+\implies nm + (k_4-k_3)l &= 1 \tag{1.3}
+\end{align*}
+where $k_1,k_2,k_3,k_4 \in \mathbb{Z}$.  Now let $\gcd(n,l)=d \ge 1$, then as $d|n$ and $d|l$ we can use (1.3) to determine that $d|1$.
+Hence $d=1$ and $n$ and $l$ are coprime.\\
+\\
+Now assume that $\gcd(n,l)=1$. We cab use Bézout’s lemma to determine integers $p,q \in \mathbb{Z}$ such that:
+$$ pn + ql = 1$$
+This means that $pn \in \overline{1}$ from which we have that $n$ and hence $\overline{n}$ is invertible - with inverse: $\overline{p}$.\\
+\\
+(4) We have that $(\mathbb{Z} / l\mathbb{Z})^*$ consists of all invertible elements of $(\mathbb{Z} / l\mathbb{Z}, \times)$.\\
+\\
+Clearly $\overline{1} \in (\mathbb{Z} / l\mathbb{Z})^*$, since $\overline{1} \times \overline{1} = \overline{1}$, which is the
+identity element for this set.\\
+\\
+Let $\overline{p} \in (\mathbb{Z} / l\mathbb{Z})^*$, then this element has an inverse $\overline{p}^{-1} = \overline{p^{-1}} \in (\mathbb{Z} / l\mathbb{Z})^*$ such that:
+$\overline{p} \times \overline{p^{-1}} = \overline{p^{-1}} \times \overline{p} = \overline{1}$.  But this also means that: $\overline{p^{-1}} \in (\mathbb{Z} / l\mathbb{Z})^*$.\\
+\\
+Now let $\overline{p}, \overline{q} \in (\mathbb{Z} / l\mathbb{Z})^*$.  Then the inverses, as we saw above, must also be in the set: i.e. $\overline{p^{-1}}, \overline{q^{-1}} \in (\mathbb{Z} / l\mathbb{Z})^*$.\\
+But then: $\overline{p} \times \overline{q} = \overline{p \times q}$ will have the inverse element: $\overline{p^{-1}} \times \overline{q^{-1}} = \overline{p^{-1} \times q^{-1}} = (\overline{p \times q})^{-1}$.\\
+Hence: $\overline{p \times q} \in (\mathbb{Z} / l\mathbb{Z})^*$.\\
+\\
+All 3 conditions for a set to be a group are establishe - associativity was already established earlier.  Hence: $(\mathbb{Z} / l\mathbb{Z})^*$ is indeed a group.
+Further, as multiplication is commutative it is an abelian group.
+
+\newpage
+\noindent\textbf{B)} Let $p$ be a prime number. We fix a group $G$ of cardinality $p^2$. Our goal is to show that $G$ is abelian. We argue by contradiction assuming that $G$ is not abelian.
+\begin{enumerate}
+\item[(1)] Show that every element of $G\setminus\{1\}$ has order $p$.
+\item[(2)] Let $S$ be the set of all cyclic subgroups of $G$ of cardinality $p$. Show that the set $\mathcal{P}=\{H\setminus\{1\}\mid H\in S\}$ is a partition of $G\setminus\{1\}$. Deduce that $\operatorname{card}(S)=p+1$.
+\item[(3)] Fix two elements $x$ and $y$ in $G$ such that $xy\neq yx$. Show that $x^m y^n\neq y^n x^m$ for all $1\leq m\leq p-1$ and $1\leq n\leq p-1$.
+\item[(4)] For $0\leq m\leq p-1$, consider the cyclic subgroup $H_m=\langle y^{-m}xy^m\rangle$ of $G$. Show that $H_m=\{y^{-m}x^n y^m\mid 0\leq n\leq p-1\}$.
+\item[(5)] Let $0\leq m_1<m_2\leq p-1$. We want to show that $H_{m_1}\neq H_{m_2}$. We argue by contradiction and assume that $H_{m_1}=H_{m_2}$.
+\begin{enumerate}
+\item[(a)] Set $l=m_2-m_1$. Show that there is an integer $0\leq e\leq p-1$ such that $x^e=y^{-l}xy^l$.
+\item[(b)] Deduce by induction on $r\in\mathbb{N}$ that $y^{-lr}xy^{lr}=x^{e^r}$.
+\item[(c)] By letting $r=p$, deduce that $x=x^{e^p}$.
+\item[(d)] Use Exercise \textbf{A)}, (6) to deduce a contradiction.
+\end{enumerate}
+\item[(6)] Deduce that the subset $K=(G\setminus\bigcup_{0\leq m\leq p-1}H_m)\cup\{1\}$ is a subgroup of $G$ of cardinality $p$. (Use questions (2) and (5).)
+\item[(7)] Show that $G=\langle x\rangle\langle y\rangle$. Deduce that every element of $G$ can be written as $x^n y^m$ for some integers $0\leq n\leq p-1$ and $0\leq m\leq p-1$.
+\item[(8)] Deduce from the previous question that every conjugate of $\langle x\rangle$ is one of the $H_m$, for $0\leq m\leq p-1$. More precisely, show that for every $g\in G$ we have $\langle g^{-1}xg\rangle=H_m$ for exactly one integer $0\leq m\leq p-1$.
+\item[(9)] Using questions (6) and (8), show that $K$ is a normal subgroup of $G$.
+\item[(10)] Let $z\in K$ be a generator. Deduce form question (9) that $x^{-1}zx=z^e$ for some $0\leq e\leq p-1$. Use the method of question (5) to show that $e=1$. Obtain the final contradiction. (Note that $x\notin K$.)
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(1) If G is a group of order $p^2$, where $p$ is a prime, then the only divisors are: $1, p, p^2$.
+Hence the orders of the elements in $G$ must be one of these three values.\\
+The only element of order 1 is $1$ (identity element).  If we have an element of order $p^2$ then $G$ is cyclic and
+hence abelian.  So, if we are to assume that $G$ is NOT abelian, we muct conslude that all elements, other
+then $1$, will have order $p$.\\
+
+\newpage
+\noindent
+(2) As all elements $g \in G \setminus \{1\}$ have order p the associated cyclic groups $\langle g \rangle$ also have order p.\\
+Let us define an equivalence relation on $G \setminus \{1\}$ defined by: $g_1 \sim g_2 \iff g_2 \in \langle g_1 \rangle$.\\
+Then:
+\begin{itemize}
+  \item $g_1 \sim g_1; \forall g \in G \setminus \{1\}$
+  \item $g_1 \sim g_2 \implies g_2 \sim g_1$, \\
+   since $g_2 = g_1^k$ for some $k \implies g_2^r=g_1$, where $rq \equiv 1 \pmod{p^2}$ 
+  \item $g_1 \sim g_2$ and $g_2 \sim g_3 \implies g_1 \sim g_3$, \\
+  since $g_2 = g_1^{k_1}$ and $g_3 = g_2^{k_2} \implies g_3 = g_1^{k_1 k_2 \pmod{p^2}}$
+\end{itemize}
+Normally each cycle would have p elements - but actually have $(p-1)$ as we excluded 1.\\
+Hence we have $k$ such cycles and this must account for the $p^2-1$ elements in $G \setminus \{1\}$.\\
+\\
+Counting elements we arrive at: $k(p-1) = p^2-1 = (p-1)(p+1)$.  From this we can conclude that there must
+be $k=p+1$ such cycles.  In the notation of the question: $\text{Card}(S)=p+1$.\\
+\\
+(3) As $G$ is assumed to not be abelian there must exist distinct $x, y \in G$ such that: $xy \ne yx$.\\
+We can proceed as follows:
+\begin{align*}
+    xy \ne yx \iff y \ne xyx^{-1}
+\end{align*}
+
+
+
+\end{document}
