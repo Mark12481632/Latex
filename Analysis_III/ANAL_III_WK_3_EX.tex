@@ -23,250 +23,138 @@
 \centering
 \vspace*{\fill}
 {\Huge Analysis III} \\[0.5cm]
-{\Huge Home Work 2}\\[1.5cm]
+{\Huge Home Work 3}\\[1.5cm]
 {\Large Student: 26-712-224}\\[0.5cm]
 {\Large \today}
 \vspace*{\fill}
 \end{titlepage}
 
 \newpage
-
-\noindent\textbf{Exercise 1 (Step functions, 1+2+1 P.)}\\
-Let us define, for \(x\in[0;1]\),
+\textbf{Exercise 1 (Properties of $L^1$, 1+1+1+1+1 P.)}
+For $f:\mathbb{R}^n\to\mathbb{R}$, define the positive part $f_+:=\max\{0,f\}$ and negative part $f_-:=\max\{0,-f\}$ of $f$ respectively. The goal of this exercise is to show that
 \begin{align*}
-f(x)=\sum_{k=0}^{+\infty}\chi_{[2^{-k-1},2^{-k}]}(x).
+f\in L^1(\mathbb{R}^n;\mathbb{R}) \iff f_{\pm}\in L^1(\mathbb{R}^n;\mathbb{R}).
 \end{align*}
-(a) Is \(f\) a step function? Justify your answer briefly (you do not need to give a complete proof).
-
-(b) Show that there exists a step function \(g:[0;1]\to\mathbb{R}\) with \(f=g\) almost everywhere and explicitly write down the set
+To do this, follow the procedure outlined below.
+\begin{enumerate}
+\item[(a)] Prove the ``$\Leftarrow$'' direction.
+\item[(b)] To prove ``$\Rightarrow$'', let $f\in L^1(\mathbb{R}^n;\mathbb{R})$. By definition, there are $g,h\in\mathcal{L}^{\mathrm{inc}}$ with $f=g-h$. Write down the properties of the sequences $(g_k)_{k\in\mathbb{N}}$ and $(h_k)_{k\in\mathbb{N}}$ obtained by applying the definition of $\mathcal{L}^{\mathrm{inc}}$ on $g$ and $h$ respectively.
+\item[(c)] Justify briefly that $(r_k)_{k\in\mathbb{N}}$, defined by $r_k=2\min\{g_k,h_k\}$, is an increasing sequence of step functions (you do not need to give a full proof). Prove that the sequence
 \begin{align*}
-\{x\in[0;1]:f(x)\ne g(x)\}.
+\left(\int r_k(x)\,dx\right)_{k\in\mathbb{N}}
 \end{align*}
-(c) Compute \(\int_0^1 f(x)\,dx\) by making use of (b).
+is bounded. \textit{Hint:} You may use without proof that $2\min\{a,b\}\leq a+b$.
+\item[(d)] Prove that
+\begin{align*}
+r_k=g_k+h_k-|g_k-h_k|
+\end{align*}
+and find the limit as $k\to+\infty$. Using that $\mathcal{L}^{\mathrm{inc}}\subset L^1(\mathbb{R}^n;\mathbb{R})$ and that $L^1(\mathbb{R}^n;\mathbb{R})$ is a vector space, deduce that $|f|\in L^1(\mathbb{R}^n;\mathbb{R})$.
+\item[(e)] Express $f_+$ and $f_-$ in terms of $f$ and $|f|$ and hence deduce that $f_{\pm}\in L^1(\mathbb{R}^n;\mathbb{R})$.
+\end{enumerate}
+
 
 \vspace{1cm}
 \noindent
 Answer:\\
 \\
-(a) $f(x)$ is NOT a valid step function.  A valid step function 
-can always be represented by a finite number of bounded intervals. The sum shown is not finite and can't be repesented as as
-a finite number of bounded step functions (there are infinitely many isolated points that take the value 2).\\
+(a) From the definition of $f_+$ and $f_-$ it follows that: $f = f_+ - f_-$.  But we are given that both: $f_-, f_+ \in L^1$ and as $L^1$
+is a vector space we must also have that $f \in L^1$.\\
 \\
-(b) The simple step function: $g:[0, 1] \to \mathbb{R}$ given by: $g(x) = \chi_{[0,1]}(x)$ is such that $f=g$ (a.e.).\\
-Now the ends of the each interval: $\chi_{[2^{-k-1},2^{-k}]}$ are "double counted" - except for\\
-$k=0 \text{ when } \chi_{[2^{-k-1},2^{-k}]} = \chi_{[\frac{1}{2},1]}$.\\
-Consequently, the points where $f \ne g$ is the set:
-$$ D = \left\{ \frac{1}{2^k} \; \ \; k \in \mathbb{N}_{+} \right\} \cup \{0\} $$
-Not that $D$ is countable and hence a set of measure zero.  I.e. $f=g$ (a.e).\\
- \\
-(c) It is clear that $g$ is Lebesgue Integrable.\\
-Using Theorem 11.2.15 in the notes we can conclude that, for Lebesgue Integration:\\
-$$\int g = \int f$$
-As $\int g = \lambda([0,1]) = 1$, we can conclude that:
-$$\int f = 1$$
-
-
-
+(b) From what is already given, we can conclude that there exist sequences $(g_k), (h_k) \in T^{inc}$ such that:
+\begin{itemize}
+\item $h_k \to h$ and $g_k \to g$ - both pointwise a.e.
+\item $(\int h_k)$ and $(\int g_k)$both converge.
+\end{itemize}
+These are precisely the properties given by the definition of $L^{inc}$.\\
+\\
+(c) The minimum of two step functions is a step function.  By the hint and monotonicity,
+\begin{align*}
+\int r_1 \leq \int r_k
+\leq \int g_k+\int h_k.
+\end{align*}
+As $g_k$ and $h_k$ are both increasing means $r_k$ also increasing.  The right-hand side 
+converges, so $(\int r_k)$ is bounded. Since it is also increasing, it must converge.\\
+\\
+(d) The identity $2\min\{a,b\} = a+b-|a-b|$ gives:
+\begin{align*}
+r_k=g_k+h_k-|g_k-h_k|.
+\end{align*}
+Outside the union of the two null exceptional sets,
+\begin{align*}
+r_k\longrightarrow r:=g+h-|g-h|=g+h-|f|.
+\end{align*}
+Part (c) therefore gives $r \in L^{inc} \subset L^1$. Since $g,h \in L^1$ and $L^1$ is a vector space,
+\begin{align*}
+|f|=g+h-r\in L^1.
+\end{align*}
+\\
+(e) We can write: $f_- = \frac{|f| - f}{2}$ and $f_+ = \frac{|f| + f}{2}$.  As $f \in L^1 \implies |f| \in L^1$.  Also, we know that $L^1$ is
+a vector space.  This means that, using the above two equations, that $f_+$ and $f_-$ are both $L^1$. 
 \newpage
-\noindent\textbf{Exercise 2 (Sequences of step functions, 2+1+2+1 P.)}
-
-\noindent Let $I$ be a compact interval in $\mathbb{R}^n$.
+\textbf{Exercise 2 (Integrability, 1+1+1+1+1 P.)}
+For the following functions, decide whether they are Lebesgue integrable, Riemann integrable, both or neither. You do not need to compute the integrals. Cite Theorems you are using from the script. You may also use exercise 1 above.
 \begin{enumerate}
-\item[(a)] Let $f:I^\circ\to\mathbb{R}$ be continuous and defined on the interior $I^\circ$ of $I$. Assuming that $f$ is unbounded from below, show that there cannot exist an increasing sequence $(f_k)_{k\in\mathbb{N}}\in T^{\mathrm{inc}}$ of step functions with $f_k\to f$ almost everywhere.
-\item[(b)] Let $(f_k)_{k\in\mathbb{N}}\in T^{\mathrm{dec}}$ be a decreasing sequence of step functions for which $f_k\to\chi_I$ almost everywhere. Show that
-\begin{align*}
-\int_I f_k(x)\,dx\to\lambda_n(I)
-\end{align*}
-by reducing the problem to an application of Theorem 11.2.10(1).
-\item[(c)] Consider the sequence of step functions $f_k:[0;1]\to\mathbb{R}$ given by
-\begin{align*}
-f_k(x)=k\chi_{[0;1/k]}(x).
-\end{align*}
-Prove that $f_k\to 0$ pointwise almost everywhere and compute $\int_0^1 f_k(x)\,dx$ for every $k\in\mathbb{N}$. Why is this not in contradiction with Theorem 11.2.10(1)?
-\item[(d)] Let $f,g:I\to\mathbb{R}$ be two functions so that $f=g$ almost everywhere. Show that if $f\in\mathcal{L}^{\mathrm{inc}}$, then also $g\in\mathcal{L}^{\mathrm{inc}}$ and
-\begin{align*}
-\int_I f(x)\,dx=\int_I g(x)\,dx.
-\end{align*}
+\item[(a)] $f_1(x)=\pi$ on $\mathbb{R}$
+\item[(b)] $f_2(x)=-e^{-x}$ on $\mathbb{R}$
+\item[(c)] $f_3(x)=e^{-|x|}$ on $\mathbb{R}$
+\item[(d)] $f_4(x)=\chi_{\mathbb{R}\setminus\mathbb{Q}}(x)-\chi_{\mathbb{Q}}(x)$ on $[0;1]$
+\item[(e)] $f_5(x)=x\sin(1/x)$, $f_5(0)=0$ on $[-1;1]$
 \end{enumerate}
 
 \vspace{1cm}
 \noindent
 Answer:\\
 \\
-(a) Suppose such an increasing sequence $(f_k)$ exists.
-Since $f_1$ is a step function, there is $K\in\mathbb{R}$
-such that $f_1(x)\geq K$ everywhere. Thus
+(a) This function is not Lebesgue Integrable.  If $f_1$ were Lebesgue Integrable, monotonicity (Theorem 11.2.14(2)) would give:
 \begin{align*}
-f_k(x)\geq f_1(x)\geq K.
+\int_{\mathbb{R}} f_1 \geq \int_{[-N,N]} \pi = 2\pi N
+\qquad \text{for every } N.
 \end{align*}
-Taking limits gives $f(x)\geq K$ almost everywhere.
-
-Since $f$ is unbounded below, choose $x_0\in I^\circ$
-with $f(x_0)<K$. By continuity, there exists $r>0$
-such that $B(x_0,r)\subset I^\circ$ and
-\begin{align*}
-f(x)<K\qquad\text{for every }x\in B(x_0,r).
-\end{align*}
-This ball has positive measure, contradicting
-$f\geq K$ almost everywhere. Therefore no such
-sequence exists.\\
+contradicting its finite integral.\\
 \\
-(b) Define the step functions
-\begin{align*}
-h_k=(f_k-\chi_I)\chi_I.
-\end{align*}
-Then $(h_k)$ is decreasing and $h_k\to0$
-almost everywhere. By Theorem 11.2.10(1),
-\begin{align*}
-\int h_k(x)\,dx\longrightarrow0.
-\end{align*}
-Therefore
-\begin{align*}
-\int_I f_k(x)\,dx
-&=\int h_k(x)\,dx+\int_I 1\,dx\\
-&=\int h_k(x)\,dx+\lambda_n(I)
-\longrightarrow\lambda_n(I).
-\end{align*}
+The Riemann Integral also doesn't exists as the integral over $[-N,N]$ tends to infinity as $N \to \infty$.\\
 \\
-(c)
-Fix $x\in(0,1]$. Choose $K>1/x$.
-For every $k\geq K$, $1/k<x$, so $f_k(x)=0$.
-Thus $f_k(x)\to0$ for every $x>0$.
-At $x=0$, $f_k(0)=k\to+\infty$.
-Since $\{0\}$ is null, convergence holds almost everywhere.
-
-For every $k\geq1$,
+(b) This function is not Lebesgue Integrable. If $f_2$ were Lebesgue Integrable, $|f_2|$ would also be Lebesque Integrable (Theorem 11.2.14(3)). Monotonicity would then give:
 \begin{align*}
-\int_0^1 f_k(x)\,dx
-=k\,\lambda([0,1/k])=k\frac1k=1.
+\int_{\mathbb{R}} |f_2| \geq \int_{[-N,0]} e^{-x} = e^N - 1.
 \end{align*}
-There is no contradiction with Theorem 11.2.10(1):
-the sequence is not decreasing. Indeed,
-\begin{align*}
-f_{k+1}(x)=k+1>k=f_k(x)
-\qquad\text{for }0<x<\frac1{k+1}.
-\end{align*}
+which does not converge.  This contradictin proves the point.\\
+\\
+Not improperly Riemann Integral: its integral over $[-N,0]$ is $1-e^N$, tending to $-\infty$.\\
+\\
+(c) This function is Lebesgue Integrable.  Its improper Riemann integral converges absolutely, so Theorem 11.2.17(2) applies.\\
+\\
+The Reimann Integral also converges (improperly) to 2.\\
+\\
+(d) This function is Lebesgue Integrable.  The rationals form a null set and using theorem 11.2.15 the intregal will
+be the same as integrating $f=1$ on $[0,1]$.\\
+\\
+Not Riemann Integrable - every subinterval contains rationals and irrationals, giving lower sums $-1$ and upper sums $1$.\\
+\\
+(e) The function is Lebesgue Integrable.  It is continuous, including at 0 since $|x \sin(1/x)| \le |x|$. Then apply 
+Theorem 11.2.16(2).
 
 \newpage
 \noindent
-\textbf{Exercise 3 - Non-integrable function}
-
-Consider
+\textbf{Exercise 5 (Not Lebesgue-integrable function)}
+Show that the integral
 \begin{align*}
-f(x)=\frac{1}{x}
+\int_1^{+\infty} \frac{\sin(x)}{x}\,dx
 \end{align*}
-for $x\in(0;1]$.
-
-\begin{enumerate}
-\item[(a)] Construct an increasing sequence
-$(f_k)_{k\in\mathbb{N}}\in T^{\mathrm{inc}}$
-of step functions on $(0;1]$ so that $f_k\to f$
-almost everywhere.
-
-\item[(b)] Let $(g_k)_{k\in\mathbb{N}}\in T^{\mathrm{inc}}$
-be any increasing sequence of step functions with
-$g_k\to f$ almost everywhere. Show that the sequence
-\begin{align*}
-\left(\int_0^1 g_k(x)\,dx\right)_{k\in\mathbb{N}} \tag{3.1}
-\end{align*}
-is unbounded. Is $f\in\mathcal{L}^{\mathrm{inc}}$?
-\end{enumerate}
+exists as a Riemann integral, but not as a Lebesgue integral. Why is this not in contradiction with Theorem 11.2.17(2)? \textit{Hint:} Integration by parts.
 
 \vspace{1cm}
 \noindent
 Answer:\\
 \\
-(3)(a) This idea is copied from our lecture.\\
+For such Reimann integrals one usually takes an upper limit $R$ - which we later lets tend to infinity.\\
 \\
-I have show a graph of the region (approx) we are interested in (with $x \in (0,1]$).
-\includegraphics[width=\textwidth]{Diagrams/ANAL_III_WK_2_Q3.png}
-The red rectangles are the step function:
+Integration by parts gives, for $R > 1$:
 \begin{align*}
-f_k(x)=
-\begin{cases}
-0, & x\leq 0,\\
-\dfrac{N_k}{j}, &
-x\in\left(\dfrac{j-1}{N_k},\dfrac{j}{N_k}\right],
-\quad j=1,\ldots,N_k,\\
-0, & x>1,
-\end{cases}
+\int_1^R\frac{\sin(x)}{x} \; dx
+=\cos 1-\frac{\cos(R)}{R}-\int_1^R\frac{\cos(x)}{x^2} \; dx.
 \end{align*}
-where $N_k=2^k$. \\
+The boundary term tends to zero; the last integral converges absolutely since $|\cos(x)|/x^2 \le 1/x^2$. Hence the improper Riemann Integral exists.\\
 \\
-In the graph I have plotted $f_3(x)$.  Monotonicity is obvious and $(f_k)_{k \in \mathbb{N}} \in T^{inc}((0,1],\mathbb{R}_{>0})$.\\
-Let's prove pointwise convergence:\\
-Fix $x\in(0,1]$. Let $b_k$ be the right endpoint
-of the interval containing $x$. Then
-\begin{align*}
-0 &\leq b_k-x<2^{-k}, &
-f_k(x)&=\frac{1}{b_k}.
-\end{align*}
-Therefore
-\begin{align*}
-0\leq \frac{1}{x}-f_k(x)
-&=\frac{b_k-x}{xb_k}
-\leq \frac{2^{-k}}{x^2}
-\longrightarrow 0.
-\end{align*}
-Hence $f_k(x)\to 1/x$.\\
-\\
-(b) We have proved (in lectures) the following theorem:
-
-\textbf{Theorem 11.2.10 (1)}
-Let $(f_k)_{k\in\mathbb{N}}\subset T$ be a
-monotonically decreasing sequence of step functions
-with $f_k\xrightarrow{k\to\infty}0$ a.e. in
-$\mathbb{R}$. Then:
-\begin{align*}
-\lim_{k\to\infty}\int f_k=0.
-\end{align*}
-We shall show that the limit of this Lebesgue integral does NOT exist for our $(f_k)_k$ from part (a).\\
-\\
-For each of the $N_k=2^k$ rectangles, the area is:
-\begin{align*}
-\frac{1}{2^k}\frac{2^k}{j}=\frac{1}{j}.
-\end{align*}
-Hence the total area is:
-\begin{align*}
-A_k=\sum_{j=1}^{2^k}\frac{1}{j}.
-\end{align*}
-This is a well known series and diverges as
-$k\to+\infty$.
-
-Now let $(g_k)_{k\in\mathbb{N}}\in T^{\mathrm{inc}}$
-be any increasing sequence of step functions with
-$g_k\to f$ almost everywhere.
-
-Fix $A>0$. Since $A_m\to+\infty$, choose $m$ such that
-\begin{align*}
-\int_0^1 f_m(x)\,dx=A_m>A+1.
-\end{align*}
-Keep $m$ fixed and define
-\begin{align*}
-h_k=\max(f_m-g_k,0).
-\end{align*}
-Each $h_k$ is a step function. Since $g_k$ increases
-to $f$ almost everywhere and $f_m\leq f$,
-$h_k$ decreases to $0$ almost everywhere.
-By Theorem 11.2.10(1),
-\begin{align*}
-\int_0^1 h_k(x)\,dx\longrightarrow 0.
-\end{align*}
-Thus there exists $K$ such that, for every $k\geq K$,
-\begin{align*}
-\int_0^1 h_k(x)\,dx<1.
-\end{align*}
-Since $f_m\leq g_k+h_k$, for every $k\geq K$,
-\begin{align*}
-\int_0^1 g_k(x)\,dx
-&\geq \int_0^1 f_m(x)\,dx-\int_0^1 h_k(x)\,dx\\
-&>A.
-\end{align*}
-Since $A>0$ was arbitrary,
-\begin{align*}
-\int_0^1 g_k(x)\,dx\longrightarrow+\infty.
-\end{align*}
-Therefore the sequence is unbounded, and
-$f\notin\mathcal{L}^{\mathrm{inc}}$.
-
+\textcolor{red}{Sorry - not enough time to complete this.}
 \end{document}

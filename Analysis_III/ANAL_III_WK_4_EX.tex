@@ -1,0 +1,98 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Provides \mathbb and other symbols
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}  % For colored boxes
+\usepackage[table]{xcolor} % For coloring table cells
+\usepackage{array}         % For better table alignment
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage[margin=2.5cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{\fill}
+{\Huge Analysis III} \\[0.5cm]
+{\Huge Home Work 4}\\[1.5cm]
+{\Large Student: 26-712-224}\\[0.5cm]
+{\Large \today}
+\vspace*{\fill}
+\end{titlepage}
+
+\newpage
+\textbf{Exercise 1 (Fubini's Theorem, 2+3+1 P.)}
+Define $f:[0;1]^2\to\mathbb{R}$ by $f(0,0)=0$ and
+\begin{align*}
+f(x,y)=\frac{y^2-x^2}{(x^2+y^2)^2}
+\end{align*}
+for $(x,y)\neq(0,0)$.
+\begin{enumerate}
+\item[(a)] Prove that, for $(x,y)\in(0;1)^2$,
+\begin{align*}
+f(x,y)=\frac{\partial}{\partial x}\frac{x}{x^2+y^2}
+=-\frac{\partial}{\partial y}\frac{y}{x^2+y^2}.
+\end{align*}
+\item[(b)] Compute the integrals
+\begin{align*}
+\int_0^1\left[\int_0^1 f(x,y)\,dx\right]dy
+\qquad\text{and}\qquad
+\int_0^1\left[\int_0^1 f(x,y)\,dy\right]dx.
+\end{align*}
+\item[(c)] Is $f\in L^1([0;1]^2;\mathbb{R})$? Justify.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(a) We have that:
+\begin{align*}
+\frac{\partial}{\partial x}x(x^2+y^2)^{-1}
+&=(x^2+y^2)^{-1}
++x\left[\frac{-1}{(x^2+y^2)^2}\cdot2x\right]\\
+&=\frac{1}{(x^2+y^2)^2}\left[x^2+y^2-2x^2\right]\\
+&=\frac{y^2-x^2}{(x^2+y^2)^2}.
+\end{align*}
+Similarly:
+\begin{align*}
+\frac{\partial}{\partial y}y(x^2+y^2)^{-1}
+&=\frac{x^2-y^2}{(x^2+y^2)^2}.
+\end{align*}
+i.e.
+\begin{align*}
+\frac{\partial}{\partial x}x(x^2+y^2)^{-1}
+&=-\frac{\partial}{\partial y}y(x^2+y^2)^{-1} \\
+&= f(x,y)
+\end{align*}
+
+
+\newpage
+\textbf{Exercise 2 (Application of the MCT, 2+2 P.)}
+Let $f\in L^1(\mathbb{R}^n;\mathbb{R})$ and denote by $B_\varepsilon(x)$ the ball of radius $\varepsilon>0$ around $x\in\mathbb{R}^n$. We want to prove that
+\begin{align*}
+\lim_{\varepsilon\to0^+}\int_{B_\varepsilon(x)} f(y)\,dy=0.
+\end{align*}
+\begin{enumerate}
+\item[(a)] Use the Monotone Convergence Theorem to prove the assertion under the additional assumption that $f\geq0$.
+\textit{Hint:} You may use without proof that $f\chi_B\in L^1(\mathbb{R}^n;\mathbb{R})$ for any ball $B\subset\mathbb{R}^n$.
+\item[(b)] Prove the assertion without the additional assumption by reducing the general problem to the situation in (a).
+\textit{Hint:} Sheet 3, Exercise 1 might be useful.
+\end{enumerate}
+\textit{Remark.} It is in general a good strategy to prove statements first for non-negative functions and then generalize.
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+
+\end{document}

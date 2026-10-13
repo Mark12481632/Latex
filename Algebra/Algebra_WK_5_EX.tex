@@ -1,0 +1,145 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Provides \mathbb and other symbols
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}  % For colored boxes
+\usepackage[table]{xcolor} % For coloring table cells
+\usepackage{array}         % For better table alignment
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage[margin=2.5cm]{geometry}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{\fill}
+{\Huge Algebra} \\[0.5cm]
+{\Huge Home Work 5}\\[1.5cm]
+{\Large Student: 26-712-224}\\[0.5cm]
+{\Large \today}
+\vspace*{\fill}
+\end{titlepage}
+
+\newpage
+\noindent
+A) Let $G$ be a group and $H<G$ a subgroup. We assume that $G/H=H\backslash G$, i.e., every left $H$-coset is also a right $H$-coset and vice versa.
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\item Show that for every $g\in G$, there exists $g'\in G$ such that $g\cdot H=H\cdot g'$.
+\item Let $g$ and $g'$ be as in (1). Show that $1\in H\cdot(g'g^{-1})$.
+\item Use (2) to deduce that $H$ is a normal subgroup of $G$.
+\item As an application, show the following: if $H<G$ is a subgroup such that $\operatorname{card}(G/H)=2$, then $H$ is normal in $G$.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(1) Every element of $G/H$ has the form $g.H$ for some $g \in G$. Also every element in $H \backslash G$ has the form $H.k$ for
+some $k \in G$.  We are given that the two collections of cosets are the same.
+This means given $g.H$ in the set of left-cosets there will
+be a corresponding right-coset (and vice versa) - which we can write as $H.g'$ for some $g' \in G$.\\
+\\
+(2) Using the notation from (1): 
+\begin{align*}
+    g.H = H.g' \implies g.H.g^{-1} = H.(g'g^{-1})
+\end{align*}
+As $H < G \implies 1 \in H$.
+Consequently: 
+\begin{align*}
+    g1g^{-1} = 1 \in H.(g'g^{-1}) \tag{A.1}
+\end{align*}
+\\
+(3) From (A.1) we have: $1 \in H.(g'g^{-1}) \implies g \in H.g'$.  However, any coset is defined by any of its representative
+elements and hence: $H.g = H.g'$.  Taking into account with $g.H = H.g'$ we must conclude that:
+\begin{align*}
+    g.H = H.g \;\;\;\;\;\;\;\;\; \text{(true $\forall g \in G$)}
+\end{align*}
+As this must hold in all cases (i.e. for all left and right cosets) we must have that $H \triangleleft G$.\\
+\\
+(4) If $\text{Card}(G/H)=2$.  We know that the number of left (and right cosets) is 2.\\
+$H$ itself will be BOTH a left AND a right coset.  The remaining elements from $G \setminus H$ (set difference) must then reside in the remaining left coset and
+also in the remaining right coset.\\
+\\
+So we have two left cosets: $(H, g.H)$ - for some $g \in G$, and two righ cosets: $(H, H.g')$ - for some $g' \in G$.\\
+\\
+We, therefore, must have that: $g.H = H.g'$.  The conclusion is that $H \triangleleft G$.
+
+\newpage
+\noindent
+B) Let $S_3$ be the symmetric group on $3$ elements, i.e., the group of bijections from $\{1,2,3\}$ to itself.
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\item What is the cardinality of $S_3$?
+\item Show that the center of $S_3$ is trivial, i.e., that $Z(S_3)=\{\operatorname{id}_{\{1,2,3\}}\}$.
+\item Let $\sigma\in S_3$ be the element given by $\sigma(1)=2$, $\sigma(2)=3$ and $\sigma(3)=1$. What is the order of $\sigma$?
+\item Using Exercise A), show that $\langle\sigma\rangle$ is normal in $S_3$.
+\item Show that $S_3/\langle\sigma\rangle$ is isomorphic to $\mathbb{Z}/2\mathbb{Z}$.
+\item Using the previous questions, compute the derived series of $S_3$ and show that $S_3$ is solvable.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(1) $\text{Card}(S_3) = 3! = 6$ - this is the total number of permutations of 3 elements.\\
+\\
+(2) The centre of $S_3 = \{s \in S_3 \; | \; g s = s g; \; \forall g \in S_3 \}$.\\
+\\
+Consider the element $(1 2) \in S_3$ - if $s \in Z(S_3)$ then:
+\begin{align*}
+    s(1 \; 2) = (1 \; 2)s
+\end{align*}
+As 3 is "not moved" that means that $s(1) \ne 3$ and $s(2) \ne 3$ and so $s(3)=3$.\\
+Application of the same logic shows that: $s(1)=1; s(2)=2$ and hence $s=id$.\\
+\\
+(3) We are given that:
+\begin{align*}
+\sigma =
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 3 & 1
+\end{pmatrix}
+\end{align*}
+Clearly: $\sigma^3=id$ and hence: $\text{ord}(\sigma)=3$.\\
+\\
+(4) $\langle \sigma \rangle = \{id, \sigma, \sigma^2 \} < S_3$.\\
+\\
+Now $\langle \sigma \rangle$ has order 3 and $S_3$ has order 6.  From this we can conclude that
+$[S_3 : \langle \sigma \rangle]=2$.\\
+\\
+Part (6) of Q1 means that $\langle \sigma \rangle \triangleleft S_3$.\\
+\\
+(5) $S_3 / \langle \sigma \rangle \triangleleft S_3$ is a group with 2 elements.  The only groups of order 2 are
+all isomorphic to $\mathbb{Z} \ 2 \mathbb{Z}$.
+
+\newpage
+\noindent
+(6)
+ 
+\newpage
+\noindent
+C) The goal of this exercise is to show that the notions of left and right actions are equivalent. We fix a group $G$ and a set $X$.
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\item Let $a:G\times X\to X$ be a left action of $G$ on $X$. Show that the map $b:X\times G\to X$, given by $b(x,g)=a(g^{-1},x)$ for $x\in X$ and $g\in G$, defines a right action of $G$ on $X$.
+\item Conversely, let $b:X\times G\to X$ be a right action. Show that the map $a:G\times X\to X$, given by $a(g,x)=b(x,g^{-1})$ for $x\in X$ and $g\in G$, defines a left action of $G$ on $X$.
+\item Show that the constructions in (1) and (2) are inverses of each other and define bijections between the sets of right and left actions of $G$ on $X$.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+
+
+\end{document}
