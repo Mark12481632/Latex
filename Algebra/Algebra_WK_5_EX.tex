@@ -117,10 +117,10 @@ Clearly: $\sigma^3=id$ and hence: $\text{ord}(\sigma)=3$.\\
 Now $\langle \sigma \rangle$ has order 3 and $S_3$ has order 6.  From this we can conclude that
 $[S_3 : \langle \sigma \rangle]=2$.\\
 \\
-Part (6) of Q1 means that $\langle \sigma \rangle \triangleleft S_3$.\\
+Part (4) of question (A) means that $\langle \sigma \rangle \triangleleft S_3$.\\
 \\
-(5) $S_3 / \langle \sigma \rangle \triangleleft S_3$ is a group with 2 elements.  The only groups of order 2 are
-all isomorphic to $\mathbb{Z} \ 2 \mathbb{Z}$.
+(5) $S_3 / \langle \sigma \rangle < S_3$ is a group with 2 elements.  All groups of order 2 are
+all isomorphic to $\mathbb{Z} / 2 \mathbb{Z}$.
 
 \newpage
 \noindent
@@ -140,6 +140,57 @@ C) The goal of this exercise is to show that the notions of left and right actio
 \noindent
 Answer:\\
 \\
+(1) We have a left G-action on X - represented by "$*$" - so $g*x$ is an example where $g \in G, x \in X$.
+We are defining a right G-action on X - represented by "$.$" - which is defined by:
+\begin{align*}
+    x.g = g^{-1} * x \;\;\;\;\;\;\;\;\; \forall x \in X, \forall g \in G 
+\end{align*}
+Now we check that it does actually represent a valid (right) G-action.
+\begin{align*}
+    x.1 &= 1^{-1} * x = x \;\;\;\;\;\;\;\;\; \forall x \in X \;\;\;\; \text{(since the left G-action is valid)} \tag{C.1} \\
+    x.(g_1g_2) &= (g_1g_2)^{-1}*x \\
+    &= (g_2^{-1}g_1^{-1})*x \\
+    &= g_2^{-1} * (g_1^{-1} * x) \\
+    &= (x.g_1).g_2 \tag{C.2}
+\end{align*}
+Equations (C.1) and (C.2) prove that we have created a valid right G-action based on a valid left G-action.\\
+\\
+(2) Following the same pattern as in (1).\\
+In this case we have a right G-action on X - represented by "$.$".  We define the left G-action by $g*x$ where the left G-action
+is defined, via thr right G-action, by:
+\begin{align*}
+    g*x = x.g^{-1} \;\;\;\;\;\;\;\;\; \forall x \in X, \forall g \in G 
+\end{align*}
+Now we check that it does actually represent a valid (left) G-action.
+\begin{align*}
+    1 * x &= x . 1^{-1} = x \;\;\;\;\;\;\;\;\; \forall x \in X \;\;\;\; \text{(since the right G-action is valid)} \tag{C.3} \\
+    (g_1g_2) * x &= x . (g_1 g_2)^{-1} \\
+    &= x . (g_2^{-1}g_1^{-1}) \\
+    &= (x . g_2^{-1}) . g_1^{-1} \\
+    &= g_1 * (g_2 * x) \tag{C.4}
+\end{align*}
+Equations (C.3) and (C.4) prove that we have created a valid left G-action based on a valid right G-action.\\
 
+\newpage
+\noindent
+(3) Fix $g \in G$, then we can define two maps: $l_g: X \to X, \; l_g(x) = g*x$ and $r_g: X \to X, \; r_g(x) = x.g$, using the notation from above.\\
+\\
+Both these maps are elements of $\text{Bij}(X, X)$.  I will demonstrate this only for $l_g$ as the same argument applies to $r_g$.
+\begin{itemize}
+    \item Map is surjectice:  Take any $x \in X$ and apply $l_g$ to $(g^{-1} * x) \in X$\\
+    We get: $l_g(g^{-1} * x) = g*(g^{-1} * x) = (gg^{-1}) * x = 1 * x = x$
+    \item Map is injective: Assume $l_g(x) = l_g(y)$. Then: \\
+    $\implies g*x = g*y \implies g^{-1}*(g*x) = g^{-1}*(g*y) \implies (gg^{-1}) * x = (gg^{-1}) * y \implies x=y$
+\end{itemize}
+Hence $l_g$ and $r_g$ both elements of $\text{Bij}(X, X)$.\\
+\\
+Remembering that action "$.$" is defined in terms of the action "$*$".\\
+Now, for any $x \in X$,  we consider $l_g[r_g(x)] = g*(x.g) = g*(g^{-1} * x) = x$. Also: $r_g[l_g(x)] = (g*x).g = g^{-1}*(g * x) = x$.
+Thus: $l_g \circ r_g = r_g \circ l_g = id_X$.\\
+\\
+Hence $l_g$ and $r_g$ are inverse bijections of $X \to X$.\\
+\\
+Now each $g \in G$ can be used to create two such (inverse) bijections.  The above fact that $l_g$ and $r_g$ are inverses of each other shows that there is a direct 
+bijection between the set of left and right actions on $X$.
 
 \end{document}
