@@ -76,6 +76,35 @@ i.e.
 \end{align*}
 
 
+
+(b) For each fixed $y>0$, the function $x\mapsto f(x,y)$ is continuous on $[0;1]$. Its Lebesgue integral agrees with its Riemann integral by Theorem 11.2.17(1). Using the antiderivative from (a), we obtain
+\begin{align*}
+\int_0^1 f(x,y)\,dx
+&=\left[\frac{x}{x^2+y^2}\right]_{x=0}^{x=1}
+=\frac{1}{1+y^2}.
+\end{align*}
+Similarly, for each fixed $x>0$, the function $y\mapsto f(x,y)$ is continuous on $[0;1]$, so Theorem 11.2.17(1) and part (a) give
+\begin{align*}
+\int_0^1 f(x,y)\,dy
+&=-\left[\frac{y}{x^2+y^2}\right]_{y=0}^{y=1}
+=-\frac{1}{1+x^2}.
+\end{align*}
+The exceptional parameter values $y=0$ and $x=0$ form sets of measure zero by Example 11.1.4(1). We may define the inner-integral functions arbitrarily at these exceptional values: Theorem 11.2.15 ensures that this does not affect the outer integrals. Applying Theorem 11.2.17(1) to the continuous functions $t\mapsto\pm(1+t^2)^{-1}$ gives
+\begin{align*}
+\int_0^1\left[\int_0^1 f(x,y)\,dx\right]dy
+&=\int_0^1\frac{1}{1+y^2}\,dy
+=\left[\arctan y\right]_0^1
+=\frac{\pi}{4},\\
+\int_0^1\left[\int_0^1 f(x,y)\,dy\right]dx
+&=-\int_0^1\frac{1}{1+x^2}\,dx
+=-\frac{\pi}{4}.
+\end{align*}
+
+(c) If $f\in L^1([0;1]^2;\mathbb{R})$, Fubini's Theorem (Theorem 11.3.3), applied to the extension of $f$ by zero outside $[0;1]^2$, would imply that the two iterated integrals in (b) are equal. Since $\pi/4\neq-\pi/4$, we conclude that
+\begin{align*}
+f\notin L^1([0;1]^2;\mathbb{R}).
+\end{align*}
+
 \newpage
 \textbf{Exercise 2 (Application of the MCT, 2+2 P.)}
 
@@ -97,5 +126,55 @@ Let $f \in L^1(\mathbb{R}^n;\mathbb{R})$ and denote by $B_\varepsilon(x)$ the ba
 \noindent
 Answer:\\
 \\
+
+
+(a) Fix $x\in\mathbb{R}^n$ and assume $f\geq0$. For $k\in\mathbb{N}$, $k\geq1$, define
+\begin{align*}
+h_k(y)=f(y)\bigl(1-\chi_{B_{1/k}(x)}(y)\bigr).
+\end{align*}
+By the hint, $f\chi_{B_{1/k}(x)}\in L^1$, so $h_k\in L^1$ by the linearity statement in Theorem 11.2.14(1). Since the balls decrease as $k$ increases,
+\begin{align*}
+0\leq h_k\leq h_{k+1}\leq f.
+\end{align*}
+For every $y\neq x$, eventually $1/k<\lVert y-x\rVert$, and hence $h_k(y)=f(y)$. Thus $h_k\to f$ pointwise almost everywhere, since $\{x\}$ has measure zero by Example 11.1.4(1). By Theorem 11.2.14(1)--(2),
+\begin{align*}
+0\leq\int_{\mathbb{R}^n}h_k(y)\,dy
+\leq\int_{\mathbb{R}^n}f(y)\,dy<\infty.
+\end{align*}
+Thus the sequence of integrals is bounded, and the Monotone Convergence Theorem (Theorem 11.3.7) gives
+\begin{align*}
+\int_{\mathbb{R}^n}h_k(y)\,dy
+&\longrightarrow\int_{\mathbb{R}^n}f(y)\,dy.
+\end{align*}
+By Theorem 11.2.14(1) (linearity),
+\begin{align*}
+\int_{B_{1/k}(x)}f(y)\,dy
+&=\int_{\mathbb{R}^n}f(y)\,dy
+-\int_{\mathbb{R}^n}h_k(y)\,dy
+\longrightarrow0.
+\end{align*}
+To obtain the limit for arbitrary $\varepsilon\to0^+$, Theorem 11.2.14(1)--(2) gives, for $0<\varepsilon\leq1/k$,
+\begin{align*}
+0\leq\int_{B_\varepsilon(x)}f(y)\,dy
+\leq\int_{B_{1/k}(x)}f(y)\,dy.
+\end{align*}
+The right-hand side tends to zero, proving the assertion.
+
+(b) For general $f\in L^1(\mathbb{R}^n;\mathbb{R})$, write
+\begin{align*}
+f&=f^+-f^-,\\
+f^+&=\max\{f,0\},\qquad f^-=\max\{-f,0\}.
+\end{align*}
+By Theorem 11.2.14(3), $|f|\in L^1$. Since
+\begin{align*}
+f^+=\frac{|f|+f}{2},\qquad f^-=\frac{|f|-f}{2},
+\end{align*}
+Theorem 11.2.14(1) implies $f^+,f^-\in L^1$. Both are non-negative. Applying (a) to each and using Theorem 11.2.14(1) gives
+\begin{align*}
+\lim_{\varepsilon\to0^+}\int_{B_\varepsilon(x)}f(y)\,dy
+&=\lim_{\varepsilon\to0^+}\int_{B_\varepsilon(x)}f^+(y)\,dy
+-\lim_{\varepsilon\to0^+}\int_{B_\varepsilon(x)}f^-(y)\,dy\\
+&=0-0=0.
+\end{align*}
 
 \end{document}
