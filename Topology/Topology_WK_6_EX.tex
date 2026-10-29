@@ -31,13 +31,142 @@
 {\Large \today}\par
 
 \vspace{2cm}
-{\normalsize "I wrote these solutions fully myself und would like to receive feedback on these"\par}
+{\normalsize "I wrote these solutions fully myself und would like to receive feedback on them"\par}
 
 \vspace*{\fill}
 \end{titlepage}
 
 \newpage
 \noindent
+\section*{Exercise 1}
+\noindent
+Consider the following subsets of $\mathbb{R}$, equipped with the Euclidean topology:
+\begin{align*}
+A=\{0\}\cup\left\{\frac{1}{n}:n\in\mathbb{N},\ n\geq 1\right\},
+\qquad B=A\setminus\{0\}.
+\end{align*}
+\begin{enumerate}[label=\roman*)]
+\item Prove directly from the definition of compactness using finite open subcovers that $A$ is compact.
+\item Show that $B$ is not compact by constructing an open cover that admits no finite subcover.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+(i) Let $\{U_i\}_{i \in I}$ be an open cover of $A$.
+Then we know that $0 \in U_{j_0}$ for some $j_0 \in I$.  As $U_{j_0}$ is open there exists an $\epsilon > 0$
+such that $B(0, \epsilon) \subset U_{j_0}$.\\
+\\
+Clearly, there is an $N \in \mathbb{N}$ such that $n > N \implies \frac{1}{n} < \epsilon$. This means that all terms from $A$
+after the $N^{th}$ are in $U_{j_0}$.  Obviously, there are at most $N$ open sets from the cover needed to cover the first $N$ elements of $A$.\\
+I.e. we have found finite a subcover that covers $A$.\\
+\qed\\
+\\
+(ii) Consider the open cover for B: $\{U_i\}_{i \in \mathbb{N}}$ where $U_i=(\frac{1}{i}, 2)$.  If we assume there is a finite subcover, let $U_N$ be the highest index element in the cover.\\
+Then the total cover can only be: $(\frac{1}{N}, 2)$ - and there will be elements from B that are not in this subcover.\\
+Hence, this cover for B has no finite subcover.\\
+\qed\\
+
+
+\newpage
+\section*{Exercise 2}
+\noindent
+Consider $\mathbb{R}_{\infty}=\mathbb{R}\cup\{\infty\}$ with topology $\mathcal{U}_{\mathbb{R}_{\infty}}$ as defined in Problem Sheet 5, Exercise 1. Prove directly from the definition via finite open subcovers that $\mathbb{R}_{\infty}$ is compact.
+
+\vspace{1cm}
+\noindent
+Answer:\\
+
+\newpage
+\section*{Exercise 3}
+\noindent
+Which ones of the following spaces are compact? For this exercise, you can use results from the theory as well as the exercises from last weeks problem sheet.
+\begin{enumerate}[label=\roman*)]
+\item $\overline{B}(0,1)\setminus\{0\}=\{(x,y)\in\mathbb{R}^2:0<\|(x,y)\|\leq 1\}$, with the subspace topology induced by the Euclidean topology on $\mathbb{R}^2$.
+\item $\{(t\cos t,t\sin t)\in\mathbb{R}^2:1\leq t<\infty\}$, with the subspace topology induced by the Euclidean topology on $\mathbb{R}^2$.
+\item $\{(x,y,z)\in\mathbb{R}^3:x^2+y^2=1\text{ and }|z|\leq 3\}$, with the subspace topology induced by the Euclidean topology on $\mathbb{R}^3$.
+\item The projective space $\mathbb{R}P^n$.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+(i) The set defined is a subset of $\mathbb{R}^2$ and so must be closed and bounded in order to be compact.\\
+This set is bounded but NOT closed - and hence NOT compact.\\
+\\
+(ii) This set is also a subset of $\mathbb{R}^2$ and is NOT bounded - and hence NOT compact.\\
+\\
+(iii) Here, with the defined induced topology, we have both a bounded and closed set - it is the set for a bounded/closed cylindrical surface.\\
+Hence, this set IS compact.\\
+\\
+(iv) We know that the topological quotient map $S^n \to S^n/\{\pm 1\}$ - with equivalence $(x \sim -x)$ - is both continuous and surjective.  As $S^n$ is compact we must conclude that $S^n/\{\pm 1\}$ is also compact.\\
+In last week's exercise sheet it was established that $\mathbb{R}P^n \cong S^n/\{\pm 1\}$ - i.e. the two spaces are homeomorphic.  We must, therefore, conclude that $\mathbb{R}P^n$ is also compact.
+
+
+\newpage
+\section*{Exercise 4}
+\noindent
+In this exercise we look at the compactness of some unusual topological spaces.
+\begin{enumerate}[label=\roman*)]
+\item Equip a set $X$ with the cofinite topology $\mathcal{U}_{cof}$. Show that $X$ is compact, and show that each subset of $X$ is compact. (Recall that $\mathcal{U}_{cof}=\{U\subseteq X:X\setminus U\text{ is finite}\}\cup\{\emptyset\}$.)
+\item Let now $X$ be uncountable with the same cofinite topology $\mathcal{U}_{cof}$. Using the previous exercise, show that there are subsets which are compact but not closed.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
+(i) Let $\{U_i\}_{i \in I}$ be an open cover of $X$.  Take any one of these open non-empty sets - call it $U_{j_0}$.  Then there are only finitely many elements in $X \setminus U_{j_0}$.\\
+If there are $N < \infty$ elements not covered, then with at most $N$ open sets from $\{U_i\}_{i \in I}$ we can create a finite subcover for $X$.  Hence, X is compact.\\
+\\
+Now let S be a \textbf{proper} subset of X.  By intersecting S with each open set in X we find that it generates the "cofinite" topology on S.  As in the case above we must therefore conclude that
+S is itself compact (using the induced topology).\\
+\\
+(ii) Here X is uncountable.  From (i) we know that X and any subset of X are compact.  Now let $Y \subset X$ be open, then $Z=X \setminus Y$, by definition, is closed.  But $Z \subset X$ and thus is compact.\\
+
+
+\newpage
+\section*{Exercise 5}
+\noindent
+Let $(X,d)$ be a metric space, $K\subset X$ compact, $F\subset X$ closed, and $K\cap F=\emptyset$. Show there is $\delta>0$ with $d(x,y)\geq\delta$ for all $x\in K$, $y\in F$.
+
+\vspace{1cm}
+\noindent
+Answer:\\
+We know that $d(k, f) > 0, \;\; \forall k \in K; \forall f \in F$, since $d$ is positive definite AND $d(k,f) = 0 \iff k=f$, which can never be the case as $K \cap F = \emptyset$.\\
+\\
+It should be obvious from its definition that it must be continuous (in the $\delta-\epsilon$ definition) - here we would just take $\delta=\epsilon$.\\
+\\
+Let us fix $f \in F$, then $D_f(k) = d(k,f)$ is a simple function: $D_f : K \to \mathbb{R}_{>0}$ which must also be  continuous.  Since $K$ is compact there is a $k_f \in K$ for which this function attains a minumim value.
+Then $D_f(k_f) = d(k_f, f) = \delta_f > 0; \; \forall f \in F$.\\
+\\
+In this was we have that the image of $K \times F$ is a subset of $\mathbb{R}_{>0}$ and hence must be bounded below.
+Consequently:
+$$ \delta = \text{Inf}_{f \in F}\{\delta_f\} \ge 0$$
+For the sake of argument let us say that $\delta=0$.  Then it will be possible to find a sequence of points: $\{(k_n, f_n)\} \subset  K \times F$ whose image approaches $0$.  Now $\{k_n\} \subset K$ and as $K$ is compact it will
+have a subsequence\textsuperscript{*} $\{k_{i_j}\}$ which converges to some $k \in K$. Then we have that:
+\begin{align*}
+    d(k, f_{n_j}) \le d(k, k_{n_j}) + d(k_{n_j}, f_{n_j}) \tag{5.1}
+\end{align*}
+Now the two terms on the RHS of (5.1) both tend to zero - i.e. can be made arbitrarily small - and this can only hold if $k$ is an accumulation point of $F$.  But $F$ is closed and hence we must have that $k \in F$.\\
+Contradiction as $K \cap F = \emptyset$ and hence we must have $\delta > 0$.\\
+\qed
+
+\vspace{1cm}
+\noindent
+\textsuperscript{*} \;\;\;\; This is true in a metric space.
+
+\newpage
+\section*{Exercise 6}
+\noindent
+Consider a topological space $(Y,\mathcal{U})$ and consider its infinite product $X=\prod_{i=1}^{\infty}Y$ equipped with the box topology $\mathcal{U}_{box}$ (see also Problem Sheet 5, Exercise 5).
+\begin{enumerate}[label=\roman*)]
+\item Let $Y=\{0,1\}$ with the discrete topology. Show that $(X,\mathcal{U}_{box})$ is not compact using finite open subcovers.
+\item Let $Y=[0,1]$ with the standard euclidean topology. Show that $(X,\mathcal{U}_{box})$ is not compact.
+\end{enumerate}
+
+\vspace{1cm}
+\noindent
+Answer:\\
 
 
 \end{document}
