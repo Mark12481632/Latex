@@ -19,20 +19,6 @@
 % Set the top margin
 \geometry{top=1in}
 
-% DIAGRAM INSERTION
-% Save each JPG in the same folder as this .tex file, using the filenames below.
-% Once an image exists, it automatically replaces its labelled placeholder.
-% Arguments: filename, maximum width, maximum height.
-\newcommand{\insertdiagram}[3]{%
-  \IfFileExists{#1}{%
-    \includegraphics[width=#2,height=#3,keepaspectratio]{#1}%
-  }{%
-    \fbox{\parbox[c][#3][c]{\dimexpr#2-2\fboxsep-2\fboxrule\relax}{%
-      \centering\small Diagram placeholder\\[0.3em]
-      \texttt{\detokenize{#1}}}}%
-  }%
-}
-
 \begin{document}
 \begin{titlepage}
 \centering
@@ -72,7 +58,42 @@
   contains at least one point of $S$ that is different from $x$ itself.)
 \end{enumerate}
 
-% Write your solution to Exercise 1 here.
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(i) If $(X,T)$ is compact and let $\{(C_i,U_i)\}_{i\in I}$ be the full collection of closed sets (and their open complement).\\
+Then, if for ANY finite subcollection of $I$ we have:
+\begin{align*}
+    \bigcap_{j=1}^n C_{i_j} \neq \emptyset \\
+    \text{(de Morgan)} \implies \bigcup_{j=1}^n U_{i_j} \neq X \tag{*}
+\end{align*}
+From (*) we conclude that no \textbf{finite} union of the $U_{i}$ covers $X$.  But as $X$ is compact this must mean that $(U_i)_{i \in I}$ is not an open cover for $X$.
+That is:
+\begin{align*}
+     \bigcup_{i \in I}U_{i} \ne X \tag{**}
+\end{align*}
+Next we take the complement of (**) to get the desired result.\\
+\qed\\
+\\
+ii) Let $S_k:=\overline{\bigcup_{n \geq k}\{x_n\}}$.  Then each $\{S_k\}_{k\in\mathbb{N}}$ is closed.\\
+From the definition we also have that
+\begin{align*}
+S_{k+1} \subset S_k \qquad \forall k\in\mathbb{N}.  \tag{***}
+\end{align*}
+Now consider \underline{any} finite collection of the $S_k$:
+$S_{k_1},S_{k_2},\ldots,S_{k_n}$.\\
+Define $K=\max(k_1,k_2,\ldots,k_n)$. Then, from (***), we see that:
+\begin{align*}
+S_K=\bigcap_{i=1}^{n}S_{k_i}\neq\varnothing.
+\end{align*}
+As $(X,\mathcal{U})$ is compact and using part (i) we conclude that:
+that
+\begin{align*}
+\bigcap_{k\geq1}S_k\neq\varnothing.
+\end{align*}
+Consequently: $\bigcap_{k\geq1}S_k$ is closed and non-empty $\Rightarrow$ it contains its accumulation points. I.e. Any set consisting of an infinite number of points also contains an accumulation point.\\
+\qed
 
 % ============================================================
 % Exercise 2
@@ -101,8 +122,31 @@
 \end{center}
 \end{enumerate}
 
-% Write your solution to Exercise 2 here.
-
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(1) Let $D \subset Y$ be closed.  We need to demonstrate that $f^{-1}(D)$ is closed in $X$
+to establish that the defined function $f: X \to Y$ is continuous.\\
+\\
+We proceed as follows:
+\begin{align*}
+    f^{-1}(D) &= f^{-1}(D) \cap X \\
+ &= f^{-1}(D) \cap (C_1 \cup C_2) \\
+ &= [f^{-1}(D) \cap C_1] \cup [f^{-1}(D) \cap C_2] \\
+ &= [f_1^{-1}(D) \cap C_1] \cup [f_2^{-1}(D) \cap C_2] \tag{2.1}
+\end{align*}
+In (2.1) we use the fact that: $f_1|_{C_1 \cap C_2} = f_2|_{C_1 \cap C_2}$.\\
+\\
+In (2.1) we have, by assumption, that $f_i^{-1}(D)$ is closed induced by $C_i$ and so we have the union of two closed sets - which is closed in X's topological space.\\
+\qed\\
+\\
+(2) Let us take the two functions to be:
+\begin{align*}
+    f_1 : [0,1] \times [0,3/2] \to [0,1]^2/ \sim \\
+    f_2 : [0,1] \times [1/3,1] \to [0,1]^2/ \sim
+\end{align*}
+The set of overlap being: $[1/3, 2/3]$.
 % ============================================================
 % Exercise 3
 % ============================================================
@@ -144,15 +188,30 @@ hinting at the reason for your answer.
   with the topology induced by the Euclidean topology of $\mathbb{R}^2$.
 \end{enumerate}
 
-% Write your solution to Exercise 3 here.
-
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+Unless specifically mentioned I will always assume that both the Hausdorff and $2^{nd}$ countable criteria
+for a manifold are met.\\
+\\
+(i) The surface of a sphere is the the standard example of a manifold (without boundary).  We can "split" the sphere into 6 different hemispheres each
+of which has a homeomorphic to an open set in $\mathbb{R}^2$.  Hence, "locally Euclidean" applies and it is a manifold.\\
+\\
+(ii) The set of points that satisfy the condition are the x and y axes in $\mathbb{R}^2$.\\
+This is NOT a manifold.  The reson being that if one point is removed anywhere from the given set we will have a disconnected set.\\
+Any single point removed from an open set in $\mathbb{R}^2$ will not create a disconnected set.  Hence, the two sets can't be homeomorphic.\\
+\\
+(iii)
 % ============================================================
 % Exercise 4
 % ============================================================
 \newpage
-\noindent\textbf{Exercise 4.} Let $M$ be any topological $2$-dimensional manifold.
+\noindent
+\textbf{Exercise 4.} Let $M$ be any topological 2-dimensional manifold.
 Show that the connected sum of $M$ and $S^2$ is homeomorphic to $M$ itself.
 
+\noindent
 [Hint. Use the gluing lemma and the fact that if $D\subset S^2$ is homeomorphic
  to a disk, then $S^2\setminus D$ is also homeomorphic to a disk.]
 

@@ -7,17 +7,15 @@
 \usepackage{listings}
 \usepackage{hyperref}
 \usepackage{ulem}
-\usepackage{xcolor}
+\usepackage[table]{xcolor} % For coloured boxes and table cells
 \usepackage{amsthm}
-\usepackage{tcolorbox}  % For colored boxes
-\usepackage[table]{xcolor} % For coloring table cells
-\usepackage{array}         % For better table alignment
+\usepackage{tcolorbox}
+\usepackage{array}
 \usepackage{mdframed}
 \usepackage{cancel}
 \usepackage[margin=2.5cm]{geometry}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.8em}
-
+\setlength{\parskip}{0pt}
 \begin{document}
 \begin{titlepage}
 \centering
@@ -26,15 +24,88 @@
 {\Huge Home Work 6}\\[1.5cm]
 {\Large Student: 26-712-224}\\[0.5cm]
 {\Large \today}\par
-
 \vspace{2cm}
 {\normalsize "I wrote these solutions fully myself und would like to receive feedback on these"\par}
-
 \vspace*{\fill}
-\
 \end{titlepage}
-
+% ============================================================
+% Question A
+% ============================================================
 \newpage
 \noindent
-
+\textbf{A)} Let $p$ be a prime number. We will give an easy proof of the fact that
+ every group of order $p^2$ is abelian using that every nontrivial $p$-group has
+ a nontrivial center. (Compare with Exercise B of Sheet 4.) Let $G$ be a
+ $p$-group of order $p^2$ and assume that $G$ is non-abelian. Obtain a
+ contradiction as follows.\\[0.6em]
+(1) Show that $Z(G)$ is cyclic of order $p$.\\
+(2) Fix $g\in G-Z(G)$. Show that $\operatorname{ord}(g)=p$.\\
+(3) Show that $\langle g\rangle\cap Z(G)=\{1\}$.\\
+(4) Show that $\langle g\rangle\cdot Z(G)=G$.\\
+(5) Deduce that $G$ is abelian, and conclude.
+% Write your solution to Question A here.
+% ============================================================
+% Question B
+% ============================================================
+\newpage
+\noindent
+\textbf{B)} Let $G$ be a finite group acting on a finite set $X$. For $g\in G$, we set
+\begin{align*}
+  X^g=\{x\in X\mid g\cdot x=x\}.
+\end{align*}
+This is the subset of elements of $X$ fixed by $g$. The goal of the exercise
+is to prove the following formula, due to Burnside:
+% S^g is retained exactly as printed in the supplied question sheet.
+\begin{align*}
+  \operatorname{card}(G\backslash X)
+  =\sum_{g\in G}\frac{\operatorname{card}(S^g)}{\operatorname{card}(G)}.
+  \tag{$\star$}
+\end{align*}
+\textit{Step 1.} We first consider the case where $X=G/H$, for a subgroup
+$H<G$, endowed with the natural action given by
+\begin{align*}
+  G\times G/H&\longrightarrow G/H\\
+  (g,xH)&\longmapsto gxH.
+\end{align*}
+To treat this case, we introduce the set
+\begin{align*}
+  E=\{(g,k)\in G\times G\mid k^{-1}gk\in H\}.
+\end{align*}
+We have two maps $p_1,p_2:E\to G$ given by $p_1(g,k)=g$ and $p_2(g,k)=k$.\\[0.6em]
+(1) Show that $p_2$ is surjective. For $k\in G$, show that there is a
+  bijection from $p_2^{-1}(k)$ to the subgroup $k\cdot H\cdot k^{-1}$.
+  Deduce that
+  \begin{align*}
+    \operatorname{card}(E)=\operatorname{card}(H)\cdot\operatorname{card}(G).
+  \end{align*}
+  (\textit{Hint:} Use that $E$ is the disjoint union of the $p_2^{-1}(k)$'s.)\\[0.6em]
+(2) Let $g\in G$. Show that there is a bijection from $p_1^{-1}(g)$ to the set
+  \begin{align*}
+    F_g&=\{k\in G\mid g\cdot(kH)=kH\}\\
+       &=\{k\in G\mid kH\in(G/H)^g\}.
+  \end{align*}
+  Use that the $H$-cosets belonging to $(G/H)^g$ form a partition of the set
+  $\{k\in G\mid kH\in(G/H)^g\}$ to obtain the equality
+  \begin{align*}
+    \operatorname{card}(F_g)
+    =\operatorname{card}((G/H)^g)\cdot\operatorname{card}(H).
+  \end{align*}
+  Deduce that
+  \begin{align*}
+    \operatorname{card}(E)
+    =\sum_{g\in G}\operatorname{card}((G/H)^g)\cdot\operatorname{card}(H).
+  \end{align*}
+(3) Use (1) and (2) to obtain the Burnside formula $(\star)$ for $X=G/H$
+  endowed with the natural action of $G$.\\[0.6em]
+\textit{Step 2.} We now prove the general case of the Burnside formula.
+Let $O_1,\cdots,O_r$ be the orbits of the action of $G$ on $X$.
+(Thus $G\backslash X=\{O_1,\cdots,O_r\}$.)\\[0.6em]
+(4) Note that the group $G$ acts on every $O_i$. Show that $S^g$ is the
+  disjoint union of the $(O_i)^g$'s. Deduce that it suffices to prove the
+  Burnside formula for each one of the orbits $O_i$ endowed with its natural
+  action of $G$.\\[0.6em]
+(5) Let $s\in O_i$ and set $H=\operatorname{Stab}_G(s)$.
+  Using the bijection $G/H\xrightarrow{\sim}O_i$, deduce a bijection between
+  $(O_i)^g$ and $(G/H)^g$. Use Step 1 to conclude.
+% Write your solution to Question B here.
 \end{document}
