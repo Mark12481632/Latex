@@ -28,6 +28,7 @@
 {\normalsize "I wrote these solutions fully myself und would like to receive feedback on these"\par}
 \vspace*{\fill}
 \end{titlepage}
+
 % ============================================================
 % Question A
 % ============================================================
@@ -43,10 +44,63 @@
 (3) Show that $\langle g\rangle\cap Z(G)=\{1\}$.\\
 (4) Show that $\langle g\rangle\cdot Z(G)=G$.\\
 (5) Deduce that $G$ is abelian, and conclude.
-% Write your solution to Question A here.
-% ============================================================
-% Question B
-% ============================================================
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(1) We know that $G$ is a p-group (of order $p^2$) and hence has a non-trivial centre - this is given in the lecture notes - and
+hence:
+\begin{align*}
+    1 < |Z(G)| < p^2 = |G| \tag{A.1}
+\end{align*}
+Using Lagrange's theorem we must conclude that $|Z(G)| = p$ as this is the only integer that satisfies (A.1) and divides $p^2$.\\
+As $Z(G) < G$ we conclude that $Z(G)$ must be cyclic as its order is prime.\\
+\\
+(2) If $g \in G \setminus Z(G)$ we know that $g \ne 1$.  Hence $\langle g \rangle$ has either order $p$ or $p^2$ - since its order must divide $|G|=p^2$.  But if the order would be $p^2$ then $g$ would 
+be a generator for $G$ and $G$ would be cyclic and hence abelian.  So we are left with the conclusion that $\text{ord}(g)=p$.\\
+\\
+(3) Assume: $g^k \in \langle g \rangle \cap Z(G)$ and $g \ne 1$.  Then:
+\begin{align*}
+    g^k a = a g^k \;\;\;\;\;\;\;\;\;\;\;\;\;\; \forall a \in G  \tag{A.2}
+\end{align*}
+As $\text{gcd}(k,p)=1 \implies \exists m,n \in \mathbb{Z}$ such that:
+$mk + np=1$; i.e. $g^{mk} = g = (g^k)^m$. Using this fact with (A.2) leads to:
+\begin{align*}
+    (g^k)^2 a &= (g^k)(g^k) a \\
+     &= (g^k) a (g^k) \;\;\;\;\;\;\;\;\;\;\; \text{(using (A.2))} \\
+     &= a (g^k)^2  \\
+     &\text{(inductively repeat to obtain..)} \\
+    \implies  (g^k)^m a &= a (g^k)^m \\
+    \implies  g a &= a g \;\;\;\;\;\;\;\;\;\;\; \forall a \in G
+\end{align*}
+But this means that $g \in Z(G)$ - a contradiction.  Hence: $\langle g \rangle \cap Z(G) = \{1\}$.\\
+\\
+(4) Consider the set: $\langle g \rangle . Z(G)$. In principle this set could contain up to $|\langle g \rangle| |Z(G)| = p.p=p^2$ elements.  Assume that this is NOT the case, then
+it must be the case that:
+\begin{align*}
+    g^k z_1 &= g^l z_2 \;\;\;\;\;\; \text{for some } k,l \in \{0,1,..,(p-1)\} \text{ and } z_1,z_2 \in Z(G) \\
+  \implies g^{k-l} &= z_2 z_1^{-1} \tag{A.3}
+\end{align*}
+Now for (A.3) the LHS is in $\langle g \rangle$ and the RHS is in $Z(G)$.  But from (3) we see that both sides must be the identity and hence:
+$k=l$ and $z_1=z_2$.  As $\langle g \rangle . Z(G)$ has $p^2$ elements we must conclude that: $\langle g \rangle . Z(G) = G$ \\
+\\
+(5) From (4) we see that every element of $G$ can be written as $g^k z$, where $g^k \in \langle g \rangle$ and $z \in Z(G)$.\\
+\\
+Now we demosntrate that $G$ must be abelian.  Let $p = g^k z_1 \in G$ and $q = g^l z_2 \in G$ where $g^k, g^l \in \langle g \rangle$ and $z_1, z_2 \in Z(G)$.
+Then:
+\begin{align*}
+    p q &= (g^k z_1)(g^l z_2) \\
+    &= g^k (z_1 g^l) z_2 \;\;\;\;\;\;\;\; \text{(associativity)}\\
+    &= g^k g^l z_1 z_2 \;\;\;\;\;\;\;\;\;\; \text{(as $z_1$ and $z_2$ commute with all elements)} \\
+    &= g^l g^k z_1 z_2 \\
+    &= g^l g^k z_2 z_1 \\
+    &= g^l z_2 g^k z_1 \\
+    &= q p
+\end{align*}
+We arrive at a contradiction - $G$ is abelian contrary to assumption.  Hence $G$ really is abelian.\\
+\qed
+
 \newpage
 \noindent
 \textbf{B)} Let $G$ be a finite group acting on a finite set $X$. For $g\in G$, we set
@@ -58,7 +112,7 @@ is to prove the following formula, due to Burnside:
 % S^g is retained exactly as printed in the supplied question sheet.
 \begin{align*}
   \operatorname{card}(G\backslash X)
-  =\sum_{g\in G}\frac{\operatorname{card}(S^g)}{\operatorname{card}(G)}.
+  =\sum_{g\in G}\frac{\operatorname{card}(X^g)}{\operatorname{card}(G)}.
   \tag{$\star$}
 \end{align*}
 \textit{Step 1.} We first consider the case where $X=G/H$, for a subgroup
@@ -107,5 +161,70 @@ Let $O_1,\cdots,O_r$ be the orbits of the action of $G$ on $X$.
 (5) Let $s\in O_i$ and set $H=\operatorname{Stab}_G(s)$.
   Using the bijection $G/H\xrightarrow{\sim}O_i$, deduce a bijection between
   $(O_i)^g$ and $(G/H)^g$. Use Step 1 to conclude.
-% Write your solution to Question B here.
+
+\newpage
+
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+(1) We are given that: $p_2: E \to G$ by: $p_2(g,k) = k$.  To show that this map is surjective we need
+to demonstrate there is at least one value of $(g,k) \in E, \forall k \in G$.\\
+\\
+If we consider $(1, k) \in E$ it has the desired property - hence $p_2$ is surjective.\\
+\\
+From the definition: $E=\{(g,k)\in G \times G \mid k^{-1}gk\in H\}$ we have that:
+\begin{align*}
+    p_2^{-1}(k) &= \{(g,k)\in G \times G \mid k^{-1}gk\in H\} \\
+    &= \{(g,k)\in G \times G \mid g \in kHk^{-1}\}
+\end{align*}
+So, for each value of $k \in G$, there is one unique set: $k^{-1}Hk$ from which we can select a $g$ such that: $(g,k) \in E$ - i.e. there is a bijection between them.
+Hence:
+\begin{align*}
+    \text{Card}(p_2^{-1}(k)) = \text{Card}(kHk^{-1}) = \text{Card}(H) \tag{B.1}
+\end{align*} 
+\\
+Now it should be clear that:
+\begin{align*}
+    E &= \bigsqcup_{k \in G} p_2^{-1}(k)
+\end{align*}
+From which we can count elements in the sets:
+\begin{align*}
+    \implies  \text{Card}(E) &= \sum_{k \in G} \text{Card}(p_2^{-1}(k)) \\
+    &= \sum_{k \in G} \text{Card}(H) \\
+    &= \text{Card}(H) . \text{Card}(G) \tag{EQN-1}
+\end{align*}
+\\
+(2) In this case we are given that: $p_1: E \to G$ by: $p_1(g,k) = g$.  For this to be surjective we need that: $(g,k) \in E, \forall g \in G$.  This, in turn, means that:
+\begin{align*}
+    p_1^{-1}(g) &= \{(g,k) \in G \times G \mid k^{-1}gk \in H \} \\
+    &= \{(g,k) \in G \times G \mid g k \in k H \} \\
+    &= \{(g,k) \in G \times G \mid g k H = k H \} \tag{B.2.1}\\
+    &= \{(g,k) \in G \times G \mid kH \in (G/H)^g \} \tag{B.2.2}
+\end{align*}
+In (B.2.1) this is obtained by cosets being equal or disjoint.  For (B.2.2) we see that $g \in G$ must leave the coset
+$kH$ fixed.  As cosets in $(G/H)$ are disjoint, it is clear that those that satisfy $(G/H)^g$ are also disjoint.  Hence:
+\begin{align*}
+    F_g = \{k \in G \mid k H \in (G/H)^g \}
+\end{align*}
+There are: $\text{Card}([G/H]^g)$ such cosets for each selected $g \in G$.  In all cosets $kH$ there are $\text{Card}(H)$ elements - all of which are representatives for $k$.
+Consequently, the number of elements in $F_g$ is:
+\begin{align*}
+    \text{Card}(F_g) &= \bigsqcup_{kH \in (G/H)^g} \text{Card}(kH) \\
+    &= \text{Card}([G/H]^g) \text{Card}(H) \tag{B.3}
+\end{align*}
+Equation (B.3) applies to only one particular $g \in G$.  Clearly:
+\begin{align*}
+    E &= \bigsqcup_{g \in G} F_g \\
+    &= \bigsqcup_{g \in G} \;\;\; \left[\bigsqcup_{kH \in (G/H)^g} kH \right] \\
+    \implies \text{Card}(E) &= \sum_{g \in G} \text{Card}(F_g) \\
+    &= \sum_{g \in G} \text{Card}([G/H]^g) \text{Card}(H) \tag{EQN-2}
+\end{align*}
+(3) Here we can equate the equations for $\text{Card}(E)$ from (EQN-1) and (EQN-2):
+\begin{align*}
+    \text{Card}(H) . \text{Card}(G) &= \sum_{g \in G} \text{Card}([G/H]^g) \text{Card}(H) \\
+\implies \text{Card}(G) &= \sum_{g \in G} \text{Card}([G/H]^g) \\
+\implies 1 &= \sum_{g \in G} \frac{\text{Card}([G/H]^g)}{\text{Card}(G)}
+\end{align*}
+This appears to differ from (*) :-(
 \end{document}
