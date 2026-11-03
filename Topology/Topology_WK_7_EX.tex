@@ -202,7 +202,17 @@ of which has a homeomorphic to an open set in $\mathbb{R}^2$.  Hence, "locally E
 This is NOT a manifold.  The reson being that if one point is removed anywhere from the given set we will have a disconnected set.\\
 Any single point removed from an open set in $\mathbb{R}^2$ will not create a disconnected set.  Hence, the two sets can't be homeomorphic.\\
 \\
-(iii)
+(iii) 
+The closed half-cone is a two-dimensional manifold without boundary. Although it has a vertex, the entire surface can be continuously flattened onto a 
+plane, with a continuous inverse. Hence it is homeomorphic to the plane.\\
+\\
+(iv) The full cone is not a manifold. Removing its vertex disconnects every sufficiently small connected neighbourhood into two components. This cannot 
+happen in a sufficiently small disk or half-disk neighbourhood. Hence the vertex is not locally Euclidean.\\
+\\
+(v) This space is not a manifold. Every neighbourhood of the origin contains infinitely many missing points accumulating towards the origin.
+Consequently, the space is not locally compact at the origin. Since manifolds are locally compact, this space cannot be a manifold.
+
+
 % ============================================================
 % Exercise 4
 % ============================================================
@@ -215,6 +225,17 @@ Show that the connected sum of $M$ and $S^2$ is homeomorphic to $M$ itself.
 [Hint. Use the gluing lemma and the fact that if $D\subset S^2$ is homeomorphic
  to a disk, then $S^2\setminus D$ is also homeomorphic to a disk.]
 
+\vspace{1cm}
+\noindent
+Answer:\\
+\\
+The connected sum is obtained by removing an open disk from each surface and identifying their boundary circles.\\
+Removing an open disk from the sphere leaves a closed disk. Thus, forming the connected sum with the sphere amounts to replacing the removed disk of M with another disk.
+Choose a homeomorphism between these disks that agrees with the boundary identification.
+The gluing lemma then combines this homeomorphism with the identity map on the remaining part of M to produce a continuous bijection.
+Applying the gluing lemma to the inverse gives a continuous inverse.\\
+\\
+Hence the connected sum is homeomorphic to M.
 % Write your solution to Exercise 4 here.
 
 % ============================================================
