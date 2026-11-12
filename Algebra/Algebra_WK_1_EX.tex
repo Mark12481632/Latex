@@ -1,0 +1,245 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{ulem}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{\fill}
+{\Huge Algebra}\\[0.5cm]
+{\Huge Home Work 1}\\[1.5cm]
+{\Large Student: 26-712-224}\\[0.5cm]
+{\Large \today\par}
+
+\vspace{2cm}
+\vspace*{\fill}
+\end{titlepage}
+
+\noindent\textbf{A)} Let $f:T\to S$ be a map and $\mathcal{R}$ a relation on $S$.
+We define a relation $\mathcal{P}$ by setting
+\begin{align*}
+x\,\mathcal{P}\,y &\iff f(x)\,\mathcal{R}\,f(y).
+\end{align*}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+\item Assume that $\mathcal{R}$ is:
+\begin{itemize}
+\item reflexive, or
+\item symmetric, or
+\item transitive.
+\end{itemize}
+Show that the same holds for $\mathcal{P}$.
+
+\item Give an example with $\mathcal{R}$ antisymmetric but $\mathcal{P}$ not.
+
+\item Let $g:T\times T\to S\times S$ be the map given by
+$g(x,y)=(f(x),f(y))$ for all $x,y\in S$.
+Show that the subset $\mathcal{P}\subset T\times T$ is the inverse image
+$g^{-1}(\mathcal{R})$, by the map $g$, of the subset
+$\mathcal{R}\subset S\times S$.
+
+\item Assume that $\mathcal{R}$ is an equivalence relation.
+Show that there is a well-defined map
+\begin{align*}
+\overline{f}&:T/\mathcal{P}\to S/\mathcal{R}
+\end{align*}
+sending an equivalence class $B\subset T$ to the equivalence class
+$A\subset S$ such that $f(B)\subset A$.
+\begin{itemize}
+\item Show that $\overline{f}$ is always injective.
+\item Show that $\overline{f}$ is bijective when $f$ is surjective.
+\end{itemize}
+
+\end{enumerate}
+
+\newpage
+
+\noindent\textbf{B)} Let $S$ be a set. Define $\mathcal{P}(S)$ to be the set
+of all subsets of $S$, that is:
+\begin{align*}
+\mathcal{P}(S)&=\{A\mid A\subset S\}.
+\end{align*}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+
+\item Consider the composition law
+$-\cap-:\mathcal{P}(S)\times\mathcal{P}(S)\to\mathcal{P}(S)$.
+Show that $(\mathcal{P}(S),\cap)$ is a commutative monoid
+(i.e., that $\cap$ is commutative, associative and has an identity element).
+
+\item Consider the composition law
+$-\cup-:\mathcal{P}(S)\times\mathcal{P}(S)\to\mathcal{P}(S)$.
+Show that $(\mathcal{P}(S),\cup)$ is a commutative monoid
+(i.e., that $\cup$ is commutative, associative and has an identity element).
+
+\item Let $f:\mathcal{P}(S)\to\mathcal{P}(S)$ be the map given by
+\begin{align*}
+f(A)&=S\setminus A=\{e\in S\mid e\notin A\}.
+\end{align*}
+Show that $f$ is an isomorphism of monoids from
+$(\mathcal{P}(S),\cap)$ into $(\mathcal{P}(S),\cup)$.
+
+\end{enumerate}
+
+\vspace{1cm}
+\noindent 
+Answer: \\
+\\
+(1) I will first show that $(\mathcal{P}(S), \cap)$ is a monoid and then prove it is commutative.\\
+\\
+\textbf{Identity element ($S$):} Given any $A \in \mathcal{P}(S)$, we have that: $A \cap S = S \cap A = A$.\\
+\\
+\textbf{Associativity:}  $\forall A,B,C \in \mathcal{P}(S)$ the intersection operator satisfies: $A \cap (B \cap C) = (A \cap B) \cap C$.\\
+\\
+Hence: $(\mathcal{P}(S), \cap)$ is a monoid.  Further: $A \cap B = B \cap A, \; \forall A,B \in \mathcal{P}(S)$ and hence is a commutative monoid.\\
+\\
+(2) I will first show that $(\mathcal{P}(S), \cup)$ is a monoid and then prove it is commutative.\\
+\\
+\textbf{Identity element ($\emptyset$):} Given any $A \in \mathcal{P}(S)$, we have that: $\emptyset \cup A = A \cup \emptyset = A$.\\
+\\
+\textbf{Associativity:}  $\forall A,B,C \in \mathcal{P}(S)$ the union operator satisfies: $A \cup (B \cup C) = (A \cup B) \cup C$.\\
+\\
+Hence: $(\mathcal{P}(S), \cup)$ is a monoid.  Further: $A \cup B = B \cup A, \; \forall A,B \in \mathcal{P}(S)$ and hence is a commutative monoid.\\
+\\
+(3) We are given $f:(\mathcal{P}(S), \cap) \to (\mathcal{P}(S), \cup)$, where $f(A) = S \setminus A$, where $A \in \mathcal{P}(S)$.\\
+Then:
+\begin{align*}
+  f(S) &= S \setminus S = \emptyset \;\;\;\;\;\;\;\;\; \text{(identity is mapped to identity)} \\
+  f(A \cap B) &= [A \cap B]^c  \;\;\;\;\;\;\;\;\;\;\; \forall A,B \in \mathcal{P}(S) \\
+  &= A^c \cup B^c \;\;\;\;\;\;\;\;\;\;\;\; \text{(using de Morgan's Laws)}\\
+  & = f(A) \cup f(B)
+\end{align*}
+So, $f$ has all the properties needed to be a homomorphism.
+
+\newpage
+\noindent
+We just need to show now that this mapping is a bijection.\\
+\\
+(a) \textbf{Injective:} If $f(A) = f(B) \implies A^c = B^c \implies A = B, \; \forall A,B \in \mathcal{P}(S)$ - so it is injective.\\
+\\
+(b) \textbf{Surjective:} Take any $A \in \mathcal{P}(S)$, then the associated preimage will be $A^c \in \mathcal{P}(S)$ such that:
+$f(A^c) = [A^c]^c = A$.  Hence, the mapping is surjective.\\
+\\
+We can now conclude that $f$ establishes that $(\mathcal{P}(S), \cap) \cong (\mathcal{P}(S), \cup)$.
+
+\newpage
+\noindent\textbf{C)} Let $E=\{0,1\}$ be the set having two elements.
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\item Show that $E$ is a commutative group for the composition law defined by:
+\begin{align*}
+ 0+0=0,\qquad 0+1=1+0=1 \qquad\text{and}\qquad 1+1=0. \tag{C.1}
+\end{align*}
+\item Let $S$ be a set. Define
+\begin{align*}
+M(S,E)&=\{f:S\to E\}
+\end{align*}
+to be the set of all maps from $S$ to $E=\{0,1\}$.
+Given two such maps $f,g:S\to E$ we let $f+g:S\to E$ be the map given by
+\begin{align*}
+(f+g)(s)&=f(s)+g(s)
+\end{align*}
+for all $s\in S$. Show that $(M(S,E),+)$ is a commutative group.
+\item As in Exercise B, we let $\mathcal{P}(S)$ be the set of all subsets
+of $S$. Let
+\begin{align*}
+\chi&:\mathcal{P}(S)\to M(S,E)
+\end{align*}
+be the map that sends $A\subset S$ to its characteristic function
+$\chi_A:S\to\{0,1\}$ given by:
+\begin{align*}
+\chi_A(s)&=
+\begin{cases}
+1 & \text{if } s\in A,\\
+0 & \text{if } s\notin A.
+\end{cases}
+\end{align*}
+Show that $\chi$ is a bijection.
+
+\item Let $-\Delta-:\mathcal{P}(S)\times\mathcal{P}(S)\to\mathcal{P}(S)$
+be the composition law given by
+\begin{align*}
+A\Delta B&=(A\cup B)\setminus(A\cap B).
+\end{align*}
+Show that $(\mathcal{P}(S),\Delta)$ is a commutative group.
+(Hint: Use the previous question!)
+
+\end{enumerate}
+
+\vspace{1cm}
+\noindent Answer:\\
+\\
+(1) $0 \in E$ acts as identity and $1 \in E$ is its own inverse. Associativity holds as the operator is addition modulo 2 - which is associative.\\
+So, $(E, +)$ is a group.  (C.1) shows all 4 possibilites and demonstrates commutativity.\\
+\\
+(2) To demonstrate that $(M(S,E), +)$ is commutative we proceed as follows:
+\begin{align*}
+  (f+g)(s) &= f(s) + g(s) \;\;\;\;\;\; \forall f,g \in M(S,E), \; \forall s \in S \\
+  &= g(s) + f(s) \;\;\;\;\;\;\;\;\;\;\; \text{(since $E$ is abelian)}\\
+  &= (g+f)(s)
+\end{align*}
+Thus, $(M(S,E), +)$ is commutative.
+
+\newpage
+\noindent
+(3) To prove that $\chi:\mathcal{P}(S) \to M(S,E)$ is a bijection we will show that it is both injective and surjective.\\
+\\
+\textbf{Injective:} Let: $\chi(A) = \chi(B)$, where $A,B \in \mathcal{P}(S)$.  This effectively means that:
+\begin{align*}
+    \chi_A(s) &= \chi_B(s) \;\;\;\;\; \forall s \in S
+\end{align*}
+But this means that those elements that are in $A$ are also in $B$ and vice-versa.  That is, we must have that $A=B$ and hence $\chi$
+is injective.\\
+\\
+\textbf{Surjective:} Let $h \in M(S,E)$.  Then we can define:
+$$ A = \{s \in S \mid h(s) = 1 \}$$
+It should be clear that: $h = \chi_A$ and hence we have found the appropriate set, $A$, in $\mathcal{P}(S)$ and the map is surjective.\\
+\\
+$\chi$ being both surjective and injective means it is a bijection.\\
+\\
+(4) From the definition for $- \Delta -$ in the question we see that it can be represented as follows:
+\begin{align*}
+  A \Delta B &= (A \cup B) \setminus (A \cap B) \;\;\;\;\;\;\;\; \forall A, B \in \mathcal{P}(S) \\
+\implies \chi_{A \Delta B}(s) &= \chi_{A}(s) + \chi_{B}(s) \tag{C.2}
+\end{align*}
+From (C.2) we see that: $\chi_{A \Delta B}(s) = \chi_{B \Delta A}(s)$ and hence the two sets $A \Delta B = B \Delta A$.  Consequently, if $(\mathcal{P}(S), \Delta)$ is a group,
+it is commutative.\\
+\\
+So, to finish we show that $(\mathcal{P}(S), \Delta)$ is, indeed, a group.\\
+\\
+\textbf{Neutral element ($\emptyset$):} Clearly $\emptyset$ acts as the neutral element since: $A \Delta \emptyset = \emptyset \Delta A = A; \; \forall A \in \mathcal{P}(S)$.\\
+\\
+\textbf{Inverse element:} For any $A \in \mathcal{P}(S)$, the inverse element is $A$, since: $A \Delta A = \emptyset$.\\
+\\
+We only need to prove the operation is associative we we have completed our task.  Well:
+\begin{align*}
+  \chi_{A \Delta (B \Delta C)}(s) &= \chi_{A}(s) + \chi_{B \Delta C}(s) \\
+  &= \chi_{A}(s) + \chi_{B}(s) + \chi_{C}(s) \tag{C.3}
+\end{align*}
+Note: The arithmetic in (C.3) is addition modulo 2 arithmetic.\\
+\\
+The symmetry of the last equality shows no dependence of the bracketing of the 3 elements - and hence is independent of the bracketing.  So:
+$\chi_{A \Delta (B \Delta C)}(s) = \chi_{(A \Delta B) \Delta C}(s)$ and we must conclude that: $A \Delta (B \Delta C) = (A \Delta B) \Delta C$.\\
+\qed
+
+\end{document}
