@@ -50,7 +50,7 @@ This is straight forward: $x=x^{-1}; \forall x \in M$, since $x^2=1; \forall x \
 \\
 Lastly, we just need to demonstrate that M is abelian.  This is shown below:
 \begin{align*}
-    (x y)^2 &= 1 \;\;\;\;\;\;\;\;\;\; \text{(Since: $x^2=1; \forall x \in M$)}\\
+    (x y)^2 &= 1 \;\;\;\;\;\;\;\;\;\; \text{($\forall x,y \in M$ Since: $x^2=1; \forall x \in M$)}\\
     \implies xyxy &= 1 \\
     \implies x(xyxy)y &= x(1)y \\
     \implies (x^2)yx(y^2) &= xy \\
@@ -71,7 +71,7 @@ Show that $H$ is a subgroup of $G$.
 \noindent
 Answer:\\
 \\
-$H$ is not empty, so $\exists h \in H$ from first condition in question.  From second condition in question: $h^n \in H$ for $n \in \mathbb{N}$. \\
+$H$ is not empty, so $\exists h \in H$ from first condition in question.  From second condition in question and applying induction: $h^n \in H$ for $n \in \mathbb{N}$. \\
 \\
 Now $h$ has finite order and so $\exists m \in \mathbb{N}$ such that $h^m = 1 \in H$ i.e. $1 \in H$.\\
 \\
@@ -105,15 +105,16 @@ Answer:\\
 \\
 (1) We know that $G=\langle g \rangle$ must be cyclic and abelian.\\
 \\ 
-Hence: $\langle g^s, g^t \rangle = \{ g^{(as + bt)} \mid a,b \in \mathbb{Z} \}$.  Now, as was established in lectures, the numbers $(as + bt)$ for fixed $s,t$ 
-and varying $a,b \in \mathbb{Z}$ is the same set as: $r \mathbb{Z}$, where $r = \text{gcd}(s,t)$.\\
-This establishes (1).\\
+Thus: $\langle g^s, g^t \rangle = \{ g^{(as + bt)} \mid a,b \in \mathbb{Z} \}$.  We can now use Bézout’s identity which states that:
+$$ \min{\{ as + bt > 0 \mid a,b \in \mathbb{Z} \} = \text{gcd}(s,t)}$$
+Hence: $\langle g^s, g^t \rangle \cong r\mathbb{Z}$, where $r=\text{gcd}(s,t)$ - established in lectures.\\
+Consequently, $\langle g^s, g^t \rangle = \langle g^r \rangle$. This establishes (1).\\
 \\
-(2) If we look at $H$ it will be finite (as G is finite) and all elements will be of the form $g^q$ where $q \in \{0,1,..,n-1\}$.\\
-The argument in part (1) can be extended to any number, say $k \ge 1$, of such elements $g^{q_i} \in G$.  The same logic applies, we simply get that the subset $r \mathbb{Z}$ for 
-the indices of $g$ where: $r = \text{gcd}(q_1,q_2,..,q_k)$.\\
+(2) If we look at $H \; (< G)$ it will be finite (as G is finite) and all elements will be of the form $g^q$ where $q \in \{0,1,..,n-1\}$.\\
+The argument in part (1) can be extended, by induction, to any number, say $k \ge 2$, of such elements $g^{q_i} \in G$.  The same logic applies, we simply find that $ H \cong r \mathbb{Z}$ where: $r = \text{gcd}(q_1,q_2,..,q_k)$
+and the $q_1, q_2, ..., q_k$ are the indices of the element $g$ in $H$.\\
 \\
-So, we have that $\langle g^r \rangle$ generates the same subgroup as $\langle g^{q_1}, g^{q_2},..., g^{q_k} \rangle$ and it will have $\frac{n}{\text{gcd}(n,r)}$ elements.\\
+In conclusion, we have that $\langle g^r \rangle$ generates the same subgroup as $\langle g^{q_1}, g^{q_2},..., g^{q_k} \rangle$ and it will have $\frac{n}{\text{gcd}(n,r)}$ elements.\\
 
 \newpage
 \section*{Question D}
