@@ -153,5 +153,88 @@ $1+\cdots+n=\frac{n(n+1)}{2}$.)
 \noindent
 Answer:\\
 \\
+(1) We need to check 3 things to ensure that $G=E \times K$ is a group: (i) associativity; (ii) identity; (iii) inverses.\\
+\\
+(i) Check associativity:
+\begin{align*}
+  (e,k).[(e',k').(e'', k'')] &= (e,k).(e'+e'', k'+k''+ \varphi(e',e'')) \\
+  &= (e+e'+e'', k+k'+k'' + \varphi(e',e'') + \varphi(e,e'+e'')) \\
+  &= (e+e'+e'', k+k'+k'' + \varphi(e',e'') + \varphi(e,e') + \varphi(e,e'')) \tag{D.1}
+\end{align*}
+Linearity in the second argument of $\varphi$ was used to obtain (D.1).  Now:
+\begin{align*}
+  [(e,k).(e',k')].(e'', k'')] &= (e+e', k+k' + \varphi(e,e')).(e'', k'') \\
+  &= (e+e'+e'', k+k'+k'' + \varphi(e',e') + \varphi(e+e',e'')) \\
+  &= (e+e'+e'', k+k'+k'' + \varphi(e',e') + \varphi(e,e') + \varphi(e,e'')) \tag{D.2}
+\end{align*}
+Again, linearity in second argument of $\varphi$ was used to obtain (D.2).\\
+Since $K$ is abelian the two identities (D.1) and (D.2) are seen to be equal and hence the operation is associative.\\
+\\
+(ii) $(0,0)$ would appear to be the identity element as then: $(e,k).(0,0) = (e,k + \varphi(e,0))$.  But we then need to ensure that: $\varphi(e,0)=0$.  This is shown now:
+\begin{align*}
+  (e,k).(0, 0) &= (e,k + \varphi(e,0)) \tag{D.3}\\
+  \\
+  &= (e,k).(0 + 0, 0) \\
+  &=(e,k + \varphi(e,0 + 0)) \\
+  &=(e,k + \varphi(e,0) + \varphi(e,0)) \;\;\; \text{(as $\varphi$ linear in second argument)} \\
+ \implies (e,k + \varphi(e,0)) &= (e,k + \varphi(e,0) + \varphi(e,0)) \\
+ \implies \varphi(e,0) &= \varphi(e,0) + \varphi(e,0) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(after equating components)}\\
+ \implies \varphi(e,0) &= 0. \tag{D.4}
+\end{align*}
+(D.3) holds for all $(e,k) \in G$ and using (D.4) we see that $(0,0)$ is indeed the identity element.\\
+\\
+(iii) Let $(e,k) \in G$, now we need to determine its inverse.  Clearly, from the first component, we see that $(e,k)^{-1} = (-e, *)$, where $*$ is to be determined.\\
+\\
+Lets try $(e,k)^{-1} = (-e, -k + \varphi(e,e))$.  Then:
+\begin{align*}
+  (e,k).(-e,-k + \varphi(e,e)) &= (0, 0 + \varphi(e,e) + \varphi(e,-e)) \\
+  &= (0, 0 + \varphi(e,e-e)) \\
+  &= (0, 0 + \varphi(e,0)) \\
+  &= (0, 0) \;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(using (D.3) and (D.4))} \\
+  \\
+  (-e,-k + \varphi(e,e)).(e,k) &= (0, 0 + \varphi(e,e) + \varphi(-e,e)) \\
+  &= (0, 0 + \varphi(e-e,e)) \\
+  &= (0, 0 + \varphi(0,e)) \\
+  &= (0,0)
+\end{align*}
+The proof that $\varphi(0,e)=0, \; \forall e \in E$ follows the same pattern used in obtaining (D.4) from (D.3) except expanding along the first parameter rather then
+the second.\\
+\\
+We have thus shown that $G$ is, indeed, a group.
+
+\newpage
+\noindent
+(2) Let us see how we can determine $(e,k)^n$, where $(e,k) \in G$ and $n \in \mathbb{N}$.  Now, for $n=1 \implies (e,k)^1 = (e,k)$.  For $n=2$:
+\begin{align*}
+  (e,k)^2 &= (e,k).(e,k) \\
+  &= (e+e, k+k+\varphi(e,e)) \\
+  &= (2e, 2k+\varphi(e,e))
+\end{align*}
+It looks like: $(e,k)^n = (ne, nk + \frac{n(n-1)}{2}\varphi(e,e))$, so lets check this inductively.\\
+Certainly, it holds for $n=1,2$, so lets assume it holds for $n=t$ and show that it must then hold for $n=t+1$.
+\begin{align*}
+  (e,k)^{(t+1)} &= (e,k)^t.(e,k) \\
+  &= (te, tk+ (t-1)\varphi(e,e)).(e,k) \\
+  &= ((t+1)e, (t+1)k+ \frac{t(t-1)}{2}\varphi(e,e) + \varphi(te,e)) \\
+  &= ((t+1)e, (t+1)k+ \frac{t(t-1)}{2}\varphi(e,e) + t\varphi(e,e)) \\
+  &= ((t+1)e, (t+1)k+ \frac{t(t+1)}{2}\varphi(e,e)) \\
+\end{align*}
+The induction hypothesis holds, hence: $(e,k)^{t} = (te, tk+ \frac{t(t-1)}{2}\varphi(e,e)), \; t \ge 1$.\\
+\\
+Hence, when $t=p$ (an odd prime) we have that $p(p-1)/2$ is a multiple of $p$ from which we determine that:
+$$(e,k)^p = (pe,pk + \frac{p(p-1)}{2}\varphi(e,e)) = (0,0)$$
+since we know that: $pe=0, \; pk=0, \; \frac{p(p-1)}{2}\varphi(e,e)=0$, and $(0,0)$ is the identity for $G$.\\
+\\
+If $p=2$, then $(e,k)^2 = (2e, 2k + \varphi(e,e)) = (0,\varphi(e,e))$.  Then:
+\begin{align*}
+  (e,k)^4 &= [(e,k)^2]^2 \\
+  &= (0,\varphi(e,e))^2 \\
+  &= (0,2 \varphi(e,e) + \varphi(0,0)) \\
+  &= (0,0) \tag{D.5}
+\end{align*}
+(D.5) follows from $2 \varphi(e,e)=0$ and $\varphi(0,0)=0$ which follows from (D.3)/(D.4).
+Hence, in the case $p=2$ we have that $(e,k)^4 = (0,0)$.\\
+\\
+(3)
 
 \end{document}
