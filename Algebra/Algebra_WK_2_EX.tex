@@ -235,6 +235,24 @@ If $p=2$, then $(e,k)^2 = (2e, 2k + \varphi(e,e)) = (0,\varphi(e,e))$.  Then:
 (D.5) follows from $2 \varphi(e,e)=0$ and $\varphi(0,0)=0$ which follows from (D.3)/(D.4).
 Hence, in the case $p=2$ we have that $(e,k)^4 = (0,0)$.\\
 \\
-(3)
+{\color{blue}\itshape
+(3) Let $E=(\mathbb Z/p\mathbb Z)^2$ and $K=\mathbb Z/p\mathbb Z$, and define
+$\varphi((a,b),(c,d))=ad$. Distributivity makes $\varphi$ additive in each argument.
+Since multiplication by $p$ annihilates $E$ and $K$, part (2) gives
+$x^p=(0,0)$ for every $x\in G$.
+
+For $u=((1,0),0)$ and $v=((0,1),0)$, the product rule gives
+\begin{align*}
+u\cdot v &= ((1,1),1), \\
+v\cdot u &= ((1,1),0).
+\end{align*}
+Thus $G$ is not abelian.
+
+(4) Take $E=(\mathbb Z/2\mathbb Z)^2$ and $K=\mathbb Z/2\mathbb Z$ with the same
+bi-additive map $\varphi((a,b),(c,d))=ad$, now computed modulo $2$.
+The same products of $u$ and $v$ are distinct modulo $2$, so $G$ is not
+abelian. Moreover, $|G|=|E|\,|K|=4\cdot 2=8$.
+\par
+}
 
 \end{document}
