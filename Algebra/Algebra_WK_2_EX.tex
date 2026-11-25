@@ -107,11 +107,11 @@ Answer:\\
 \\ 
 Thus: $\langle g^s, g^t \rangle = \{ g^{(as + bt)} \mid a,b \in \mathbb{Z} \}$.  We can now use Bézout’s identity which states that:
 $$ \min{\{ as + bt > 0 \mid a,b \in \mathbb{Z} \} = \text{gcd}(s,t)}$$
-Hence: $\langle g^s, g^t \rangle \cong r\mathbb{Z}$, where $r=\text{gcd}(s,t)$ - established in lectures.\\
+Hence: $\langle g^s, g^t \rangle \cong \mathbb{Z} / (\frac{n}{r})\mathbb{Z}$, where $r=\text{gcd}(s,t)$ - established in lectures.\\
 Consequently, $\langle g^s, g^t \rangle = \langle g^r \rangle$. This establishes (1).\\
 \\
 (2) If we look at $H \; (< G)$ it will be finite (as G is finite) and all elements will be of the form $g^q$ where $q \in \{0,1,..,n-1\}$.\\
-The argument in part (1) can be extended, by induction, to any number, say $k \ge 2$, of such elements $g^{q_i} \in G$.  The same logic applies, we simply find that $ H \cong r \mathbb{Z}$ where: $r = \text{gcd}(q_1,q_2,..,q_k)$
+The argument in part (1) can be extended, by induction, to any number, say $k \ge 2$, of such elements $g^{q_i} \in G$.  The same logic applies, we simply find that $ H \cong \mathbb{Z} / (\frac{n}{r})\mathbb{Z}$ where: $r = \text{gcd}(q_1,q_2,..,q_k)$
 and the $q_1, q_2, ..., q_k$ are the indices of the element $g$ in $H$.\\
 \\
 In conclusion, we have that $\langle g^r \rangle$ generates the same subgroup as $\langle g^{q_1}, g^{q_2},..., g^{q_k} \rangle$ and it will have $\frac{n}{\text{gcd}(n,r)}$ elements.\\

@@ -1,0 +1,126 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage[table]{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage[margin=2.5cm]{geometry}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setcounter{MaxMatrixCols}{11}
+
+\begin{document}
+\begin{titlepage}
+\centering
+\vspace*{\fill}
+{\Huge Algebra}\\[0.5cm]
+{\Huge Home Work 10}\\[1.5cm]
+{\Large Student: 26-712-224}\\[0.5cm]
+{\Large \today}\par
+\vspace{2cm}
+{\normalsize ``I wrote these solutions fully myself und would like to receive feedback on these''\par}
+\vspace*{\fill}
+\end{titlepage}
+
+\noindent\textbf{A)} Show that every 2-sided ideal of $\mathrm{Mat}_{2,2}(\mathbb{Q})$
+is either trivial (i.e., consists only of the zero matrix) or is equal to
+$\mathrm{Mat}_{2,2}(\mathbb{Q})$.
+
+\newpage
+
+\noindent\textbf{B)} Let $H$ be a vector space over $\mathbb{R}$ of dimension 4
+and let $(1,i,j,k)$ be a basis of $H$. Thus,
+\begin{align*}
+H &= \{x\cdot 1+y\cdot i+z\cdot j+t\cdot k \mid
+(x,y,z,t)\in\mathbb{R}^4\}.
+\end{align*}
+We define two composition laws $+$ and $\cdot$ on $H$ by the following rules:
+\begin{itemize}
+\item
+\begin{align*}
+& (x\cdot 1+y\cdot i+z\cdot j+t\cdot k)
+ +(x'\cdot 1+y'\cdot i+z'\cdot j+t'\cdot k)\\
+&= (x+x')\cdot 1+(y+y')\cdot i+(z+z')\cdot j+(t+t')\cdot k
+\end{align*}
+\item
+\begin{align*}
+& (x\cdot 1+y\cdot i+z\cdot j+t\cdot k)
+ \cdot(x'\cdot 1+y'\cdot i+z'\cdot j+t'\cdot k)\\
+&= (xx'-yy'-zz'-tt')\cdot 1+(xy'+yx'+zt'-tz')\cdot i\\
+&\quad +(xz'-yt'+zx'+ty')\cdot j+(xt'+yz'-zy'+tx')\cdot k
+\end{align*}
+\end{itemize}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\item Show that $(H,+)$ is an abelian group.
+\item Show that the multiplication law $\cdot$ is distributive with respect to
+the additive law $+$. (In other words, verify that
+$h\cdot(h'+h'')=(h\cdot h')+(h\cdot h'')$ and
+$(h+h')\cdot h''=(h\cdot h'')+(h'\cdot h'')$ for all $h,h',h''\in H$.)
+\item Show that the multiplication law $\cdot$ is associative.
+(Hint: Use (2) to reduce to the case where the coordinates of the elements
+are all zero except at one place. Then do a case-by-case checking.)
+\item Deduce that $(H,+,\cdot)$ is a ring.
+\item Compute $(x\cdot 1+y\cdot i+z\cdot j+t\cdot k)
+\cdot(x\cdot 1-y\cdot i-z\cdot j-t\cdot k)$.
+\item Deduce from (5) that $H$ is a division ring, i.e., that every nonzero
+element of $H$ admits an inverse. This is the skew-field of the Hamilton quaternions.
+\end{enumerate}
+
+\newpage
+
+\noindent\textbf{C)} Let $M$ be a monoid written multiplicatively and let $R$
+be a ring. We denote by $R[M]$ the free $R$-module on the set $M$
+(denoted in the lectures by $R^{(M)}$). Elements of $R[M]$ are $R$-linear
+combinaisons $\sum_{m\in M}a_m\cdot m$ of elements of $M$.
+Here $(a_m)_{m\in M}$ is a family in $R$ with finite support
+(i.e., $a_m=0$ except for finitely many $m$).
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\item Show that the abelian group $R[M]$ admits a structure of a ring with
+multiplication given by
+\begin{align*}
+\left(\sum_{m\in M}a_m\cdot m\right)\cdot
+\left(\sum_{m\in M}b_m\cdot m\right)
+&=\sum_{m\in M}\left(\sum_{u\cdot v=m,\ u,v\in M}a_u\cdot b_v\right)\cdot m.
+\end{align*}
+\item Show that the ring structure on $R[M]$ described above can be characterised
+by the following three properties:
+  \begin{enumerate}
+  \renewcommand{\labelenumii}{(\alph{enumii})}
+  \item the map $R\to R[M]$, given by $a\mapsto a\cdot 1_M$, is a morphism of rings.
+  \item the map $M\to R[M]$, given by $m\mapsto 1_R\cdot m$, is a morphism
+  of monoids from $M$ to $(R[M],\cdot)$,
+  \item for every $a\in R$ and $m\in M$, the elements $a\cdot 1_M$ and
+  $1_R\cdot m$ commute in $R[M]$ and we have
+  $(a\cdot 1_M)\cdot(1_R\cdot m)=a\cdot m$.
+  \end{enumerate}
+\item Assume that the monoid $M$ is isomorphic to $(\mathbb{N},+)$, i.e.,
+there exists $t\in M$ and an isomorphism $\mathbb{N}\xrightarrow{\sim}M$,
+given by $n\mapsto t^n$. Show that $R[M]$ is isomorphic to the ring $R[t]$
+of polynomials in the variable $t$ with coefficients in $R$.
+\item Assume that $M$ is acting on a set $X$. (We have defined what it means
+for a group to act on a set, but the same definition makes sense when the
+group is replaced by a monoid.) Show that the group $R^{(X)}$ is naturally
+an $R[M]$-module where we define the action by
+\begin{align*}
+\left(\sum_{m\in M}a_m\cdot m\right)\cdot
+\left(\sum_{x\in X}b_x\cdot x\right)
+&=\sum_{x\in X}\left(\sum_{n\cdot y=x,\ n\in M,\ y\in X}a_n\cdot b_y\right)\cdot x.
+\end{align*}
+\end{enumerate}
+
+
+\end{document}
