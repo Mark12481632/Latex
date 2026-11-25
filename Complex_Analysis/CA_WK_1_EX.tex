@@ -101,8 +101,8 @@ Hence: $\frac{\sqrt{2}}{1-i} = \exp(\pi i/4)$. \\
 &= \dfrac{\sqrt{3}-3}{12}+i\dfrac{\sqrt{3}+3}{12} 
 \end{align*}
 Now: $\left| \dfrac{\sqrt{3}-3}{12}+i\dfrac{\sqrt{3}+3}{12} \right| = \sqrt{[\frac{\sqrt{3}-3}{12}]^2 + [\frac{\sqrt{3}+3}{12}]^2}= \frac{1}{\sqrt{6}}$.\\
-Also: $\text{Arg}(\dfrac{\sqrt{3}-3}{12}+i\dfrac{\sqrt{3}+3}{12})=\tan^{-1}\left(\dfrac{\sqrt{3}-3}{\sqrt{3}+3}\right)= -\frac{\pi}{12}$.\\
-Hence: $\dfrac{1+i}{\sqrt{3}-3i} = \frac{1}{\sqrt{6}} \exp{\left(-\dfrac{\pi i}{12}\right)}$\\
+Also: $\text{Arg}(\dfrac{\sqrt{3}-3}{12}+i\dfrac{\sqrt{3}+3}{12})=\tan^{-1}\left(\dfrac{\sqrt{3}+3}{\sqrt{3}-3}\right)= \frac{7\pi}{12}$.\\
+Hence: $\dfrac{1+i}{\sqrt{3}-3i} = \frac{1}{\sqrt{6}} \exp{\left(\dfrac{7\pi i}{12}\right)}$\\
 
 (c.ii)
 \begin{align*}
@@ -123,8 +123,11 @@ $$(1-i)^3 = -2\sqrt{2} \exp{(\pi i/4)} = 2\sqrt{2} \exp{(5\pi i/4)}$$
 &= 2\sqrt{2}(1+i) \tag{1.2}
 \end{align*}
 Again we can use part (a)(i) to obtain for (1.2):
-$$\left[\sqrt{2+\sqrt{2}}+\sqrt{2-\sqrt{2}}\,i\right]^2 = 2\sqrt{2} [\sqrt{2} \exp(\pi i/4)] = 4 \exp(\pi i/4)$$
-
+$$\left[\sqrt{2+\sqrt{2}}+\sqrt{2-\sqrt{2}}\,i\right]^2 = 2\sqrt{2} [\sqrt{2} \exp(\pi i/4)] = 4 \exp(\pi i/4)$$ 
+Now we can take the square-root on both sides to give:
+$$\sqrt{2+\sqrt{2}}+\sqrt{2-\sqrt{2}}\,i = 2 \exp(\pi i/8) = 2[\cos(\pi/8) + i \sin(\pi/8)]$$
+From which we conclude that:
+$$\frac{1}{2}\text{Re}\left(\sqrt{2+\sqrt{2}}+\sqrt{2-\sqrt{2}}\,i\right) = \cos(\pi/8)$$
 \newpage
 
 \newpage
@@ -152,8 +155,10 @@ $$\left[\sqrt{2+\sqrt{2}}+\sqrt{2-\sqrt{2}}\,i\right]^2 = 2\sqrt{2} [\sqrt{2} \e
 \answer
 
 (a.i) $|z+1+i|=1 \Rightarrow |z-(-1-i)|=1$
-This represents a circle with centre $(-1-i)$ and radius 1. \\
-\\
+This represents a circle with centre $(-1-i)$ and radius 1.
+\begin{center}
+\includegraphics[width=0.3\textwidth]{Diagrams/CA_HW_1_Q1_2_ai.png}
+\end{center}
 (a.ii)
 $1<\operatorname{Re}(z)\leq 2$ represents a vertical strip in the Argand diagram.
 
@@ -164,7 +169,7 @@ $x=1$ \textbf{is not} in the region.
 $x=2$ \textbf{is} in the region.
 
 \begin{center}
-\includegraphics[width=0.38\textwidth]{Diagrams/CA_HW_1_Q1_2_aii.pdf}
+\includegraphics[width=0.3\textwidth]{Diagrams/CA_HW_1_Q1_2_aii.pdf}
 \end{center}
 
 (a.iii)
@@ -172,12 +177,12 @@ $|z-2|<3$ represents the inside of a circle centred at $2+0i$ with radius 3.
 
 $|\operatorname{Im}(z)|>1$ represents the section of the Argand diagram for which $y>1$.
 
-Any $z\in\mathbb{C}$ that satisfies both conditions will be in the inside of the circle (centred on $2+0i$, with radius 3) and lies above the line $y=1$.
+Any $z\in\mathbb{C}$ that satisfies both conditions will be in the inside of the circle (centred on $2+0i$, with radius 3) and lies above the line $y=1$ and below the line $y=-1$.
 
 The shaded region in the diagram is the required region.
 
 \begin{center}
-\includegraphics[width=0.45\textwidth]{Diagrams/CA_HW_1_Q1_2_aiii.pdf}
+\includegraphics[width=0.45\textwidth]{Diagrams/CA_HW_1_Q1_2_aiii.png}
 \end{center}
 
 (a.iv)
@@ -336,7 +341,7 @@ Hence:
 \lim_{z\to 0} \frac{x + y}{x + iy}
 \]
 
-But this has no limit, since along the real line the limit is 1 and along the imaginary line th limit is i.\\
+But this has no limit, since along the real line the limit is 1 and along the imaginary line th limit is $-i$.\\
 \\
 (iii)
 
@@ -406,7 +411,7 @@ u(x,y)=x(1 + \frac{1}{x^2+y^2})
 v(x,y)=y(1 - \frac{1}{x^2+y^2})
 \]
 
-are the real \& complex functions respectively.
+are the real \& imaginary functions respectively.
 
 \newpage
 (iii) For $z \ne 1$ we have:
