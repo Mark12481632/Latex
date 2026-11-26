@@ -204,6 +204,47 @@ d(x,y)=\|x\|_2+\|y\|_2.
 \end{align*}
 )
 
+\vspace{1cm}
+\noindent
+ANSWER:\\
+\\
+Note that $|.|$ itself, the absolute value, is a distance function.\\
+\\
+(i) $d(x,y) = |x_1 - y_1| + |x_2 - y_2|$ satisfies the 3 criteria for being a distance function.\\
+Check $=>$: $d(x,y) = 0 \implies x=y$
+\begin{align*}
+  d(x,y) &= 0 \\
+  \implies |x_1 - y_1| + |x_2 - y_2| &= 0 \\
+  \implies |x_1 - y_1| &= 0 \text{ and } |x_2 - y_2| = 0 \\
+  \implies x_1 = y_1 &\text{ and } x_2 = y_2 \\
+  \implies x &= y
+\end{align*}
+
+\newpage
+\noindent
+Check $<=$: $x=y => d(x,y)=0$
+\begin{align*}
+  x &= y \\
+  \implies x_1 &= y_1 \text{ and } x_2 = y_2 \\
+  \implies |x_1 - y_1| &= 0 \text{ and } |x_2 - y_2| = 0 \\
+  \implies d(x,y) &= 0
+\end{align*}
+Hence this is a valid metric.  The open ball $B_d((2,3),1)$ looks as follows:
+\begin{center}
+  \includegraphics[width=0.3\textwidth]{Diagrams/Topology_WK_1_Q2i.png}
+\end{center}
+(ii) This function is NOT a metric (distance function), since the two \underline{distinct} points $(1,2),(1,3)$ satisfy:
+$d((1,2),(1,3)) = \min{\{|1 - 1|, |2 - 3|\}} = 0$.\\
+\\
+(iii) This function is a valid metric.  The proof follows a similiar line of reasoning as part (a)(i).\\
+\\
+The unit ball using this metric is the unit circle centred at $x$.
+\begin{center}
+  \includegraphics[width=0.3\textwidth]{Diagrams/Topology_WK_1_Q2iii.png}
+\end{center}
+(iv) This function is not a valid metric.  Take any point $x \ne 0$ then $d(x,x) > 0$ - which violates the condition
+for a valid metric.
+
 \newpage
 
 \section*{Exercise 3 - Attempted}
