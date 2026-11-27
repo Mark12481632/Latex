@@ -87,7 +87,50 @@ at all points of $z \in \mathbb{C} \backslash \{-3i, 3i \}$.\\
 (b) This function is also complex-differentiable at all $z \in \mathbb{C}$.\\
 \\
 \\
-(iii)
+(iii)(a) For this function it is rational and continuous, except possibly at $z=-1$.  It is definitely \textbf{discontinuous} as:
+$z=\frac{1 \pm i \sqrt{3}}{2}$ - the other places denominator is zero.
+To check the limit, at $z \to -1$, let $z=-1+\epsilon$.  Then:
+$$ z^2-1 = (-1 + \epsilon)^2 -1 = -2\epsilon + \epsilon^2$$.
+Also:
+$$z^3 + 1 = (-1 + \epsilon)^3 +1 = 3\epsilon - 3\epsilon^2 + \epsilon^3$$
+Hence:
+\begin{align*}
+    \lim_{z \to -1}\frac{z^2-1}{z^3+1} &= \lim_{\epsilon \to 0}\frac{-2\epsilon + \epsilon^2}{3\epsilon - 3\epsilon^2 + \epsilon^3} \\
+&= \lim_{\epsilon \to 0}\frac{-2 + \epsilon}{3 - 3\epsilon + \epsilon^2} \\
+&= -\frac{2}{3}
+\end{align*}
+But this is the value of the function at $z=-1$ and hence the function is continuous on $\mathbb{C}$.
+
+\newpage
+\noindent
+(b) Now: $f(z) = \frac{z^2-1}{z^3+1}$ has derivative:
+\begin{align*}
+    f'(z) &= (z^2-1)' (z^3+1)^{-1} + (z^2-1)[(z^3+1)^{-1}]' \\
+    &= 2z(z^3+1)^{-1} + (z^2-1)[3z^2 (-1)](z^3+1)^{-2} \\
+    &= \frac{1}{(z^3+1)^2} \left[2z(z^3+1) - 3z^2(z^2-1)) \right] \\
+    &= \frac{-z^4+3z^2+2z}{(z^3+1)^2} \\
+    &= \frac{z(2-z)(z+1)^2}{(z+1)^2(z^2-z+1)^2} \\
+    &= \frac{z(2-z)}{(z^2-z+1)^2} \tag{2.2.1}
+\end{align*}
+and this will definitiely be valid for $z \in \mathbb{C} \setminus \{1, \frac{1 - i \sqrt{3}}{2}, \frac{1 + i \sqrt{3}}{2}\}$.\\
+\\
+As $f(z)$ is not continuous at $z=\frac{1 \pm i \sqrt{3}}{2}$ it can't be differentiable at these two points.\\
+At $z=-1$ we see from (2.2.1) that $f'(z)$ exists and equals to $-1/3$.\\
+\\
+(iv)(a) Here the function can be represented by: $f(z)=xy$, where $z=x+iy$.\\
+This is a polynomial in x and y and is therefore continuous on $\mathbb{C}$.\\
+\\
+(b) Here we will use the CR equations, where: $f(z) = u(x,y)+ iv(x,y)$ with: $u(x,y)=xy$ and $v(x,y)=0$.\\
+\\
+Clearly:
+\begin{align*}
+    u_x(x,y) &= y \quad u_y(x,y) = x \\
+    v_x(x,y) &= 0 \quad v_y(x,y) = 0
+\end{align*}
+The differentials are continuous everywhere but $u_x = v_y$ only at $y=0$.  Also, $u_y = -v_x$ only at $x=0$.
+consequently, the Cauchy Riemann equations are only satisfied at $(0,0)$ and hence we know that this function can, at most, be
+differentiable at the origin.  As the partial derivatives are indeed continuous on the whole of the complex plane we can
+conclude that the derivative does exist at the origin and the derivative is 0.
 
 
 \newpage
@@ -117,7 +160,40 @@ at all points of $z \in \mathbb{C} \backslash \{-3i, 3i \}$.\\
 \vspace{1cm}
 
 \textbf{ANSWER:} \\
-(a)
+(a) Given $f(z) = |z|^2 = x^2 + y^2 = u(x,y) + i v(x,y)$ - the associated Cauchy Riemann (CR) equations are:
+\begin{align*}
+    u_x(x,y) &= 2x \quad u_y = 2y \\
+    v_x(x,y) &= 0 \quad v_y = 0 \\
+\end{align*}
+Now, it is clear that $u_x = v_y$ only at $x=0$.  Also, it is clear that $u_y = -v_x$ only at $y=0$.\\
+Hence, only at the origin (i.e. $z=0$) are the CR equations satisfied.  Additionally, the derivatives are continuous at the origin
+and hence $f$ is differentiable at the origin with derivative 0.\\
+\\
+(b) To say that $f$ is holomorphic at a point $z_0 \in \mathbb{C}$ means that it is holomorphic at some open neighbourhood of $z_0$.
+But if $f$ is differentiable at a point it does NOT mean that it is holomorphic at $z_0$.
+Take the case (a) above, where $f$ is defined on (the open set) $\mathbb{C}$ but is only differentiable at one point - the origin.\\
+\\
+(c) (i) Here we have: $f(z) = \sqrt(x^2 + y^2) = u(x,y) + i v(x,y)$.  Then the CR equations give:
+\begin{align*}
+    u_x(x,y) &= \frac{x}{(x^2 + y^2)^{1/2}} \quad u_y(x,y) = \frac{y}{(x^2 + y^2)^{1/2}} \\
+    v_x(x,y) &= 0 \quad\quad\quad\quad\quad\quad v_y(x,y) = 0
+\end{align*}
+The CR equations give us that $f$ is differentiable nowhere except possibly at the origin (i.e. at $z=0$).  However, $u_x$ and $u_y$ are not continuous
+at the origin and hence can't be differentiable there either.\\
+\\
+It follows that $f$ is holomorphic nowhere.\\
+
+\newpage
+\noindent
+(ii) Here we have: $f(z) = z|z| = (x + iy) \sqrt(x^2 + y^2) = u(x,y) + iv(x,y)$.\\
+Hence: $u(x,y)=x \sqrt(x^2 + y^2)$ and $v(x,y)=y \sqrt(x^2 + y^2)$. From which we obtain the CR equations:
+\begin{align*}
+    u_x(x,y) &= \frac{2x^2 + y^2}{\sqrt{x^2 + y^2}} \quad u_y(x,y) = \frac{xy}{\sqrt{x^2 + y^2}} \\
+    v_x(x,y) &= \frac{xy}{\sqrt{x^2 + y^2}} \quad v_y(x,y) = \frac{x^2 + 2y^2}{\sqrt{x^2 + y^2}}
+\end{align*}
+The CR equations: $u_x = v_y => x^2=y^2$ and $u_y = -u_x => xy=0$.  The only possibility for a solution would be at the origin.
+Now all 4 equations are continuous at the origin - taking the value 0.  Hence $f$ is differentiable only at the origin and takes the
+value 0.
 
 \newpage
 
@@ -140,6 +216,7 @@ such that
 \vspace{1cm}
 
 \textbf{ANSWER:} \\
+\\
 Taking $f(z) = z^3$ we determine:
 \begin{align*}
 \frac{f(i)-f(1)}{i-1} &= \frac{-i-1}{i-1} \\
@@ -154,47 +231,24 @@ Now, as $f'(z) = 3z^2$, we need to find a $w \in \{(1-t) + ti \; | \; 0 \le t \l
 \end{align*}
 Using (2.4.1) and (2.4.2) and that they must be equal, we obtain:
 \begin{align*}
-3w^2 = i \implies 3[(1-t) + ti]^2 = i
+ 3w^2 &= i \\
+ \implies 3[(1-t) + ti]^2 &= i \\
+ \implies 3\{(1-t)^2+2t(t-1)i-t^2\} &=i \\
+ \implies (1-2t+t^2)+2t(t-1)i-t^2 &= i \\
+ \implies (1-2t)+2t(t-1)i &= i.
+\end{align*}
+Real part:
+\begin{align*}
+  (1-2t) &= 0 \\
+  \implies t &= 1/2
+\end{align*}
+Imaginary part:
+\begin{align*}
+  2t(t-1) &= 1 \qquad \text{no }t\in[0,1]\text{ solves this equation.}
 \end{align*}
 
 \begin{align*}
-\Rightarrow
-3[(1-t)+ti]^2&=i
-\end{align*}
-
-\begin{align*}
-\Rightarrow
-3\{(1-t)^2+2t(t-1)i-t^2\}&=i
-\end{align*}
-
-\begin{align*}
-\Rightarrow
-(1-2t+t^2)+2t(t-1)i-t^2&=i.
-\end{align*}
-
-\begin{align*}
-\Rightarrow
-(1-2t)+2t(t-1)i&=i.
-\end{align*}
-
-real:
-
-\begin{align*}
-(1-2t)&=1
-\Rightarrow
-t=0.
-\end{align*}
-
-IM:
-
-\begin{align*}
-2t(t-1)&=1
-\qquad
-\text{no }t\in[0,1]\text{ solves.}
-\end{align*}
-
-\begin{align*}
-\therefore\ \text{no }w\in\{(1-t)+ti\mid 0\leq t\leq1\}\text{ solves}
+\therefore\ \text{no }w\in\{(1-t)+ti\mid 0\leq t\leq1\}\text{ can be found }
 \end{align*}
 
 
@@ -221,7 +275,10 @@ be a domain?
 
 \vspace{1cm}
 
-\textbf{ANSWER:}
+\textbf{ANSWER:}\\
+\\
+If $\Omega \subset \mathbb{C}$ is a region/domain, then it is both open and connected.  Clearly, if $z \in \Omega$, then $\Omega \setminus \{z\}$ will still be open.\\
+\\
 
 \newpage
 
