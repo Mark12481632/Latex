@@ -1,0 +1,232 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Provides \mathbb and other symbols
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{ulem}
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{tcolorbox}     % For colored boxes
+\usepackage[table]{xcolor} % For coloring table cells
+\usepackage{array}         % For better table alignment
+\usepackage{mdframed}
+\usepackage{cancel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{lmodern}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.8em}
+\newcommand{\answer}{\vspace{3\baselineskip}\textbf{ANSWER:}}
+\newcommand{\question}[2]{\textbf{Question #1}\quad #2}
+
+\begin{document}
+
+\begin{titlepage}
+\centering
+\vspace*{\fill} % Adds vertical space to center the title block vertically
+
+{\Huge Complex Analysis} \\[0.5cm] % Title 2
+{\Huge Home Work 3}\\[1.5cm] % Title 3
+{\Large Student: Mark Roberts [26-712-224]}\\[0.5cm] % Student ID
+{\Large \today} % Date, \today adds today's date
+
+\vspace*{\fill}
+\end{titlepage}
+\newpage
+
+\noindent\textbf{3.1.} Find all points at which the following functions are (a) complex differentiable (b) holomorphic:
+\begin{align*}
+\text{(i)}\quad &f(x+iy)=x-iy^2\\
+\text{(ii)}\quad &f(x+iy)=x^3+y^2+2xyi\\
+\text{(iii) (\textbf{H})}\quad &f(z)=z^2+\bar{z}^{\,2}-2i|z|^2 \qquad \text{(7 marks)}\\
+\text{(iv)}\quad &f(z)=z+i\bar{z}^{\,2}-(1-i)|z|^2
+\end{align*}
+
+\vspace{1cm}
+
+\textbf{ANSWER:}\\
+\\
+{\color{red}
+These questions can be solved by application of the Cauchy-Riemann (C-R) equations.\\
+Here we take $f(z)=f(x+iy)=u(x,y) + iv(x,y)$ where $u,v$ map subsets of $\mathbb{R}^2$ into $\mathbb{R}$.}\\
+\\
+(i)(a) $f(x+iy)=x-iy^2 \implies u(x,y)=x; \; v(x,y)=-y^2$. Then the C-R equations are:
+\begin{equation*}
+\left.
+\begin{aligned}
+    u_x(x,y) &= 1 \quad u_y(x,y) = 0 \\
+    v_x(x,y) &= 0 \quad v_y(x,y) = -2y
+\end{aligned}
+\right\}
+\tag{3.1.1}
+\end{equation*}
+The condition: $u_x = v_y$ can only hold at $y=-1/2$.  The condition $u_y=-v_x$ holds everywhere.
+Hence this function can, at best, only be differentiable on the line $(x,-1/2)$.\\
+As the partials in (3.1.1) are continuous the function is indeed differentiable on this line.\\
+\\
+(b) To be holomorphic at a point the function must be differentiable in an open interval around the given point.\\
+As the line is 1-dimensional, this condition does NOT hold and so this function is nowhere holomorphic.\\
+\\
+(ii)(a) In this case: $u(x,y)=x^3 + y^2; \; v(x,y)=2xy$.  The C-R equations are:
+\begin{equation*}
+\left.
+\begin{aligned}
+    u_x(x,y) &= 3x^2 \quad u_y(x,y) = 2y \\
+    v_x(x,y) &= 2y \quad v_y(x,y) = 2x
+\end{aligned}
+\right\}
+\tag{3.1.2}
+\end{equation*}
+The condition: $u_x = v_y$ can only hold where $3x^2=2x \implies x \in \{0,2/3\}$. The condition $u_y=-v_x$ only holds at $y=0$.\\
+Consequently, $z=0$ and $z=2/3$ are the only two places where the function $f(x+iy)=x^3+y^2+2xyi$ can be differentiable.  As the partials
+in (3.1.2) are continuous everywhere we conclude that $f$ is indeed differentiable at these two points.\\
+\\
+(b) As $f$ is differentiable at two isolated points it is nowhere holomorphic.\\
+
+\newpage
+\noindent
+(iii)(a) Here:
+\begin{align*}
+  f(x+iy) &= z^2 + \bar{z}^2 -2i|z|^2 \\
+  &= (x^2 - y^2 + 2xyi) + (x^2 - y^2 -2xyi) -2i(x^2+y^2) \\
+  &= 2(x^2 - y^2) - 2i(x^2+y^2)
+\end{align*}
+Hence: $u(x,y) = 2(x^2 - y^2); \; v(x,y)=-2(x^2+y^2)$.  The associated C-R equations are:
+\begin{equation*}
+\left.
+\begin{aligned}
+    u_x(x,y) &= 4x \quad u_y(x,y) = -4y \\
+    v_x(x,y) &= -4x \quad v_y(x,y) = -4y
+\end{aligned}
+\right\}
+\tag{3.1.3}
+\end{equation*}
+The condition $u_x=v_y \implies y=-x$ and the condition $u_y=-v_x \implies y=-x$.  Hence, for this function the only places where
+it can be differentiable is on the line $y=-x$.  As all partials in (3.1.3) are everywhere continuous we can conclude that $f$ is differentiable
+on this line.\\
+\\
+(b) The line $y=-x$ is 1-dimensional in $\mathbb{R}^2$ and so there is no open set around any point where $f$ is differentiable.
+Hence $f$ is nowhere holomorphic.\\
+\\
+(iv)(a) Here:
+\begin{align*}
+  f(x+iy) &= z + i\bar{z}^2 - (1-i)|z|^2 \\
+  &= (x+iy) + i(x^2-y^2-2xyi) - (1-i)(x^2+y^2) \\
+  &= x - (x-y)^2 + i(2x^2+y)
+\end{align*}
+Hence: $u(x,y) = x-(x-y)^2; \; v(x,y)=(2x^2+y)$.  The associated C-R equations are:
+\begin{equation*}
+\left.
+\begin{aligned}
+    u_x(x,y) &= 1-2x+2y \quad u_y(x,y) = 2x - 2y \\
+    v_x(x,y) &= 4x \quad\quad\quad\quad\quad v_y(x,y) = 1
+\end{aligned}
+\right\}
+\tag{3.1.3}
+\end{equation*}
+The condition $u_x=v_y \implies y=x$ and the condition $u_y=-v_x \implies y=3x$. Only at $z=0$ are these
+two conditions met.  As the partial derivatives in (3.1.3) are continuous we can conclude that $f$ is only differentiable
+at $z=0$.\\
+\\
+(b) There is no open interval around $z=0$ where $f$ is differentiable, hence $f$ is nowhere holomorphic.
+
+\newpage
+\noindent\textbf{3.2 (H).} Consider the function \(f:\mathbb{C}\to\mathbb{C}\) defined by
+\begin{align*}
+f(z)&=\sqrt{|\operatorname{Re}z||\operatorname{Im}z|}.
+\end{align*}
+Show that \(f\) satisfies the Cauchy--Riemann equations at \(z=0\), but is not complex-differentiable there.
+\par
+\noindent Why does this not contradict the Cauchy--Riemann theorem (Theorem 2.21 in the typed Lecture Notes)? \hfill (8 marks)
+
+\vspace{1cm}
+
+\textbf{ANSWER:}\\
+\\
+Here we have that: $f(x+iy) = \sqrt(|x||y|)$.  Here: $u(x,y)=\sqrt(|x||y|) \;\left[=\sqrt(|xy|)\right]$ and $v(x,y)=0$.\\
+\\
+We can see that we will get an expression containing $\frac{1}{\sqrt(|x||y|)}$ when calculating the partial derivatives which will be problematic at the origin.  So, we will need
+to do the differentiation carefully:
+\begin{align*}
+    u_x(0,0) = \lim_{h \to 0} \frac{\sqrt(|h||0|)}{h} = 0 \;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{($h \in \mathbb{R}$)}\\
+    u_y(0,0) = \lim_{h \to 0} \frac{\sqrt(|0||h|)}{h} = 0 \;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{($h \in \mathbb{R}$)}
+\end{align*}
+Clearly: $u_x=v_y$ and $u_y=-v_x$ both hold at $z=0$ and so the C-R equations hold. So, in principle we COULD have differentiability there and in this case we must
+have $f'(0)=0$.\\
+But this limit should be independent of how we appraoch the origin - so lets approach it along the line $z=t(1+i)$ and $t \in \mathbb{R}$. Then:
+\begin{align*}
+    \lim_{t \to 0^{+}}\frac{f(t(1+i))}{t(1+i)} &= \lim_{t \to 0^{+}}\frac{t}{t(1+i)} \\
+    &= \frac{1-i}{2}
+ \end{align*}
+Clearly, this is NOT 0 - hence $f$ satisfies the C-R equations at $z=0$ but is NOT differentiable there.\\
+\\
+The partial derivatives used in the C-R equations are satisfied, however these partial derivatives are NOT continuous at (0,0)!
+
+\newpage
+\noindent\textbf{3.3.} Let \(\Omega\subset\mathbb{C}\) be a domain, and let \(f:\Omega\to\mathbb{C}\) be a holomorphic function on \(\Omega\). Show that, if \(\operatorname{Re}f\) is constant, then \(f\) is in fact constant.
+
+\vspace{1cm}
+
+\textbf{ANSWER:}\\
+\\
+As $f$ is holomorphic on $\Omega$ it must obey the C-R equations on $\Omega$.  As $\text{Re}(f) = u(x,y)$ is contant we must have:
+\begin{align*}
+    u_x(x,y) &= 0 \quad u_y(x,y) = 0 \\
+    \implies v_x(x,y) &= 0 \quad v_y(x,y) = 0 \;\;\;\;\;\;\;\;\;\;\;\;\;\; \text{(from C-R equations)}
+\end{align*}
+This means that $f'(z) \equiv 0$ on $\Omega$.  This condition is covered by Proposition 2.24 in the lecture Notes
+and we can conclude that $f$ is contanst on $\Omega$.
+
+\newpage
+\noindent\textbf{3.4.} In class, we discussed that any holomorphic function \(f\) satisfies \(\frac{\partial}{\partial\bar{z}}f=0\). Prove the converse: namely, let \(f:U\to\mathbb{C}\) be a function defined on an open set \(U\subset\mathbb{C}\), with real part \(u\) and imaginary part \(v\) such that
+\begin{align*}
+f(x+iy)&=u(x,y)+iv(x,y)\qquad \forall(x,y)\in\widetilde{U}:=\{(x,y)\in\mathbb{R}^2\mid x+iy\in U\}.
+\end{align*}
+Suppose that \(u\) and \(v\) are differentiable on \(\widetilde{U}\), and that \(\frac{\partial}{\partial\bar{z}}f=0\). Show that \(f\) is holomorphic on \(U\).
+
+\vspace{1cm}
+
+\textbf{ANSWER:}\\
+\\
+
+\newpage
+\noindent\textbf{3.5.} Let \(U\subset\mathbb{C}\) be an open set, and suppose that \(f:U\to\mathbb{C}\) is holomorphic on \(U\). Show that the following functions \(g\) and \(h\) are antiholomorphic, and find \(\frac{\partial g}{\partial\bar{z}}\) and \(\frac{\partial h}{\partial\bar{z}}\).
+\begin{enumerate}
+\item[(i)] \(g:U\to\mathbb{C}\), \(g(z)=\overline{f(z)}\)
+\item[(ii)] \(h:U^\dagger\to\mathbb{C}\), \(h(z)=f(\bar{z})\), where \(U^\dagger:=\{z\in\mathbb{C}\mid \bar{z}\in U\}\).
+\end{enumerate}
+
+\vspace{1cm}
+
+\textbf{ANSWER:}\\
+\\
+
+\newpage
+\noindent\textbf{3.6.} Determine whether or not each of the following functions is harmonic on \(\mathbb{R}^2\). If the function is harmonic, then find a harmonic conjugate for it.
+\begin{align*}
+\text{(i)}\quad &x^3-3xy^2\\
+\text{(ii)}\quad &\cos x\sin y\\
+\text{(iii)}\quad &e^{2xy}\cos(x^2-y^2)\\
+\text{(iv) (\textbf{H})}\quad &y+\cosh x\sin y \qquad \text{(6 marks)}
+\end{align*}
+
+\vspace{1cm}
+
+\textbf{ANSWER:}\\
+\\
+
+\newpage
+\noindent\textbf{3.7 (H).} Show that there is no real-valued function \(g:\mathbb{C}\to\mathbb{R}\) such that the function
+\begin{align*}
+f(z)&:=|z|^2+ig(z)
+\end{align*}
+is holomorphic at any point \(z\in\mathbb{C}\). \hfill (4 marks)
+
+\vspace{1cm}
+
+\textbf{ANSWER:}\\
+\\
+
+\end{document}
