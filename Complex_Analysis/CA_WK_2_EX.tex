@@ -277,8 +277,22 @@ be a domain?
 
 \textbf{ANSWER:}\\
 \\
-If $\Omega \subset \mathbb{C}$ is a region/domain, then it is both open and connected.  Clearly, if $z \in \Omega$, then $\Omega \setminus \{z\}$ will still be open.\\
+If $\Omega \subset \mathbb{C}$ is a region/domain, then it is both open and connected.  Clearly, if $z_0 \in \Omega$, then $\Omega \setminus \{z_0\}$ will still be open.\\
 \\
+Proof: Take any $z \in \Omega \setminus \{z_0\}$ and $r_1=|z-z_0| > 0$.  As $\Omega$ is open there
+exists an $r_2>0$ such that: $B_{r_2}(z) \subset \Omega$.
+Clearly, if $r=\min(r_1,r_2)$ we must have that: $B_r(z) \subset \Omega \setminus \{z_0\}$ and hence $\Omega \setminus \{z_0\}$ must also be open.\\
+\\
+=====\\
+\\
+If $\Omega$ is a domain and $z \in \Omega$ and there is an $r>0$ such that: $D_r(z) \subset \Omega$ then $\Omega \setminus D_r(z)$ may NOT be a domain.\\
+\\
+This is best illustrated by example.  Check diagram below:\\
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{Diagrams/CA_HW_2_Q5.png}
+\end{center}
+Take $\Omega$ as the open square of side length 2 and the inscribed open circle of radius 1 to be $D_1(z_0)$ where $z_0 = 0$.  Then $\Omega \setminus D_1(z_0)$ is NOT connected - we have
+4 disconnected regions at each corner of the square.
 
 \newpage
 
